@@ -1,248 +1,228 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
-import { companyData } from '../data/companyData';
+import { useState, useEffect } from "react";
+import { Menu, X, ArrowUpRight, Mail, Send } from "lucide-react";
+import { companyData } from "../data/companyData";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [opportunitiesOpen, setOpportunitiesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: "Clients", href: "#clients" },
+    { label: "Practice", href: "#practice" },
+    { label: "Track Record", href: "#transactions" },
+    { label: "Mandates", href: "#mandates" },
+    { label: "Sectors", href: "#sectors" },
+    { label: "Approach", href: "#approach" },
+    { label: "Leadership", href: "#leadership" },
+    { label: "Bankers", href: "#bankers" },
+  ];
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0A1A33]/90 backdrop-blur-xl border-b border-[rgba(120,150,200,0.18)] shadow-[0_10px_30px_rgba(5,13,26,0.6)] py-3'
-          : 'bg-transparent border-b border-[rgba(120,150,200,0.1)] py-5'
-      }`}
-    >
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between gap-8">
-        {/* Zone 1: Brand Wordmark (Single text element) */}
-        <a
-          href="#top"
-          className="flex items-center gap-2 group whitespace-nowrap shrink-0"
-        >
-          <span className="text-2xl font-semibold tracking-tight text-[#F5F7FA] group-hover:text-white transition-colors">
-            {companyData.brandName}
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] shadow-[0_0_8px_#FF6B00]"></span>
-        </a>
+    <>
+      <header
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-[#07152B]/95 backdrop-blur-xl py-2.5 border-b border-[rgba(120,150,200,0.18)] shadow-[0_8px_32px_rgba(0,0,0,0.45)]"
+            : "bg-[#0A1A33]/90 backdrop-blur-md py-3.5 border-b border-[rgba(120,150,200,0.1)]"
+        }`}
+      >
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between">
 
-        {/* Zone 2: Navigation Links (Single-line, unboxed, subtle hover) */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-normal text-[#A9B8CF]">
-          <a
-            href="#practice"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            Practice
+          {/* Left: Official Brand Logo Image */}
+          <a href="#" className="flex items-center gap-3.5 group">
+            <div className="relative h-11 w-11 rounded-xl overflow-hidden bg-white/95 p-1 border border-white/20 shadow-[0_4px_16px_rgba(255,107,0,0.25)] group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={companyData.logoUrl}
+                alt="Prosync Consulting Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold tracking-tight text-[#F8FAFC] font-sans group-hover:text-white transition-colors flex items-center gap-1.5">
+                PROSYNC
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" title="Deal Desk Active" />
+              </span>
+              <span className="text-[10px] uppercase font-mono tracking-widest text-[#38BDF8] -mt-1 font-semibold">
+                Investment Banking
+              </span>
+            </div>
           </a>
-          <a
-            href="#mandates"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            Mandates
-          </a>
-          <a
-            href="#transactions"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            Track Record
-          </a>
-          <a
-            href="#approach"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            Approach
-          </a>
-          <a
-            href="#sectors"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            Sectors
-          </a>
-          <a
-            href="#faq"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            FAQ
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-[#F5F7FA] transition-colors whitespace-nowrap shrink-0 hover:translate-y-[-1px] duration-150"
-          >
-            Contact
-          </a>
-          <button
-            onClick={() => setOpportunitiesOpen(true)}
-            className="text-[#6E93C7] hover:text-[#FF8A3D] transition-colors whitespace-nowrap shrink-0 text-sm font-normal text-left cursor-pointer"
-          >
-            Opportunities
-          </button>
-        </nav>
 
-        {/* Zone 3: Primary Action CTA */}
-        <div className="hidden sm:flex items-center gap-4 shrink-0">
-          <a
-            href="#contact"
-            className="btn-vivid-orange px-5 py-2.5 text-xs tracking-wide uppercase font-semibold inline-flex items-center gap-2"
-          >
-            <span>Engage Prosync</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
-        </div>
-
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 text-[#A9B8CF] hover:text-[#F5F7FA] focus:outline-none"
-          aria-label="Toggle navigation menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0D1F3C] border-b border-[rgba(120,150,200,0.25)] px-6 py-6 space-y-4 animate-in fade-in slide-in-from-top-4 duration-200">
-          <nav className="flex flex-col space-y-3 text-base text-[#A9B8CF]">
-            <a
-              href="#practice"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#F5F7FA]"
-            >
-              Practice
-            </a>
-            <a
-              href="#mandates"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#F5F7FA]"
-            >
-              Mandates
-            </a>
-            <a
-              href="#approach"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#F5F7FA]"
-            >
-              Approach
-            </a>
-            <a
-              href="#sectors"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#F5F7FA]"
-            >
-              Sectors
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#F5F7FA]"
-            >
-              Contact
-            </a>
+          {/* Center: Desktop Navigation with Micro-interaction Hover Effects */}
+          <nav className="hidden xl:flex items-center gap-1 text-xs uppercase tracking-wider font-semibold text-[#CBD5E1]">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                
+                className="relative px-3 py-2 rounded-lg text-[#CBD5E1] hover:text-white transition-colors duration-200 group"
+              >
+                <span className="relative z-10">{link.label}</span>
+                {/* Sleek bottom indicator with emerald/orange glow */}
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-[#0EA5E9] via-[#10B981] to-[#FF6B00] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
+                <span className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </a>
+            ))}
             <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setOpportunitiesOpen(true);
-              }}
-              className="py-1.5 text-[#6E93C7] text-left"
+              onClick={() => setOpportunitiesOpen(true)}
+              className="relative px-3 py-2 rounded-lg text-[#38BDF8] hover:text-white transition-colors duration-200 cursor-pointer font-mono text-[11px] font-semibold"
             >
-              Opportunities
+              CAREERS
             </button>
           </nav>
-          <div className="pt-3 border-t border-[rgba(120,150,200,0.15)]">
+
+          {/* Right: Mandate CTA */}
+          <div className="hidden sm:flex items-center gap-3">
+            <button
+              onClick={() => setOpportunitiesOpen(true)}
+              className="btn-secondary-fintech px-3.5 py-2 text-xs uppercase tracking-wider text-[#38BDF8] hover:text-white hidden lg:inline-flex border-[#38BDF8]/30 hover:border-[#38BDF8]/60"
+            >
+              Careers
+            </button>
             <a
               href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-vivid-orange block w-full py-3 text-center text-xs tracking-wider uppercase font-semibold"
+              className="btn-vivid-orange px-5 py-2.5 text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-2 shadow-[0_4px_20px_rgba(255,107,0,0.4)]"
             >
-              Engage Prosync
+              <span>Discuss Mandate</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
-        </div>
-      )}
 
-      {/* Opportunities Modal (Institutional Careers & Senior Mandates) */}
+          {/* Mobile Menu Trigger */}
+          <div className="flex items-center gap-2 xl:hidden">
+            <a
+              href="#contact"
+              className="btn-vivid-orange px-3.5 py-2 text-xs uppercase tracking-wider font-semibold sm:hidden"
+            >
+              Mandate
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg bg-[#13284A] border border-[rgba(120,150,200,0.25)] text-[#CBD5E1] hover:text-white"
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="xl:hidden bg-[#0A1A33] border-b border-[rgba(120,150,200,0.2)] px-4 py-6 space-y-4 shadow-2xl">
+            <div className="grid grid-cols-2 gap-2 text-sm font-medium text-[#CBD5E1]">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2.5 rounded-lg hover:bg-[#13284A] hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setOpportunitiesOpen(true);
+                }}
+                className="p-2.5 rounded-lg hover:bg-[#13284A] hover:text-[#38BDF8] text-left text-[#38BDF8] transition-colors"
+              >
+                Careers
+              </button>
+            </div>
+            <div className="pt-2 border-t border-[rgba(120,150,200,0.15)] flex flex-col gap-2">
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-vivid-orange py-3 text-center text-xs uppercase tracking-wider font-semibold"
+              >
+                Discuss a Mandate with Leadership
+              </a>
+              <a
+                href={`tel:${companyData.phoneRaw}`}
+                className="btn-secondary-fintech py-2.5 text-center text-xs text-[#CBD5E1]"
+              >
+                Call: {companyData.phone}
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Simplified Opportunities Modal */}
       {opportunitiesOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050D1A]/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-[#13284A] border border-[rgba(120,150,200,0.25)] rounded-2xl max-w-lg w-full p-6 md:p-8 relative shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]">
-            {/* Top-left orange accent */}
-            <div className="absolute top-0 left-0 w-16 h-1 bg-gradient-to-r from-[#FF6B00] to-transparent rounded-tl-2xl" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050D1A]/85 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-[#13284A] border border-[rgba(120,150,200,0.25)] rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]">
+            <div className="absolute top-0 left-0 w-20 h-1 bg-gradient-to-r from-[#0EA5E9] via-[#10B981] to-[#FF6B00] rounded-tl-2xl" />
 
             <div className="flex items-center justify-between pb-4 border-b border-[rgba(120,150,200,0.18)]">
               <div>
-                <span className="text-xs font-mono text-[#6E93C7] uppercase tracking-wider block">
-                  Talent & Partnerships
+                <span className="text-xs font-mono text-[#38BDF8] uppercase tracking-wider block">
+                  Careers & Advisory
                 </span>
-                <h3 className="text-xl font-semibold text-[#F5F7FA]">
-                  Join the Deal Team
+                <h3 className="text-xl font-semibold text-[#F8FAFC]">
+                  Join Prosync
                 </h3>
               </div>
               <button
                 onClick={() => setOpportunitiesOpen(false)}
-                className="p-1.5 rounded-lg text-[#A9B8CF] hover:text-[#F5F7FA] hover:bg-[#0D1F3C] transition-colors"
+                className="p-1.5 rounded-lg text-[#A9B8CF] hover:text-[#F8FAFC] hover:bg-[#0D1F3C] transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="py-5 space-y-4 text-xs md:text-sm text-[#A9B8CF]">
-              <p>
-                We look for experienced investment bankers, credit syndicators, and infrastructure modeling specialists who value intellectual rigor and direct deal accountability.
+            <div className="py-6 space-y-4 text-sm text-[#CBD5E1]">
+              <p className="leading-relaxed">
+                Please send your resume to our careers desk at:
               </p>
 
-              <div className="space-y-2.5 pt-2">
-                <div className="p-3 rounded-xl bg-[#0D1F3C] border border-[rgba(120,150,200,0.18)] flex items-center justify-between">
-                  <div>
-                    <span className="font-semibold text-[#F5F7FA] block text-xs md:text-sm">VP · Debt Syndication</span>
-                    <span className="text-[11px] text-[#6E93C7]">Hyderabad / Hybrid · 7+ yrs corporate credit</span>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FF6B00]/15 text-[#FF8A3D] border border-[#FF6B00]/30">Active</span>
-                </div>
-
-                <div className="p-3 rounded-xl bg-[#0D1F3C] border border-[rgba(120,150,200,0.18)] flex items-center justify-between">
-                  <div>
-                    <span className="font-semibold text-[#F5F7FA] block text-xs md:text-sm">Associate · M&A & Growth Equity</span>
-                    <span className="text-[11px] text-[#6E93C7]">Hyderabad · 3–5 yrs transaction advisory</span>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FF6B00]/15 text-[#FF8A3D] border border-[#FF6B00]/30">Active</span>
+              <div className="p-4 rounded-xl bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] flex items-center justify-between shadow-inner">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-5 h-5 text-[#FF6B00]" />
+                  <a
+                    href={`mailto:${companyData.email}?subject=Job%20Application%20Resume%20-%20Prosync`}
+                    className="font-mono text-sm text-[#38BDF8] hover:underline font-semibold"
+                  >
+                    {companyData.email}
+                  </a>
                 </div>
               </div>
 
-              <p className="text-xs text-[#A9B8CF]/80 pt-1">
-                To submit credentials or propose a senior advisory affiliation, email your resume and deal sheet to{' '}
-                <a href={`mailto:${companyData.email}`} className="text-[#FF8A3D] font-mono underline hover:text-[#FF6B00]">
-                  {companyData.email}
-                </a>.
+              <p className="text-xs text-[#94A3B8] leading-relaxed">
+                Our deal desk reviews resumes for investment banking associates, DPA analysts, and techno-economic consultants on a rolling basis.
               </p>
             </div>
 
-            <div className="pt-3 border-t border-[rgba(120,150,200,0.18)] flex justify-end gap-3">
+            <div className="pt-4 border-t border-[rgba(120,150,200,0.18)] flex items-center justify-end gap-3">
               <button
                 onClick={() => setOpportunitiesOpen(false)}
                 className="btn-secondary-fintech px-4 py-2 text-xs uppercase tracking-wider"
               >
-                Dismiss
+                Close
               </button>
               <a
-                href={`mailto:${companyData.email}?subject=Senior%20Deal%20Team%20Inquiry%20-%20Prosync`}
-                className="btn-vivid-orange px-4 py-2 text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-1.5"
+                href={`mailto:${companyData.email}?subject=Resume%20Submission%20-%20Prosync`}
+                className="btn-vivid-orange px-5 py-2 text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-1.5"
               >
-                <span>Email Resume</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Send Email Resume</span>
+                <Send className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

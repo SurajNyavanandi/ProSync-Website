@@ -1,221 +1,306 @@
 export const companyData = {
-  name: "Prosync Consulting Private Limited",
-  brandName: "Prosync",
-  cin: "U74999TG2020PTC138349",
-  tagline: "Boutique Investment Banking",
-  headline: "Capital, structured with conviction.",
-  headlineLead: "Capital, structured",
-  headlineAccent: "with conviction.",
-  subtitle:
-    "Prosync helps startups and corporates raise debt and equity, prepare for listing, and win mandates — with pre-IPO, DPR/TEV, bid consulting and transaction advisory under one senior team.",
+  name: "Prosync Consulting",
+  logoUrl: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793098353/prosync_ufbcfj.jpg",
+  legalName: "Prosync Consulting Advisory Private Limited",
+  tagline: "Boutique Investment Banking & Strategic Finance",
+  founded: "2015",
+  cin: "U74999TG2015PTC099824",
+  address: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
+  shortAddress: "Jubilee Hills & Hitec City, Hyderabad",
+  email: "info@prosync.in",
+  careersEmail: "info@prosync.in",
   phone: "+91 99514 45544",
-  phoneRaw: "9951445544",
-  email: "psc@prosyncindia.com",
-  officeAddress:
-    "Plot No. 24 & 25, Road No. 9, Kakatiya Hills, Hitec City, Madhapur, Hyderabad, Telangana 500081",
-  whatsappBaseUrl: "https://wa.me/919951445544",
-
-  getWhatsAppUrl: (mandateName) => {
-    const text = mandateName
-      ? `Hi Prosync, I would like to discuss a mandate regarding ${mandateName} for our company.`
-      : "Hi Prosync, I would like to schedule an introductory discussion regarding transaction and capital advisory.";
-    return `https://wa.me/919951445544?text=${encodeURIComponent(text)}`;
+  phoneRaw: "+919951445544",
+  brandName: "Prosync Consulting",
+  headlineLead: "Where Ambition Meets",
+  officeAddress: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
+  office: {
+    title: "Hyderabad Executive Deal Desk",
+    line1: "Plot 82, Road No 7, Jubilee Hills",
+    line2: "Hitec City Corridor, Hyderabad, Telangana 500033",
+    landmark: "Near Tech Hub & Financial District",
+    mapsUrl: "https://maps.google.com"
   },
-
-  capitalStack: [
-    {
-      level: "01",
-      name: "Common Equity",
-      role: "Strategic, Venture & Institutional Growth",
-      riskProfile: "High Risk / Long-Term Upside",
-      color: "#FF6B00",
-      pct: "100%",
-      detail: "Direct cap table alignment, valuation benchmarking, and term-sheet negotiation for Series A+ to late-stage rounds."
-    },
-    {
-      level: "02",
-      name: "Pre-IPO / Growth",
-      role: "Mezzanine & Crossover Institutional Placements",
-      riskProfile: "Pre-Listing Governance & Capital",
-      color: "#FF8A3D",
-      pct: "78%",
-      detail: "Anchor investor syndication, restructuring, and listing prep alongside audit & legal counsels."
-    },
-    {
-      level: "03",
-      name: "Mezzanine",
-      role: "Subordinated & Quasi-Equity Instruments",
-      riskProfile: "Structured Hybrid Yield",
-      color: "#6E93C7",
-      pct: "55%",
-      detail: "Convertible debt, structured notes, and promoter financing with minimal ownership dilution."
-    },
-    {
-      level: "04",
-      name: "Senior Debt",
-      role: "Bank Consortia, Term Loans & Working Capital",
-      riskProfile: "Asset-Backed & Lowest Cost of Capital",
-      color: "#3B6FB6",
-      pct: "35%",
-      detail: "Bespoke bank syndication, project finance lines, and working capital optimization at competitive benchmarks."
-    }
-  ],
+  getWhatsAppUrl: function (text) {
+    const msg = text ? encodeURIComponent(text) : encodeURIComponent("Hello Prosync, I would like to discuss an investment banking / advisory mandate.");
+    return `https://wa.me/919951445544?text=${msg}`;
+  },
+  whatsappBaseUrl: "https://wa.me/919951445544?text=Hello%20Prosync%2C%20I%20would%20like%20to%20discuss%20a%20capital%20or%20advisory%20mandate.",
+  heroHeadline: "Where Ambition Meets",
+  headlineAccent: "Strategic Capital",
+  subtitle:
+    "We help business leaders raise equity, arrange bank debt, and execute landmark transactions with direct partner guidance from start to finish.",
 
   solutionMarquee: [
+    "Debt Syndication",
     "Growth Equity",
-    "Structured Debt",
-    "Pre-IPO Readiness",
-    "DPR",
-    "TEV",
-    "Bid Consulting",
-    "Transaction Advisory",
-    "Refinancing"
+    "Pre-IPO Advisory",
+    "Solar & Clean Energy Finance",
+    "DPR & TEV Studies",
+    "Infrastructure Finance",
+    "M&A Advisory",
+    "Working Capital Lines"
   ],
 
-  disciplines: [
+  // Executive Leadership (Modeled directly after reference layout)
+  leadership: [
     {
-      id: "01",
-      category: "Growth Capital",
-      title: "Equity Raise",
-      description:
-        "Seed-to-growth and late-stage equity for startups and corporates — investor mapping, positioning, valuation, term-sheet negotiation and closing.",
-      focus: "Startups & Mid-Market Corporates",
-      deliverable: "End-to-end capitalization & investor syndicate"
+      name: "PRADEEP TANUKU",
+      role: "FOUNDER",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/pradeepsir_ffnpct.jpg",
+      bio: "Pradeep Tanuku is a Chartered Accountant and investment banking professional with extensive experience in debt syndication, project finance, financial structuring, capital raising, and strategic advisory. He founded Prosync to help businesses access capital, structure complex financing solutions, and pursue strategic growth opportunities.",
+      focus: ["Debt Syndication", "Project Finance", "Strategic Advisory"],
+      reverse: false
     },
     {
-      id: "02",
-      category: "Credit Advisory",
-      title: "Debt Solutions",
-      description:
-        "Term loans, working capital, structured and mezzanine credit arranged with banks, NBFCs and credit funds.",
-      focus: "Operating Corporates & Infrastructure",
-      deliverable: "Bank syndication & interest cost reduction"
-    },
-    {
-      id: "03",
-      category: "Market Access",
-      title: "Pre-IPO Advisory",
-      description:
-        "Pre-IPO placements, governance readiness and listing preparation alongside your legal and audit teams.",
-      focus: "Pre-Listing & Fast-Scaling Enterprises",
-      deliverable: "Governance alignment & anchor rounds"
-    },
-    {
-      id: "04",
-      category: "Technical & Financial",
-      title: "DPR / TEV Studies",
-      description:
-        "Detailed Project Reports and Techno-Economic Viability studies built to lender standards.",
-      focus: "Infrastructure, EPC & Industrial Assets",
-      deliverable: "Lender-grade technical appraisal reports"
-    },
-    {
-      id: "05",
-      category: "Tenders & Concessions",
-      title: "Bid Consulting",
-      description:
-        "Eligibility review, financial modelling and bid documentation for government and private tenders.",
-      focus: "NHAI, HAM & State Concessionaires",
-      deliverable: "Optimal financial bid & tender clearance"
-    },
-    {
-      id: "06",
-      category: "End-to-End",
-      title: "Transaction Advisory",
-      description:
-        "Buy-side and sell-side support, due diligence coordination, structuring and deal execution.",
-      focus: "M&A, Divestitures & Joint Ventures",
-      deliverable: "Definitive agreements & closing advisory"
+      name: "ANAND BANDAM",
+      role: "LEADERSHIP",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/anandsir_jusx9i.jpg",
+      bio: "Anand Bandam brings experience across the banking, financial services, and corporate sectors. His cross-sector exposure strengthens Prosync’s understanding of business operations, financial services, and client requirements, supporting the firm’s efforts to deliver practical financial and strategic advisory solutions.",
+      focus: ["Corporate Banking", "Financial Services", "Client Strategy"],
+      reverse: true
     }
   ],
 
+  // Team & Employees (DPA specialists & Manager Naveen matching grid reference layout)
+  employees: [
+    {
+      name: "Naveen",
+      role: "Manager — Deal Execution & DPA",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+      department: "DPA & Deal Desk"
+    },
+    {
+      name: "Dr. Devulapalli Sai",
+      role: "Senior DPA & Appraisal Lead",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+      department: "Techno-Economic Appraisal"
+    },
+    {
+      name: "Aswini Mylai",
+      role: "DPA Financial Modeler",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+      department: "Financial Modeling"
+    },
+    {
+      name: "T. Malathi",
+      role: "Project Finance Associate",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
+      department: "Syndication Desk"
+    },
+    {
+      name: "D Hemanth Kumar",
+      role: "Credit & Due Diligence Analyst",
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+      department: "Lender Coordination"
+    },
+    {
+      name: "K. Sravan Kumar",
+      role: "Solar & Clean Energy Associate",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+      department: "Renewables Desk"
+    },
+    {
+      name: "P. Rithika Reddy",
+      role: "DPA Research Analyst",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop",
+      department: "Industry Research"
+    },
+    {
+      name: "V. Harish Rao",
+      role: "Documentation & Closing Lead",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
+      department: "Transaction Closing"
+    }
+  ],
+
+  // Clients
+  clients: [
+    { name: "MEIL", fullName: "Megha Engineering & Infrastructures Ltd", tag: "Infrastructure & EPC" },
+    { name: "AR Petro", fullName: "AR Petrochem & Fuels", tag: "Energy & Petrochemicals" },
+    { name: "AARA Group", fullName: "AARA Group Farms & Agribusiness", tag: "Agri-Enterprise" },
+    { name: "Saradha Foods", fullName: "Saradha Foods & Processing", tag: "Food Processing" },
+    { name: "Husuro Robotics", fullName: "Husuro Robotics Automation", tag: "Industrial Robotics" },
+    { name: "Chrome Silicon", fullName: "Chrome Silicon Technologies", tag: "Advanced Materials" },
+    { name: "Joist Group", fullName: "Joist Group Construction", tag: "Civil & Commercial" },
+    { name: "Blue Lotus", fullName: "Blue Lotus Logistics", tag: "Supply Chain & Warehousing" },
+    { name: "DR Infrastructures", fullName: "DR Infrastructure Projects", tag: "Highway Concessions" }
+  ],
+
+  // Bankers and Lenders
+  bankers: [
+    { name: "State Bank of India", short: "SBI", type: "Public Sector Bank", badge: "Consortium Leader" },
+    { name: "Bank of Baroda", short: "BPB", type: "Public Sector Bank", badge: "Project Credit" },
+    { name: "Canara Bank", short: "Canara", type: "Public Sector Bank", badge: "Term Loans & BG" },
+    { name: "Kotak Mahindra Bank", short: "Kotak", type: "Private Sector Bank", badge: "Corporate Banking" },
+    { name: "Vivriti Capital", short: "Vivriti", type: "Private Debt & NBFC", badge: "Structured Debt" },
+    { name: "EAAA", short: "EAAA", type: "Alternative Investment Fund", badge: "Growth Credit" },
+    { name: "AIMS", short: "AIMS", type: "Specialized Credit Fund", badge: "Mezzanine Capital" }
+  ],
+
+  // Capital Stack (without serial numbers, clean financial categories)
+  capitalStack: [
+    {
+      level: "Senior",
+      name: "Senior Debt & Bank Lines",
+      riskProfile: "Lowest Cost of Capital",
+      role: "Term Loans, Working Capital, NHAI HAM Loans",
+      detail: "Secured consortium credit lines with competitive pricing and customized repayment schedules."
+    },
+    {
+      level: "Mezzanine",
+      name: "Subordinated & Structured Debt",
+      riskProfile: "Hybrid Flexibility",
+      role: "Mezzanine Credit, Promoter Financing",
+      detail: "Flexible funding solutions designed to bridge capital gaps without giving away equity control."
+    },
+    {
+      level: "Growth",
+      name: "Institutional Growth Equity",
+      riskProfile: "Strategic Value-Add",
+      role: "Series A/B/C, Strategic Investors",
+      detail: "Direct equity rounds with venture and private equity funds to accelerate business growth."
+    },
+    {
+      level: "Pre-IPO",
+      name: "Pre-IPO & Anchor Placements",
+      riskProfile: "Public Market Readiness",
+      role: "Anchor Investors, Qualified Institutions",
+      detail: "Late-stage capital and cap-table structuring ahead of domestic mainboard and SME filings."
+    }
+  ],
+
+  // Core Disciplines (No serial numbers)
+  disciplines: [
+    {
+      category: "Senior Debt",
+      title: "Debt Syndication & Project Credit",
+      description:
+        "We help companies secure term loans, working capital lines, and project financing from top Indian banks and institutions at optimal interest rates.",
+      focus: "Mid-Market Corporates & Builders",
+      deliverable: "Bank sanction letters & loan agreements"
+    },
+    {
+      category: "Institutional Capital",
+      title: "Growth Equity Placement",
+      description:
+        "We assist fast-growing businesses in raising private equity and venture capital from reputable institutional funds.",
+      focus: "Profitable & High-Growth Companies",
+      deliverable: "Investor term sheets & definitive deals"
+    },
+    {
+      category: "Public Readiness",
+      title: "Pre-IPO Advisory",
+      description:
+        "We guide enterprises through financial structuring, balance sheet preparation, and institutional anchor rounds ahead of public listing.",
+      focus: "Mainboard & SME IPO Candidates",
+      deliverable: "Clean cap table & anchor placements"
+    },
+    {
+      category: "Clean Energy",
+      title: "Solar & Renewable Projects",
+      description:
+        "Dedicated debt and equity financing for utility-scale solar parks, rooftop installations, and green infrastructure assets.",
+      focus: "Solar EPCs & IPP Developers",
+      deliverable: "Project loan sanctions & tariff models"
+    },
+    {
+      category: "Tenders & Public Works",
+      title: "Bid Advisory & Modeling",
+      description:
+        "Financial viability models, tender compliance checks, and bank guarantee coordination for government concessions.",
+      focus: "Highway, Rail & Civil Bidders",
+      deliverable: "Verified financial bid & bank guarantees"
+    },
+    {
+      category: "Strategic Advisory",
+      title: "Mergers & Acquisitions",
+      description:
+        "Comprehensive buy-side and sell-side advisory, business valuation, and closing support for acquisitions and joint ventures.",
+      focus: "Corporate Divestitures & Expansions",
+      deliverable: "Valuation reports & closing contracts"
+    }
+  ],
+
+  // Mandate Matrix (DPR / TEV intentionally empty for future points)
   mandatesMatrix: {
     Equity: {
-      target: "Startups & growth companies",
-      headline: "Strategic & Institutional Equity Capital",
-      summary: "Full lifecycle support from equity story development to capital table optimization and investor closing.",
+      target: "Founders & expanding businesses",
+      headline: "Institutional Equity Capital",
+      summary: "End-to-end support to raise capital, optimize shareholding, and negotiate favorable terms with funds.",
       steps: [
-        "Equity story & investor deck",
-        "Financial model & valuation",
-        "Curated investor outreach",
-        "Term-sheet negotiation",
-        "Due diligence & closing"
+        "Create pitch deck and financial projection model",
+        "Perform company valuation and cap-table planning",
+        "Targeted introduction to active institutional funds",
+        "Negotiate term sheet terms and valuation metrics",
+        "Complete investor due diligence and legal closing"
       ]
     },
     Debt: {
-      target: "Mid-market corporates & industrial builders",
-      headline: "Optimized Debt & Project Financing",
-      summary: "Senior credit, debt syndication, and working capital lines engineered to minimize finance costs.",
+      target: "Industrial enterprises & project developers",
+      headline: "Optimized Bank Loan Syndication",
+      summary: "We design bankable credit proposals to secure multi-crore project loans and working capital lines.",
       steps: [
-        "Credit rating & debt capacity assessment",
-        "Bank syndication & information memorandum",
-        "Lender presentations & term-sheet comparison",
-        "Sanction negotiation & security structure",
-        "Documentation & initial disbursement"
+        "Evaluate company borrowing capacity and collateral",
+        "Draft bank information memorandum and CMA data",
+        "Present proposal to bank credit committees",
+        "Negotiate sanction terms, interest rates, and limits",
+        "Assist legal documentation and initial loan payout"
       ]
     },
     "Pre-IPO": {
-      target: "Mature enterprises preparing for mainboard / SME listing",
-      headline: "Institutional Readiness & Anchor Placements",
-      summary: "Aligning internal governance, balance sheet architecture, and anchor investors prior to public filing.",
+      target: "Established companies planning an IPO",
+      headline: "Pre-IPO Structuring & Anchor Rounds",
+      summary: "Strengthen governance, simplify debt, and secure institutional anchor investors prior to DRHP filing.",
       steps: [
-        "Corporate governance & audit alignment",
-        "Capital table restructuring & ESOP readiness",
-        "Pre-IPO cornerstone & crossover investor rounds",
-        "Merchant banker & legal counsel onboarding",
-        "DRHP filing roadmap & roadshow positioning"
+        "Review financial statements and corporate governance",
+        "Restructure debts and clean up shareholding",
+        "Introduce pre-IPO cornerstone and family office investors",
+        "Help coordinate merchant bankers and legal advisors",
+        "Plan filing timeline and market launch positioning"
       ]
     },
     "DPR / TEV": {
-      target: "Lenders, concessionaires & infrastructure developers",
-      headline: "Lender-Grade Techno-Economic Studies",
-      summary: "Comprehensive technical appraisals and project reports certified to tier-1 institutional standards.",
-      steps: [
-        "Site inspection & engineering validation",
-        "Market demand & tariff/revenue forecasting",
-        "Capex validation & sensitivity stress testing",
-        "Bank-grade DPR / TEV report compilation",
-        "Direct presentation to lender credit committees"
-      ]
+      target: "Lenders, contractors & project developers",
+      headline: "Detailed Project Reports & Feasibility",
+      summary: "Workstream details for DPR and TEV studies will be updated shortly.",
+      steps: []
     },
     Bid: {
       target: "Infrastructure contractors & concession bidders",
       headline: "Concession Modeling & Tender Compliance",
-      summary: "Financial engineering and documentation for competitive highway, state and central tenders.",
+      summary: "Financial engineering and documentation for competitive infrastructure tenders.",
       steps: [
-        "RFQ / RFP qualification & consortium structuring",
-        "Financial bid modeling & return optimization",
-        "Concession agreement & legal risk audit",
-        "Bid bond & bank guarantee arrangement",
-        "Final bid submission & post-award financial closure"
+        "Review RFP qualification and consortium structure",
+        "Build financial bid models and test returns",
+        "Audit concession contracts and key obligations",
+        "Arrange tender bid bonds and bank guarantees",
+        "Complete submission and post-award bank closure"
       ]
     }
   },
 
+  // Approach (No Roman numerals, simple language)
   approach: [
     {
-      number: "I",
       name: "Diagnose",
-      tagline: "Rigorous Foundation",
-      description: "We study the business, the numbers and the objective before recommending any structure."
+      tagline: "Understand the Business",
+      description: "We review your operations, historical financials, and growth goals before suggesting any capital structure."
     },
     {
-      number: "II",
       name: "Structure",
-      tagline: "Tailored Architecture",
-      description: "We design the right mix of debt, equity or hybrid capital and build the materials to support it."
+      tagline: "Design the Right Mix",
+      description: "We decide the right balance of bank debt, equity, or hybrid instruments and build bankable financial models."
     },
     {
-      number: "III",
       name: "Execute",
-      tagline: "Senior Attention",
-      description: "We run the process — outreach, negotiation, diligence — with senior attention at every stage."
+      tagline: "Lead Negotiation",
+      description: "Our partners personally handle lender meetings, investor calls, and term sheet discussions from start to finish."
     },
     {
-      number: "IV",
-      name: "Close & Beyond",
-      tagline: "Long-Term Partnership",
-      description: "We see the transaction through to closing and stay on as an advisor for what comes next."
+      name: "Close",
+      tagline: "Deliver Results",
+      description: "We coordinate legal agreements, satisfaction of pre-disbursement conditions, and funds receipt."
     }
   ],
 
@@ -227,81 +312,99 @@ export const companyData = {
     },
     {
       value: "100+",
-      label: "Deals closed",
+      label: "Deals closed successfully",
       accent: "#FF8A3D"
     },
     {
       value: "1,000+",
-      label: "DPR / TEV reports",
+      label: "Technical reports prepared",
       accent: "#6E93C7"
     },
     {
       value: "10+",
-      label: "Years of experience",
+      label: "Years of market trust",
       accent: "#A9B8CF"
     }
   ],
 
+  // Sectors including extra boxes for Solar Projects (no serial numbers)
   sectors: [
-    { name: "Gas & Energy", detail: "City gas distribution, LNG infrastructure, renewables & green hydrogen assets" },
-    { name: "Infrastructure", detail: "NHAI HAM highways, expressways, ports, transmission lines & civil contracts" },
-    { name: "Agriculture", detail: "Processing facilities, bulk cold chains, grain warehousing & supply logistics" },
-    { name: "Agri-Tech", detail: "Precision farming platforms, farm-to-enterprise marketplaces & automated supply chains" },
-    { name: "Robotics", detail: "Industrial automation, autonomous logistics & hardware deeptech enterprises" },
-    { name: "& more", detail: "High-spec manufacturing, commercial healthcare, pharma APIs & real estate developments" }
-  ],
-
-  landmarkDeals: [
     {
-      size: "₹450 Cr",
-      category: "Senior Debt Syndication",
-      sector: "Infrastructure / HAM",
-      title: "4-Lane NHAI Highway Concession Financial Closure",
-      outcome: "Secured consortium bank sanction with optimized amortisation schedule and interest rate benchmark."
+      name: "Solar & Clean Energy",
+      detail: "Utility-scale ground mounted solar plants, rooftop C&I installations, solar park development, and solar EPC project debt.",
+      isSolar: true
     },
     {
-      size: "₹180 Cr",
-      category: "Growth Equity",
-      sector: "Agri-Tech & Cold Logistics",
-      title: "Series B Institutional Capital Placement",
-      outcome: "Brought marquee crossover growth fund onto cap table while retaining promoter voting majority."
+      name: "Solar Rooftop & Captive",
+      detail: "Commercial and industrial captive solar units, power purchase agreements (PPA) financing, and renewable debt refinancing.",
+      isSolar: true
     },
     {
-      size: "₹650 Cr",
-      category: "Pre-IPO Advisory",
-      sector: "Industrial Engineering",
-      title: "Balance Sheet Restructuring & Anchor Syndicate",
-      outcome: "Streamlined corporate subsidiaries, debt rationalization, and onboarded institutional anchor investors."
+      name: "Gas & Energy Infrastructure",
+      detail: "City gas distribution networks, LNG terminals, storage facilities, and green energy infrastructure.",
+      isSolar: false
     },
     {
-      size: "₹240 Cr",
-      category: "Capex Debt Facility",
-      sector: "Gas & Energy Infrastructure",
-      title: "City Gas Distribution (CGD) Pipeline Project",
-      outcome: "Structured 12-year door-to-door loan with leading infrastructure financing institutions."
+      name: "Roads & Highways",
+      detail: "NHAI HAM concessions, expressways, bridges, ports, and tollway monetization mandates.",
+      isSolar: false
+    },
+    {
+      name: "Agriculture & Food Processing",
+      detail: "Modern food parks, bulk cold chain storage, grain logistics, and automated dairy plants.",
+      isSolar: false
+    },
+    {
+      name: "Agri-Tech & Farm Automation",
+      detail: "Precision agriculture, farm-to-consumer platforms, sensor-based supply chain tech, and cold storage networks.",
+      isSolar: false
+    },
+    {
+      name: "Robotics & Automation",
+      detail: "Industrial robotics, automated warehouse machinery, smart manufacturing, and deep-tech hardware.",
+      isSolar: false
+    },
+    {
+      name: "Manufacturing & Commercial Real Estate",
+      detail: "Pharma API facilities, auto component manufacturing units, data centers, and industrial parks.",
+      isSolar: false
     }
   ],
 
+  // Single Flagship Landmark Deal (₹250 Cr Highway Concession)
+  flagshipDeal: {
+    size: "₹250 Cr",
+    category: "Senior Debt Syndication",
+    sector: "Infrastructure / Highway Concession",
+    title: "NHAI Highway Concession Project Financing",
+    outcome:
+      "Structured and closed a ₹250 Cr senior debt facility with a leading bank consortium, securing an optimized repayment period and low-cost interest rate benchmark.",
+    appraisalStandard: "Tier-1 Bank Consortium",
+    executionSpeed: "Financial Closure in 6 Weeks",
+    // Realistic high quality infrastructure bridge / highway photography
+    imageUrl: "https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1200&auto=format&fit=crop"
+  },
+
   faqs: [
     {
-      question: "What is the typical timeline to close a debt syndication or equity round?",
-      answer: "Senior debt syndications and bank sanctions typically reach financial closure within 4 to 8 weeks depending on lender appraisal speed. Growth equity rounds, pre-IPO placements, and M&A mandates generally run on a 10 to 16 week timeline from investor mapping to definitive agreement closing."
+      question: "How long does a bank loan syndication or equity raise usually take?",
+      answer: "Bank loan approvals and financial sanctions typically take between 4 to 8 weeks depending on bank processes. Equity rounds and M&A transactions usually take 10 to 16 weeks from creating the pitch materials to final closing."
     },
     {
-      question: "How do you guarantee confidentiality for our numbers and strategic plans?",
-      answer: "We sign reciprocal legal Non-Disclosure Agreements (NDAs) prior to receiving proprietary financial models, pitch decks, or bank statements. All data is managed strictly inside restricted partner deal rooms with zero junior leakages."
+      question: "How do you ensure our financial data remains safe and confidential?",
+      answer: "We sign mutual Non-Disclosure Agreements (NDAs) before reviewing any business plans, financial models, or internal records. All documents are handled directly by senior partners."
     },
     {
-      question: "Which institutional lenders and investor networks do you syndicate with?",
-      answer: "Our deal desk maintains direct, active syndication relationships with top private and PSU banks, specialized NBFCs, sovereign debt funds, infrastructure credit institutions, and domestic and global growth equity funds."
+      question: "Which banks and lending institutions does Prosync work with?",
+      answer: "We maintain direct, active working relationships with major public sector banks (like SBI, Bank of Baroda, Canara Bank), private banks (such as Kotak), and dedicated credit funds (like Vivriti Capital, EAAA, and AIMS)."
     },
     {
-      question: "Can Prosync structure hybrid solutions combining both debt and equity?",
-      answer: "Yes. In fact, many of our most successful mandates combine senior asset-backed debt with mezzanine or equity capital to minimize equity dilution while maintaining an optimal cost of capital."
+      question: "Can Prosync combine bank debt with equity funding?",
+      answer: "Yes. Many of our clients benefit from a balanced combination of low-cost bank loans and growth equity to expand rapidly without giving up unnecessary ownership."
     },
     {
-      question: "What is your standard fee structure for investment banking mandates?",
-      answer: "We work on a transparent hybrid model combining an engagement retainer with a success fee directly tied to transaction closing and disbursement milestones. This ensures complete alignment between our incentives and your final outcome."
+      question: "What is your standard fee structure?",
+      answer: "We operate on a straightforward structure that combines a modest work retainer with a success fee paid only upon successful transaction closing and loan disbursement."
     }
   ]
 };
