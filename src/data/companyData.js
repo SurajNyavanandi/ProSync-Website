@@ -62,43 +62,52 @@ export const companyData = {
     }
   ],
 
-  // Team & Employees (DPA specialists & Manager Naveen matching grid reference layout)
-    employees: [
+  // Team & Employees (DPA specialists, Bankers & Engineers with verified profiles)
+  employees: [
     {
-      name: "Naveen",
+      name: "Naveen Potnuru",
       role: "Manager",
       department: "Execution & Deal Desk",
-      initials: "NV"
+      initials: "NP",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180514/naveenpic_mybwbt.png",
+      linkedin: "https://www.linkedin.com/in/potnuru-sai-nagakrupa-naveen/"
     },
     {
-      name: "Sankar",
+      name: "Sankar Sayyala",
       role: "Associate",
       department: "Syndication & Structuring",
-      initials: "SK"
+      initials: "SS",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180957/sankarpic_gtozri.png"
     },
     {
-      name: "Akanksha",
+      name: "Akanksha Kolluri",
       role: "DPA Specialist",
       department: "Techno-Economic Appraisal",
-      initials: "AK"
+      initials: "AK",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793176947/akanshaprofile_azshe1.png"
     },
     {
-      name: "Bhavana",
+      name: "Bhavana Nayanala",
       role: "Financial Modeler",
       department: "Quantitative Valuation",
-      initials: "BH"
+      initials: "BN",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180957/bhavanapic_kvaoml.png"
     },
     {
-      name: "Shekar",
+      name: "Shekhar Kanukula",
       role: "Project Finance Analyst",
       department: "Credit Appraisal",
-      initials: "SH"
+      initials: "SK",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793176994/shekarprofile_hfof26.png",
+      linkedin: "https://www.linkedin.com/in/shekhar-kanukula-a240bb299"
     },
     {
-      name: "Suraj",
+      name: "Suraj Nyavanandi",
       role: "Full Stack Developer",
       department: "Fintech & Deal Infrastructure",
-      initials: "SJ"
+      initials: "SN",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180139/virattompic_gw3ytf.png",
+      linkedin: "https://www.linkedin.com/in/suraj-nyavanandi-305962286"
     }
   ],
 

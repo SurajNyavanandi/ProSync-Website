@@ -172,41 +172,77 @@ export default function LeadershipSection() {
                       : "border-[rgba(120,150,200,0.18)] hover:border-[#38BDF8]/40"
                   }`}
                 >
-                  {/* Clean Modern Minimalist Blank Avatar Silhouette */}
-                  <div className="relative w-16 h-16 rounded-2xl bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
-                    {/* Modern Abstract Initials Badge & Silhouette */}
-                    <div className="flex flex-col items-center justify-center">
-                      <User className="w-7 h-7 text-[#64748B] group-hover:text-[#38BDF8] transition-colors" />
+                  {/* Modern Profile Photo or Minimalist Silhouette */}
+                  <div className="relative w-16 h-16 rounded-2xl bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] overflow-hidden flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                          if (e.currentTarget.nextSibling) {
+                            e.currentTarget.nextSibling.style.display = "flex";
+                          }
+                        }}
+                      />
+                    ) : null}
+
+                    {/* Initials Fallback if no photo or error loading */}
+                    <div className={`flex flex-col items-center justify-center ${member.image ? "hidden" : "flex"}`}>
+                      {member.initials ? (
+                        <span className="text-sm font-mono font-bold text-[#A9B8CF] tracking-wider">
+                          {member.initials}
+                        </span>
+                      ) : (
+                        <User className="w-7 h-7 text-[#64748B] group-hover:text-[#38BDF8] transition-colors" />
+                      )}
                     </div>
+
                     {/* Role Color Dot */}
                     <span
-                      className={`absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full border border-[#0A1A33] ${
+                      className={`absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full border border-[#0A1A33] z-10 ${
                         isManager ? "bg-[#FF6B00]" : isDeveloper ? "bg-[#38BDF8]" : "bg-[#10B981]"
                       }`}
                     />
                   </div>
 
                   {/* Member Name and Role Details */}
-                  <div className="space-y-1 flex-1">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-base sm:text-lg font-bold text-[#F8FAFC] tracking-wide">
+                  <div className="space-y-1 flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="text-sm sm:text-base font-semibold text-[#F8FAFC] tracking-wide truncate">
                         {member.name}
                       </h4>
-                      {isManager && (
-                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FF6B00]/15 text-[#FF8A3D] border border-[#FF6B00]/30">
-                          Manager
-                        </span>
-                      )}
-                      {isDeveloper && (
-                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#38BDF8]/15 text-[#38BDF8] border border-[#38BDF8]/30">
-                          Tech Lead
-                        </span>
-                      )}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {member.linkedin && (
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1 rounded-md text-[#64748B] hover:text-[#38BDF8] hover:bg-white/[0.06] transition-colors"
+                            aria-label={`${member.name} LinkedIn Profile`}
+                          >
+                            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                          </a>
+                        )}
+                        {isManager && (
+                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FF6B00]/15 text-[#FF8A3D] border border-[#FF6B00]/30">
+                            Manager
+                          </span>
+                        )}
+                        {isDeveloper && (
+                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#38BDF8]/15 text-[#38BDF8] border border-[#38BDF8]/30">
+                            Tech Lead
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-xs text-[#38BDF8] font-medium">
+                    <p className="text-xs text-[#38BDF8] font-medium truncate">
                       {member.role}
                     </p>
-                    <p className="text-[11px] font-mono text-[#64748B]">
+                    <p className="text-[11px] font-mono text-[#64748B] truncate">
                       {member.department}
                     </p>
                   </div>
