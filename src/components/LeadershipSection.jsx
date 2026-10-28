@@ -27,21 +27,19 @@ export default function LeadershipSection() {
   }, []);
 
   return (
-    <section id="leadership" className="py-24 md:py-32 relative bg-[#07152B]/70 fintech-grid-bg border-y border-[rgba(120,150,200,0.15)] overflow-hidden">
+    <section id="leadership" className="py-16 md:py-24 relative bg-[#07152B]/70 fintech-grid-bg border-y border-[rgba(120,150,200,0.15)] overflow-hidden">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
 
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4 mb-20">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#38BDF8]">
-            <span>Firm Leadership</span>
-            <span aria-hidden="true" className="text-[#F59E0B]">/</span>
-            <span className="text-[#94A3B8]">Partner Oversight</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white/95">
-            Leadership & Advisory Team
+        <div className="max-w-xl space-y-2 mb-12">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+            Advisory Leadership
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-white/95">
+            Senior Partners & Deal Team
           </h2>
-          <p className="text-base sm:text-lg text-[#CBD5E1] font-normal leading-relaxed">
-            Experienced investment bankers and financial analysts managing your funding directly from start to finish.
+          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
+            Direct partner oversight across every mandate and lender negotiation.
           </p>
         </div>
 

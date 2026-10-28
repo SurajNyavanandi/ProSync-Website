@@ -12,17 +12,35 @@ export default function ContactSection() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [whatsAppUrl, setWhatsAppUrl] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email) return;
 
     setSubmitting(true);
-    // Simulate real partner CRM dispatch
+
+    const messageLines = [
+      `*New Mandate Enquiry - Prosync Advisory*`,
+      ``,
+      `• *Name:* ${formData.name}`,
+      `• *Work Email:* ${formData.email}`,
+      `• *Company:* ${formData.company || 'Not specified'}`,
+      `• *Mandate Focus:* ${formData.mandate}`,
+      formData.notes ? `• *Details:* ${formData.notes}` : null,
+      ``,
+      `_Submitted via Prosync Advisory Deal Desk_`
+    ].filter(Boolean).join('\n');
+
+    const generatedUrl = `https://wa.me/919951445544?text=${encodeURIComponent(messageLines)}`;
+    setWhatsAppUrl(generatedUrl);
+
+    // Give subtle visual feedback and redirect to WhatsApp
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
-    }, 600);
+      window.location.href = generatedUrl;
+    }, 350);
   };
 
   const mandatesList = [
@@ -35,7 +53,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-16 md:py-24 relative">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14">
@@ -43,18 +61,16 @@ export default function ContactSection() {
           {/* Left Column: Direct Partner Contact Coordinates */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#6E93C7]">
-                <span>Confidential Enquiry</span>
-                <span aria-hidden="true" className="text-[#FF6B00]">/</span>
-                <span className="text-[#A9B8CF]">Partner Access</span>
-              </div>
+              <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+                Confidential Mandate Review
+              </span>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F5F7FA]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-[#F5F7FA]">
                 Let's structure your{' '}
-                <span className="italic text-[#FF8A3D]">next round.</span>
+                <span className="italic font-normal text-[#FF8A3D]">next round.</span>
               </h2>
 
-              <p className="text-base text-[#A9B8CF] leading-relaxed">
+              <p className="text-base text-[#A9B8CF] leading-relaxed font-light">
                 Share a few details and a Prosync partner will respond in confidence. Every initial review is conducted under strict confidentiality.
               </p>
             </div>
@@ -152,23 +168,30 @@ export default function ContactSection() {
               <div className="absolute top-0 right-0 w-20 h-1 bg-gradient-to-l from-[#FF6B00] to-transparent" />
 
               {submitted ? (
-                <div className="py-14 text-center space-y-4 animate-in fade-in zoom-in-95 duration-200">
-                  <div className="w-14 h-14 rounded-full bg-[#0A1A33] border border-[#FF6B00] text-[#FF6B00] flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(255,107,0,0.25)]">
+                <div className="py-12 text-center space-y-4 animate-in fade-in zoom-in-95 duration-200">
+                  <div className="w-14 h-14 rounded-full bg-[#0A1A33] border border-[#10B981] text-[#10B981] flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(16,185,129,0.25)]">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
                   <h3 className="text-2xl font-semibold text-[#F5F7FA]">
-                    Enquiry Received in Confidence
+                    Redirecting to WhatsApp...
                   </h3>
                   <p className="text-sm text-[#A9B8CF] max-w-md mx-auto leading-relaxed">
-                    Thank you, <span className="text-white font-medium">{formData.name}</span>. A Prosync partner will review your mandate requirements and connect directly within 24 business hours.
+                    Thank you, <span className="text-white font-medium">{formData.name}</span>. Your mandate brief is formatted and ready for our senior deal team.
                   </p>
-                  <div className="pt-4">
+                  <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={whatsAppUrl || companyData.whatsappBaseUrl}
+                      className="btn-vivid-orange w-full sm:w-auto px-6 py-3 text-xs uppercase tracking-wider font-semibold inline-flex items-center justify-center gap-2 min-h-[44px]"
+                    >
+                      <span>Open WhatsApp Chat Directly</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
                     <button
                       onClick={() => {
                         setSubmitted(false);
                         setFormData({ name: '', email: '', company: '', mandate: 'Equity Raise', notes: '' });
                       }}
-                      className="btn-secondary-fintech px-5 py-2.5 text-xs uppercase tracking-wider"
+                      className="btn-secondary-fintech w-full sm:w-auto px-5 py-3 text-xs uppercase tracking-wider min-h-[44px]"
                     >
                       Submit Another Mandate
                     </button>

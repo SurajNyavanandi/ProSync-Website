@@ -71,7 +71,7 @@ export const companyData = {
       initials: "NV"
     },
     {
-      name: "Shanker",
+      name: "Sankar",
       role: "Associate",
       department: "Syndication & Structuring",
       initials: "SK"
@@ -89,10 +89,10 @@ export const companyData = {
       initials: "BH"
     },
     {
-      name: "Srikar",
+      name: "Shekar",
       role: "Project Finance Analyst",
       department: "Credit Appraisal",
-      initials: "SR"
+      initials: "SH"
     },
     {
       name: "Suraj",
@@ -118,7 +118,7 @@ export const companyData = {
   // Bankers and Lenders
   bankers: [
     { name: "State Bank of India", short: "SBI", type: "Public Sector Bank", badge: "Consortium Leader" },
-    { name: "Bank of Baroda", short: "BPB", type: "Public Sector Bank", badge: "Project Credit" },
+    { name: "Bank of Baroda", short: "BOB", type: "Public Sector Bank", badge: "Project Credit" },
     { name: "Canara Bank", short: "Canara", type: "Public Sector Bank", badge: "Term Loans & BG" },
     { name: "Kotak Mahindra Bank", short: "Kotak", type: "Private Sector Bank", badge: "Corporate Banking" },
     { name: "Vivriti Capital", short: "Vivriti", type: "Private Debt & NBFC", badge: "Structured Debt" },

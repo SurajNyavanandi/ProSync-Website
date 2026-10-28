@@ -6,7 +6,7 @@ export default function Hero() {
   const [activeStackIndex, setActiveStackIndex] = useState(0);
 
   return (
-    <section id="top" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden fintech-grid-bg">
+    <section id="top" className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden fintech-grid-bg">
       {/* Executive Advisory Background Image */}
       <div 
         aria-hidden="true" 
@@ -39,23 +39,21 @@ export default function Hero() {
           {/* Left Column: Proposition & Call to Action */}
           <div className="lg:col-span-7 space-y-6">
             {/* Clean Kicker / Eyebrow */}
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#6E93C7]">
-              <span>{companyData.tagline}</span>
-              <span aria-hidden="true" className="text-[#FF6B00]">/</span>
-              <span className="text-[#A9B8CF]">Senior Deal Team</span>
-            </div>
+            <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+              Strategic Capital Advisory
+            </span>
 
             {/* Apple-style Display Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#F5F7FA] leading-[1.12] [text-wrap:balance]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#F5F7FA] leading-[1.12] [text-wrap:balance]">
               {companyData.headlineLead}
               <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-[#FFA767]">
+              <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-[#FFA767]">
                 {companyData.headlineAccent}
               </span>
             </h1>
 
             {/* Subtitle with high legibility */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#A9B8CF] leading-relaxed max-w-2xl font-normal">
+            <p className="text-sm sm:text-base lg:text-lg text-[#A9B8CF] leading-relaxed max-w-2xl font-light">
               {companyData.subtitle}
             </p>
 

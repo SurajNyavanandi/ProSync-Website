@@ -27,21 +27,19 @@ export default function MandateMatrixSection() {
   const isDprTev = activeMandate === "DPR / TEV";
 
   return (
-    <section id="mandates" className="py-24 md:py-32 relative fintech-grid-bg">
+    <section id="mandates" className="py-16 md:py-24 relative fintech-grid-bg">
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8">
 
         {/* Section Header */}
-        <div className="max-w-2xl space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#FF8A3D]">
-            <span>How We Work</span>
-            <span aria-hidden="true" className="text-[#38BDF8]">/</span>
-            <span className="text-[#94A3B8]">Execution Roadmap</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F8FAFC]">
-            Step-by-step roadmap for your funding.
+        <div className="max-w-xl space-y-2 mb-10">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+            Execution Roadmap
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-[#F8FAFC]">
+            Mandate Workflows
           </h2>
-          <p className="text-base text-[#CBD5E1] font-normal leading-relaxed">
-            Select an advisory mandate below to see the key milestones and deliverables we manage.
+          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
+            Milestones and deliverables by transaction discipline.
           </p>
         </div>
 

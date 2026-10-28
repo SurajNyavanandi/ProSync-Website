@@ -29,17 +29,15 @@ export default function SectorSection() {
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8">
 
         {/* Section Header */}
-        <div className="max-w-2xl space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#FF8A3D]">
-            <span>Industries We Support</span>
-            <span aria-hidden="true" className="text-[#38BDF8]">/</span>
-            <span className="text-[#94A3B8]">Domain Fluency</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F8FAFC]">
-            Fluent in the sectors we finance.
+        <div className="max-w-xl space-y-2 mb-12">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+            Sector Coverage
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-[#F8FAFC]">
+            Industries We Finance
           </h2>
-          <p className="text-base text-[#CBD5E1] font-normal leading-relaxed">
-            Key physical and technology industries where we structure debt, raise equity, and deliver project advisory.
+          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
+            Physical infrastructure, clean energy, and modern manufacturing.
           </p>
         </div>
 

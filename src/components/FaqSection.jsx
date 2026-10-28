@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus, HelpCircle, ArrowRight } from 'lucide-react';
+import { Plus, Minus, ArrowRight } from 'lucide-react';
 import { companyData } from '../data/companyData';
 
 export default function FaqSection() {
@@ -10,24 +10,19 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative bg-[#07152B]/60 fintech-grid-bg border-y border-[rgba(120,150,200,0.15)]">
+    <section id="faq" className="py-16 md:py-24 relative bg-[#07152B]/60 fintech-grid-bg border-y border-[rgba(120,150,200,0.15)]">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#6E93C7]">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Advisory Intelligence</span>
-            <span aria-hidden="true" className="text-[#FF6B00]">/</span>
-            <span className="text-[#A9B8CF]">FAQ</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F5F7FA]">
-            Frequently asked <span className="italic text-[#FF8A3D]">questions.</span>
+        <div className="max-w-xl space-y-2 mb-10">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+            Advisory Brief
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-[#F5F7FA]">
+            Frequently Asked Questions
           </h2>
-
-          <p className="text-base sm:text-lg text-[#A9B8CF] font-normal leading-relaxed">
-            Direct answers on timelines, confidentiality, lender networks, and fee structures for founders and corporate boards.
+          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
+            Key details on mandate execution, timelines, and confidentiality.
           </p>
         </div>
 

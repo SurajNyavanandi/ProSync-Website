@@ -2,21 +2,19 @@ import { companyData } from "../data/companyData";
 
 export default function ApproachSection() {
   return (
-    <section id="approach" className="py-24 md:py-32 relative fintech-grid-bg">
+    <section id="approach" className="py-16 md:py-24 relative fintech-grid-bg">
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8">
 
         {/* Section Header */}
-        <div className="max-w-2xl space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#FF8A3D]">
-            <span>Our Process</span>
-            <span aria-hidden="true" className="text-[#38BDF8]">/</span>
-            <span className="text-[#94A3B8]">Partner Oversight</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F8FAFC]">
-            Senior-led, <span className="italic text-[#FF8A3D]">start to close.</span>
+        <div className="max-w-xl space-y-2 mb-12">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+            Execution Model
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-[#F8FAFC]">
+            Senior-Led Process
           </h2>
-          <p className="text-base sm:text-lg text-[#CBD5E1] font-normal leading-relaxed">
-            Every mandate is spearheaded directly by a partner. Your numbers, financial models, and lender negotiations receive dedicated executive scrutiny at every step.
+          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
+            Direct partner oversight from financial modeling through to disbursement.
           </p>
         </div>
 

@@ -24,17 +24,15 @@ export default function PracticeSection() {
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8">
 
         {/* Section Header */}
-        <div className="max-w-2xl space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#FF8A3D]">
-            <span>Our Services</span>
-            <span aria-hidden="true" className="text-[#38BDF8]">/</span>
-            <span className="text-[#94A3B8]">Core Capabilities</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F8FAFC]">
-            Integrated financial advisory.
+        <div className="max-w-xl space-y-2 mb-12">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
+            Practice Disciplines
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-[#F8FAFC]">
+            Advisory Practice
           </h2>
-          <p className="text-base text-[#CBD5E1] font-normal leading-relaxed">
-            How we help businesses raise capital, secure optimal bank financing, and structure complex transactions.
+          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
+            Debt syndication, private credit, and institutional deal architecture.
           </p>
         </div>
 
