@@ -59,57 +59,25 @@ export default function ContactSection() {
               </p>
             </div>
 
-            {/* Corporate Headquarters Architectural Visual Card */}
-            <div className="relative rounded-2xl overflow-hidden bg-[#0F223D] border border-[rgba(120,150,200,0.22)] shadow-lg aspect-[16/9] group">
-              {/* Modern Cantilever Architectural Illustration */}
-              <svg
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                viewBox="0 0 800 450"
-                preserveAspectRatio="xMidYMid slice"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient id="cantilever-glass" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1E3860" />
-                    <stop offset="60%" stopColor="#0D1F3C" />
-                    <stop offset="100%" stopColor="#081426" />
-                  </linearGradient>
-                  <linearGradient id="warm-boardroom-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(255, 107, 0, 0.35)" />
-                    <stop offset="50%" stopColor="rgba(255, 138, 61, 0.25)" />
-                    <stop offset="100%" stopColor="rgba(110, 147, 199, 0.15)" />
-                  </linearGradient>
-                </defs>
-
-                <rect width="800" height="450" fill="#0A1A33" />
-                
-                {/* Modern Cantilever Structure */}
-                <polygon points="80,160 720,110 760,360 140,410" fill="url(#cantilever-glass)" stroke="rgba(120,150,200,0.3)" strokeWidth="1.5" />
-                <polygon points="140,190 680,145 710,340 170,380" fill="url(#warm-boardroom-glow)" />
-
-                {/* Architectural Mullions */}
-                <line x1="260" y1="180" x2="285" y2="370" stroke="rgba(10, 26, 51, 0.85)" strokeWidth="3" />
-                <line x1="390" y1="168" x2="415" y2="355" stroke="rgba(10, 26, 51, 0.85)" strokeWidth="3" />
-                <line x1="530" y1="155" x2="555" y2="345" stroke="rgba(10, 26, 51, 0.85)" strokeWidth="3" />
-
-                {/* Ground Plane */}
-                <rect x="0" y="390" width="800" height="60" fill="#061122" />
-              </svg>
-
-              {/* Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A33] via-[#0A1A33]/40 to-transparent" />
-
+            {/* Corporate Headquarters & Principal Deal Room Visual Card */}
+            <div className="relative rounded-2xl overflow-hidden bg-[#0F223D] border border-[rgba(120,150,200,0.22)] shadow-xl aspect-[16/9] group">
+              <img
+                src="https://i.pinimg.com/736x/fc/0c/64/fc0c64c697e8b4661135328ad7c1902b.jpg"
+                alt="Prosync Principal Deal Room & Corporate Headquarters"
+                className="w-full h-full object-cover object-center filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A33] via-[#0A1A33]/30 to-transparent" />
               {/* Overlaid Label */}
               <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#FF8A3D] block">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#FF8A3D] block font-semibold">
                     Principal Deal Room
                   </span>
-                  <span className="font-medium text-[#F5F7FA]">
-                    Kakatiya Hills · Jubilee Hills, Hyderabad
+                  <span className="font-medium text-[#F8FAFC]">
+                    Jubilee Hills & Hitec City, Hyderabad
                   </span>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0A1A33]/85 text-[#6E93C7] border border-[rgba(120,150,200,0.3)]">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0A1A33]/90 text-[#38BDF8] border border-[rgba(120,150,200,0.3)]">
                   HQ Facility
                 </span>
               </div>
@@ -178,7 +146,7 @@ export default function ContactSection() {
 
           {/* Right Column: Confidential Enquiry Form */}
           <div className="lg:col-span-7">
-            <div className="floating-card-apple rounded-2xl bg-[#13284A] border border-[rgba(120,150,200,0.22)] p-7 md:p-9 relative overflow-hidden">
+            <div className="floating-card-apple rounded-2xl bg-[#13284A] border border-[rgba(120,150,200,0.22)] p-5 sm:p-7 md:p-9 relative overflow-hidden">
               
               {/* Corner Orange Accent */}
               <div className="absolute top-0 right-0 w-20 h-1 bg-gradient-to-l from-[#FF6B00] to-transparent" />
@@ -218,7 +186,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Grid for Name and Work Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div className="space-y-1.5">
                       <label className="text-xs font-medium text-[#A9B8CF] block">
                         Full name <span className="text-[#FF6B00]">*</span>
@@ -229,7 +197,7 @@ export default function ContactSection() {
                         placeholder="e.g. Vikramaditya Rao"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-2.5 text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-3 sm:py-2.5 text-base sm:text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
                       />
                     </div>
 
@@ -243,13 +211,13 @@ export default function ContactSection() {
                         placeholder="vikram@enterprise.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-2.5 text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-3 sm:py-2.5 text-base sm:text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Grid for Company & Mandate Type */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div className="space-y-1.5">
                       <label className="text-xs font-medium text-[#A9B8CF] block">
                         Company <span className="text-[#FF6B00]">*</span>
@@ -260,7 +228,7 @@ export default function ContactSection() {
                         placeholder="Company or Entity Name"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-2.5 text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-3 sm:py-2.5 text-base sm:text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
                       />
                     </div>
 
@@ -271,7 +239,7 @@ export default function ContactSection() {
                       <select
                         value={formData.mandate}
                         onChange={(e) => setFormData({ ...formData, mandate: e.target.value })}
-                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-2.5 text-sm text-[#F5F7FA] focus:outline-none focus:border-[#FF6B00] transition-colors cursor-pointer"
+                        className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg px-3.5 py-3 sm:py-2.5 text-base sm:text-sm text-[#F5F7FA] focus:outline-none focus:border-[#FF6B00] transition-colors cursor-pointer"
                       >
                         {mandatesList.map((m) => (
                           <option key={m} value={m} className="bg-[#0D1F3C] text-[#F5F7FA]">
@@ -292,7 +260,7 @@ export default function ContactSection() {
                       placeholder="e.g. Seeking ₹150 Cr project debt syndication for infrastructure concession or Series B growth equity round targeted for Q3..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg p-3 text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors resize-none"
+                      className="w-full bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] rounded-lg p-3 text-base sm:text-sm text-[#F5F7FA] placeholder-[#A9B8CF]/40 focus:outline-none focus:border-[#FF6B00] transition-colors resize-none"
                     ></textarea>
                   </div>
 
@@ -301,7 +269,7 @@ export default function ContactSection() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="btn-vivid-orange w-full sm:w-auto px-7 py-3 text-xs uppercase tracking-wider font-semibold inline-flex items-center justify-center gap-2"
+                      className="btn-vivid-orange w-full sm:w-auto px-7 py-3.5 text-xs uppercase tracking-wider font-semibold inline-flex items-center justify-center gap-2 min-h-[44px]"
                     >
                       {submitting ? (
                         <span>Encrypting & Sending...</span>

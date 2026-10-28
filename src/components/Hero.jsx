@@ -46,7 +46,7 @@ export default function Hero() {
             </div>
 
             {/* Apple-style Display Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#F5F7FA] leading-[1.08] [text-wrap:balance]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#F5F7FA] leading-[1.12] [text-wrap:balance]">
               {companyData.headlineLead}
               <br />
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-[#FFA767]">
@@ -55,15 +55,15 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle with high legibility */}
-            <p className="text-base sm:text-lg text-[#A9B8CF] leading-relaxed max-w-2xl font-normal">
+            <p className="text-sm sm:text-base lg:text-lg text-[#A9B8CF] leading-relaxed max-w-2xl font-normal">
               {companyData.subtitle}
             </p>
 
             {/* Dual CTAs */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a
                 href="#contact"
-                className="btn-vivid-orange px-6 py-3.5 text-sm font-semibold tracking-wide inline-flex items-center gap-2.5"
+                className="btn-vivid-orange w-full sm:w-auto px-6 py-3.5 text-xs sm:text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2.5 min-h-[44px]"
               >
                 <span>Discuss a Mandate</span>
                 <ArrowRight className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function Hero() {
 
               <a
                 href="#practice"
-                className="btn-secondary-fintech px-6 py-3.5 text-sm font-medium inline-flex items-center gap-2"
+                className="btn-secondary-fintech w-full sm:w-auto px-6 py-3.5 text-xs sm:text-sm font-medium inline-flex items-center justify-center gap-2 min-h-[44px]"
               >
                 <span>Explore the Practice</span>
                 <ChevronRight className="w-4 h-4 text-[#6E93C7]" />

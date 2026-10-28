@@ -6,45 +6,47 @@ export default function TransactionsSection() {
 
   return (
     <section id="transactions" className="py-24 md:py-32 relative fintech-grid-bg">
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
+      <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8">
 
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#6E93C7]">
-            <span>Proven Track Record</span>
-            <span aria-hidden="true" className="text-[#FF6B00]">/</span>
-            <span className="text-[#A9B8CF]">Landmark Closings</span>
+        <div className="max-w-2xl space-y-3 mb-16">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#FF8A3D]">
+            <span>Our Track Record</span>
+            <span aria-hidden="true" className="text-[#38BDF8]">/</span>
+            <span className="text-[#94A3B8]">Landmark Closings</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F5F7FA]">
-            Representative transaction execution.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F8FAFC]">
+            Representative project execution.
           </h2>
-          <p className="text-base sm:text-lg text-[#A9B8CF] font-normal leading-relaxed">
-            We structure complex financial solutions, negotiate terms with lending consortia, and steer high-value capital mandates across the finish line.
+          <p className="text-base text-[#CBD5E1] font-normal leading-relaxed">
+            Completed projects, bank debt facilities, and successful fundings arranged for our clients.
           </p>
         </div>
 
-        {/* Single Flagship Featured Transaction Card (₹250 Cr) with Real Project Image */}
-        <div className="fintech-panel rounded-3xl overflow-hidden border border-[rgba(120,150,200,0.22)] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] group bg-[#0D1F3C]">
+        {/* Landmark Featured Deal Card with Signature Prosync Orange Accent */}
+        <div className="fintech-panel rounded-3xl overflow-hidden border border-[rgba(120,150,200,0.22)] bg-[#0D1F3C] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] group transition-all duration-300 hover:border-[#FF6B00]/50 hover:shadow-[0_20px_50px_rgba(255,107,0,0.15)] relative">
+          {/* Signature 2px Gradient Orange Accent */}
+          <div className="absolute top-0 left-0 w-32 h-[2px] bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-transparent z-20 group-hover:w-48 transition-all duration-300" />
+
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
-            {/* Real Project Image Half (Highway & Concession Infrastructure) */}
+            {/* NHAI Project Photograph */}
             <div className="lg:col-span-6 relative min-h-[320px] lg:min-h-[460px] overflow-hidden bg-[#0A1A33]">
               <img
                 src={deal.imageUrl}
                 alt={deal.title}
                 onError={(e) => {
-                  e.currentTarget.src = "/assets/aistudio/Screenshot_2026-10-21_131742_8846fa8c.png";
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1200&auto=format&fit=crop";
                 }}
                 className="w-full h-full object-cover object-center filter contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
-              {/* Directional scrims */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0D1F3C] via-transparent to-transparent lg:hidden" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0D1F3C]/90 hidden lg:block" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0D1F3C]/95 hidden lg:block" />
 
-              {/* Corner Badge */}
-              <div className="absolute top-5 left-5 z-10 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0A1A33]/90 backdrop-blur-md border border-[rgba(120,150,200,0.3)] text-xs text-[#FF8A3D] font-mono">
-                <Compass className="w-3.5 h-3.5" />
+              {/* Badge Overlaid on Photo */}
+              <div className="absolute top-5 left-5 z-10 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0A1A33]/90 backdrop-blur-md border border-[rgba(120,150,200,0.3)] text-xs text-[#FF8A3D] font-mono shadow-md">
+                <Compass className="w-3.5 h-3.5 text-[#FF6B00]" />
                 <span>Featured Mandate · Financial Closure</span>
               </div>
             </div>
@@ -54,24 +56,24 @@ export default function TransactionsSection() {
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-4 border-b border-[rgba(120,150,200,0.15)]">
                   <div>
-                    <span className="font-mono text-4xl sm:text-5xl font-bold text-[#FF6B00] tabular-nums block">
+                    <span className="font-mono text-4xl sm:text-5xl font-bold text-[#FF6B00] tracking-tight tabular-nums block drop-shadow-sm">
                       {deal.size}
                     </span>
-                    <span className="text-[11px] font-mono text-[#A9B8CF]/80 uppercase tracking-widest mt-1 block">
+                    <span className="text-[11px] font-mono text-[#94A3B8] uppercase tracking-wider mt-1 block font-semibold">
                       Sanctioned Facility
                     </span>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#6E93C7] block font-semibold">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#38BDF8] block font-semibold">
                       {deal.category}
                     </span>
-                    <span className="text-xs text-[#A9B8CF] font-mono">
+                    <span className="text-xs text-[#CBD5E1] font-mono">
                       {deal.sector}
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#F5F7FA] leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#F8FAFC] leading-tight">
                   {deal.title}
                 </h3>
 
@@ -79,29 +81,29 @@ export default function TransactionsSection() {
                   {deal.outcome}
                 </p>
 
-                {/* Key Execution Highlights (Simple, clear language) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-mono text-[#6E93C7]">
+                {/* Key Execution Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-mono text-[#38BDF8]">
                   <div className="p-3.5 rounded-xl bg-[#0A1A33] border border-[rgba(120,150,200,0.18)]">
-                    <span className="text-[10px] text-[#A9B8CF] block uppercase tracking-wider">Appraisal Standard</span>
-                    <span className="text-[#F5F7FA] font-semibold text-xs mt-0.5 block">{deal.appraisalStandard}</span>
+                    <span className="text-[10px] text-[#94A3B8] block uppercase tracking-wider">Appraisal Standard</span>
+                    <span className="text-white font-semibold text-xs mt-0.5 block">{deal.appraisalStandard}</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-[#0A1A33] border border-[rgba(120,150,200,0.18)]">
-                    <span className="text-[10px] text-[#A9B8CF] block uppercase tracking-wider">Execution Speed</span>
-                    <span className="text-[#F5F7FA] font-semibold text-xs mt-0.5 block">{deal.executionSpeed}</span>
+                    <span className="text-[10px] text-[#94A3B8] block uppercase tracking-wider">Execution Speed</span>
+                    <span className="text-white font-semibold text-xs mt-0.5 block">{deal.executionSpeed}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 pt-1 text-xs text-[#A9B8CF]">
-                  <CheckCircle2 className="w-4 h-4 text-[#FF6B00] shrink-0" />
-                  <span>End-to-end financial modeling, lender consortium negotiation & legal documentation</span>
+                <div className="flex items-center gap-2 pt-1 text-xs text-[#94A3B8]">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                  <span>Full bank syndication, financial modeling, and legal closing</span>
                 </div>
               </div>
 
-              <div className="pt-8 mt-6 border-t border-[rgba(120,150,200,0.12)] flex flex-wrap items-center justify-between gap-4">
-                <span className="text-xs text-[#A9B8CF]">Lead Transaction Arranger: <strong className="text-white">Prosync Consulting</strong></span>
+              <div className="pt-8 mt-6 border-t border-[rgba(120,150,200,0.14)] flex flex-wrap items-center justify-between gap-4">
+                <span className="text-xs text-[#94A3B8]">Lead Advisor: <strong className="text-white">Prosync Consulting</strong></span>
                 <a
                   href="#contact"
-                  className="btn-vivid-orange px-5 py-2.5 text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-2"
+                  className="btn-vivid-orange px-6 py-2.5 text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-2 shadow-[0_4px_16px_rgba(255,107,0,0.4)]"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

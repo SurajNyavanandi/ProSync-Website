@@ -1,13 +1,13 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ClientsSection from "./components/ClientsSection";
+import BankersSection from "./components/BankersSection";
 import PracticeSection from "./components/PracticeSection";
 import TransactionsSection from "./components/TransactionsSection";
-import MandateMatrixSection from "./components/MandateMatrixSection";
 import SectorSection from "./components/SectorSection";
+import MandateMatrixSection from "./components/MandateMatrixSection";
 import ApproachSection from "./components/ApproachSection";
+import ClientsSection from "./components/ClientsSection";
 import LeadershipSection from "./components/LeadershipSection";
-import BankersSection from "./components/BankersSection";
 import FaqSection from "./components/FaqSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
@@ -15,8 +15,8 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#071224] text-[#F8FAFC] selection:bg-[#FF6B00] selection:text-white flex flex-col font-sans">
-      {/* 1. Header / Navbar with official logo and dynamic hover states */}
+    <div className="min-h-screen bg-[#071224] text-[#F8FAFC] selection:bg-[#FF6B00] selection:text-white flex flex-col font-sans overflow-x-hidden">
+      {/* 1. Transparent Apple-Style Navigation */}
       <Navbar />
 
       {/* Main Narrative Flow */}
@@ -24,41 +24,41 @@ export default function App() {
         {/* 2. Hero Section: Strategic Capital & Deal Architecture */}
         <Hero />
 
-        {/* 3. Clients Showcase: Immediate social proof (MEIL, AR Petro, etc.) */}
-        <ClientsSection />
+        {/* 3. Banks We Work With: Immediate institutional credibility right below Hero */}
+        <BankersSection />
 
-        {/* 4. The Practice: Core Disciplines without serial numbers */}
+        {/* 4. Our Services: Six Core Disciplines */}
         <PracticeSection />
 
-        {/* 5. Representative Track Record: Flagship ₹250 Cr Project */}
+        {/* 5. Our Track Record: Flagship ₹250 Cr NHAI Concession Mandate */}
         <TransactionsSection />
 
-        {/* 6. Mandate Matrix: Execution Steps (DPR / TEV empty for now) */}
-        <MandateMatrixSection />
-
-        {/* 7. Fluent in the Industries: Including dedicated Solar & Clean Energy boxes */}
+        {/* 6. Industries We Support: Sector Coverage */}
         <SectorSection />
 
-        {/* 8. Our Approach & Proof Metrics: Understand, Structure, Execute, Close */}
+        {/* 7. How We Work: Execution Roadmap by Mandate Type */}
+        <MandateMatrixSection />
+
+        {/* 8. Our Process & Key Metrics: Understand, Structure, Execute, Close */}
         <ApproachSection />
 
-        {/* 9. Executive Leadership & DPA Advisory Team */}
-        <LeadershipSection />
+        {/* 9. Our Clients: Enterprise Corporate Credentials */}
+        <ClientsSection />
 
-        {/* 10. Bankers & Institutional Lenders (Interactive Carousel & Continuous Marquee) */}
-        <BankersSection />
+        {/* 10. Leadership & Advisory Team: Founders + DPA Team */}
+        <LeadershipSection />
 
         {/* 11. Advisory Intelligence: Frequently Asked Questions */}
         <FaqSection />
 
-        {/* 12. Confidential Enquiry Form & Careers Prompt */}
+        {/* 12. Confidential Enquiry Form & Principal Deal Room */}
         <ContactSection />
       </main>
 
-      {/* 13. Institutional Footer with official logo */}
+      {/* 13. Institutional Footer */}
       <Footer />
 
-      {/* 14. Floating WhatsApp Direct Line */}
+      {/* 14. Floating WhatsApp Icon */}
       <FloatingWhatsApp />
     </div>
   );

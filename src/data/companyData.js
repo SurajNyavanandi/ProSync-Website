@@ -63,54 +63,42 @@ export const companyData = {
   ],
 
   // Team & Employees (DPA specialists & Manager Naveen matching grid reference layout)
-  employees: [
+    employees: [
     {
       name: "Naveen",
-      role: "Manager — Deal Execution & DPA",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-      department: "DPA & Deal Desk"
+      role: "Manager",
+      department: "Execution & Deal Desk",
+      initials: "NV"
     },
     {
-      name: "Dr. Devulapalli Sai",
-      role: "Senior DPA & Appraisal Lead",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
-      department: "Techno-Economic Appraisal"
+      name: "Shanker",
+      role: "Associate",
+      department: "Syndication & Structuring",
+      initials: "SK"
     },
     {
-      name: "Aswini Mylai",
-      role: "DPA Financial Modeler",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
-      department: "Financial Modeling"
+      name: "Akanksha",
+      role: "DPA Specialist",
+      department: "Techno-Economic Appraisal",
+      initials: "AK"
     },
     {
-      name: "T. Malathi",
-      role: "Project Finance Associate",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
-      department: "Syndication Desk"
+      name: "Bhavana",
+      role: "Financial Modeler",
+      department: "Quantitative Valuation",
+      initials: "BH"
     },
     {
-      name: "D Hemanth Kumar",
-      role: "Credit & Due Diligence Analyst",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
-      department: "Lender Coordination"
+      name: "Srikar",
+      role: "Project Finance Analyst",
+      department: "Credit Appraisal",
+      initials: "SR"
     },
     {
-      name: "K. Sravan Kumar",
-      role: "Solar & Clean Energy Associate",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
-      department: "Renewables Desk"
-    },
-    {
-      name: "P. Rithika Reddy",
-      role: "DPA Research Analyst",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop",
-      department: "Industry Research"
-    },
-    {
-      name: "V. Harish Rao",
-      role: "Documentation & Closing Lead",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
-      department: "Transaction Closing"
+      name: "Suraj",
+      role: "Full Stack Developer",
+      department: "Fintech & Deal Infrastructure",
+      initials: "SJ"
     }
   ],
 
@@ -328,46 +316,38 @@ export const companyData = {
   ],
 
   // Sectors including extra boxes for Solar Projects (no serial numbers)
-  sectors: [
+    sectors: [
     {
       name: "Solar & Clean Energy",
-      detail: "Utility-scale ground mounted solar plants, rooftop C&I installations, solar park development, and solar EPC project debt.",
-      isSolar: true
-    },
-    {
-      name: "Solar Rooftop & Captive",
-      detail: "Commercial and industrial captive solar units, power purchase agreements (PPA) financing, and renewable debt refinancing.",
-      isSolar: true
-    },
-    {
-      name: "Gas & Energy Infrastructure",
-      detail: "City gas distribution networks, LNG terminals, storage facilities, and green energy infrastructure.",
-      isSolar: false
+      detail: "Utility-scale ground mounted solar parks, captive C&I installations, solar EPC debt syndication, and green financing."
     },
     {
       name: "Roads & Highways",
-      detail: "NHAI HAM concessions, expressways, bridges, ports, and tollway monetization mandates.",
-      isSolar: false
+      detail: "NHAI HAM concessions, expressways, bridges, ports, and tollway asset monetization mandates."
+    },
+    {
+      name: "Gas & Energy Infrastructure",
+      detail: "City gas distribution networks, LNG terminals, bulk storage facilities, and pipeline infrastructure."
     },
     {
       name: "Agriculture & Food Processing",
-      detail: "Modern food parks, bulk cold chain storage, grain logistics, and automated dairy plants.",
-      isSolar: false
+      detail: "Mega food parks, bulk cold chain facilities, automated dairy processing, and grain supply logistics."
     },
     {
       name: "Agri-Tech & Farm Automation",
-      detail: "Precision agriculture, farm-to-consumer platforms, sensor-based supply chain tech, and cold storage networks.",
-      isSolar: false
+      detail: "Precision agriculture platforms, sensor networks, supply chain automation, and cold storage logistics."
     },
     {
       name: "Robotics & Automation",
-      detail: "Industrial robotics, automated warehouse machinery, smart manufacturing, and deep-tech hardware.",
-      isSolar: false
+      detail: "Industrial robotics, automated warehouse machinery, smart manufacturing lines, and deep-tech hardware."
     },
     {
-      name: "Manufacturing & Commercial Real Estate",
-      detail: "Pharma API facilities, auto component manufacturing units, data centers, and industrial parks.",
-      isSolar: false
+      name: "Solar Rooftop & Captive Power",
+      detail: "Commercial and industrial captive solar units, power purchase agreements (PPA) financing, and debt refinancing."
+    },
+    {
+      name: "Manufacturing & Core Industry",
+      detail: "Pharma API facilities, auto component plants, data centers, high-spec industrial warehousing, and commercial assets."
     }
   ],
 
@@ -382,7 +362,7 @@ export const companyData = {
     appraisalStandard: "Tier-1 Bank Consortium",
     executionSpeed: "Financial Closure in 6 Weeks",
     // Realistic high quality infrastructure bridge / highway photography
-    imageUrl: "https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1200&auto=format&fit=crop"
+    imageUrl: "https://images.cnbctv18.com/uploads/2026/05/ai-generated-nhai-07may-2026-05-9b01721636dc09de923a6cd03815afd3.jpg?impolicy=website&width=1200&height=900"
   },
 
   faqs: [
