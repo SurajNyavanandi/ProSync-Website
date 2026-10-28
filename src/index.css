@@ -71,6 +71,34 @@
   animation: ambientPulse 6s ease-in-out infinite;
 }
 
+@keyframes cardFloatA {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes cardFloatB {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(5px); }
+}
+
+.animate-card-float-1 {
+  animation: cardFloatA 6s ease-in-out infinite;
+}
+
+.animate-card-float-2 {
+  animation: cardFloatB 7s ease-in-out infinite 0.5s;
+}
+
+.animate-card-float-3 {
+  animation: cardFloatA 8s ease-in-out infinite 1s;
+}
+
+.animate-card-float-1:hover,
+.animate-card-float-2:hover,
+.animate-card-float-3:hover {
+  animation-play-state: paused;
+}
+
 /* Glass & Dark Navigation with Inner Rim Highlight */
 .prosync-nav {
   background: rgba(10, 26, 51, 0.82);
@@ -101,23 +129,47 @@
     inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
 }
 
-/* Subtle Orange Corner Accent */
+/* Signature Glowing Corner Accent Beam on All Cards */
 .fintech-panel::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
+  width: 44px;
   height: 2px;
-  background: linear-gradient(90deg, #FF6B00, #FF8A3D);
+  background: linear-gradient(90deg, #FF6B00, #FF8A3D, transparent);
   border-top-left-radius: 16px;
-  opacity: 0.8;
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0.85;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+  z-index: 20;
+  pointer-events: none;
 }
 
 .fintech-panel:hover::before {
-  width: 44px;
+  width: 100%;
   opacity: 1;
+  box-shadow: 0 0 14px rgba(255, 107, 0, 0.65);
+}
+
+.floating-card-apple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, #FF6B00, #FF8A3D, transparent);
+  border-top-left-radius: 16px;
+  opacity: 0.85;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.floating-card-apple:hover::before {
+  width: 100%;
+  opacity: 1;
+  box-shadow: 0 0 14px rgba(255, 107, 0, 0.65);
 }
 
 /* Apple-style Multi-Layer Floating Card */

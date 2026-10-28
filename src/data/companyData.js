@@ -12,6 +12,8 @@ export const companyData = {
   phone: "+91 99514 45544",
   phoneRaw: "+919951445544",
   brandName: "Prosync Consulting",
+  websiteUrl: "https://prosyncindia.com",
+  domain: "prosyncindia.com",
   headlineLead: "Where Ambition Meets",
   officeAddress: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
   office: {
@@ -62,7 +64,7 @@ export const companyData = {
     }
   ],
 
-  // Team & Employees (DPA specialists, Bankers & Engineers with verified profiles)
+  // Team & Employees (DPR specialists, Bankers & Engineers with verified profiles)
   employees: [
     {
       name: "Naveen Potnuru",
@@ -73,27 +75,6 @@ export const companyData = {
       linkedin: "https://www.linkedin.com/in/potnuru-sai-nagakrupa-naveen/"
     },
     {
-      name: "Sankar Sayyala",
-      role: "Associate",
-      department: "Syndication & Structuring",
-      initials: "SS",
-      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180957/sankarpic_gtozri.png"
-    },
-    {
-      name: "Akanksha Kolluri",
-      role: "DPA Specialist",
-      department: "Techno-Economic Appraisal",
-      initials: "AK",
-      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793176947/akanshaprofile_azshe1.png"
-    },
-    {
-      name: "Bhavana Nayanala",
-      role: "Financial Modeler",
-      department: "Quantitative Valuation",
-      initials: "BN",
-      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180957/bhavanapic_kvaoml.png"
-    },
-    {
       name: "Shekhar Kanukula",
       role: "Project Finance Analyst",
       department: "Credit Appraisal",
@@ -102,9 +83,33 @@ export const companyData = {
       linkedin: "https://www.linkedin.com/in/shekhar-kanukula-a240bb299"
     },
     {
+      name: "Akanksha Kolluri",
+      role: "Project Finance Analyst",
+      department: "Techno-Economic Appraisal",
+      initials: "AK",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793176947/akanshaprofile_azshe1.png",
+      linkedin: "https://www.linkedin.com/in/akanksha-kolluri-625793244/"
+    },
+    {
+      name: "Sankar Sayyala",
+      role: "Project Finance Analyst",
+      department: "Syndication & Structuring",
+      initials: "SS",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180957/sankarpic_gtozri.png",
+      linkedin: "https://www.linkedin.com/in/sankar-sayala-43a3a0237/"
+    },
+    {
+      name: "Bhavana Nayanala",
+      role: "Project Finance Analyst",
+      department: "Quantitative Valuation",
+      initials: "BN",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793181904/bavana1_qvueol.jpg",
+      linkedin: "https://www.linkedin.com/in/bhavana-nayanala-6325902a8/"
+    },
+    {
       name: "Suraj Nyavanandi",
       role: "Full Stack Developer",
-      department: "Fintech & Deal Infrastructure",
+      department: "Building Urbanico & Inisio",
       initials: "SN",
       image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793180139/virattompic_gw3ytf.png",
       linkedin: "https://www.linkedin.com/in/suraj-nyavanandi-305962286"

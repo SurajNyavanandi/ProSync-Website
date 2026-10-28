@@ -27,7 +27,7 @@ export default function LeadershipSection() {
   }, []);
 
   return (
-    <section id="leadership" className="py-16 md:py-24 relative bg-[#07152B]/70 fintech-grid-bg border-y border-[rgba(120,150,200,0.15)] overflow-hidden">
+    <section id="leadership" className="py-16 md:py-24 relative bg-[#07152B] border-y border-[rgba(120,150,200,0.15)] overflow-hidden">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
 
         {/* Section Header */}
@@ -147,7 +147,7 @@ export default function LeadershipSection() {
         <div id="team" className="pt-8">
           <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
             <h3 className="text-xl sm:text-2xl font-bold tracking-widest uppercase text-[#F8FAFC] font-sans">
-              INVESTMENT BANKING & DPA ADVISORY TEAM
+              INVESTMENT BANKING & DPR ADVISORY TEAM
             </h3>
             <div className="w-20 h-0.5 bg-[#FF6B00] mx-auto rounded-full" />
             <p className="text-xs sm:text-sm text-[#94A3B8] pt-2">
@@ -155,30 +155,29 @@ export default function LeadershipSection() {
             </p>
           </div>
 
-          {/* 6 Clean Blank-Avatar Cards Grid */}
+          {/* 6 Clean High-Contrast Cards Grid (No Fade-Out, 100% Clarity, Animated Motion) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {companyData.employees.map((member) => {
+            {companyData.employees.map((member, idx) => {
               const isManager = member.role.toLowerCase().includes("manager");
-              const isDeveloper = member.role.toLowerCase().includes("developer");
+              const floatClass = idx % 3 === 0 ? "animate-card-float-1" : idx % 3 === 1 ? "animate-card-float-2" : "animate-card-float-3";
 
               return (
                 <div
                   key={member.name}
-                  className={`fintech-panel rounded-2xl p-6 bg-[#0D1F3C]/95 border transition-all duration-300 hover:-translate-y-1.5 shadow-md flex items-center gap-5 hover:border-[#FF6B00]/40 hover:shadow-[0_8px_24px_rgba(255,107,0,0.1)] relative overflow-hidden ${
-                    isManager
-                      ? "border-[#FF6B00]/60 shadow-[0_8px_24px_rgba(255,107,0,0.12)]"
-                      : isDeveloper
-                      ? "border-[#38BDF8]/50 shadow-[0_8px_24px_rgba(56,189,248,0.1)]"
-                      : "border-[rgba(120,150,200,0.18)] hover:border-[#38BDF8]/40"
+                  className={`fintech-panel ${floatClass} rounded-2xl p-6 bg-[#0D1F3C] border border-[rgba(120,150,200,0.25)] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] shadow-lg flex items-center gap-5 hover:border-[#FF6B00]/70 hover:shadow-[0_16px_36px_rgba(255,107,0,0.18)] relative overflow-hidden group opacity-100 ${
+                    isManager ? "border-[#FF6B00]/40 shadow-[0_8px_24px_rgba(255,107,0,0.12)]" : ""
                   }`}
                 >
+                  {/* Animated Top Orange Beam that glides across on hover */}
+                  <div className="absolute top-0 left-0 w-16 h-[2px] bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-transparent group-hover:w-full transition-all duration-500 ease-out" />
+
                   {/* Modern Profile Photo or Minimalist Silhouette */}
-                  <div className="relative w-16 h-16 rounded-2xl bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] overflow-hidden flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                  <div className="relative w-16 h-16 rounded-2xl bg-[#0A1A33] border border-[rgba(120,150,200,0.3)] overflow-hidden flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 group-hover:border-[#FF6B00]/50 transition-all duration-300">
                     {member.image ? (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover object-top filter contrast-105"
                         onError={(e) => {
                           e.currentTarget.style.display = "none";
                           if (e.currentTarget.nextSibling) {
@@ -202,7 +201,7 @@ export default function LeadershipSection() {
                     {/* Role Color Dot */}
                     <span
                       className={`absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full border border-[#0A1A33] z-10 ${
-                        isManager ? "bg-[#FF6B00]" : isDeveloper ? "bg-[#38BDF8]" : "bg-[#10B981]"
+                        isManager ? "bg-[#FF6B00]" : "bg-[#10B981]"
                       }`}
                     />
                   </div>
@@ -210,7 +209,7 @@ export default function LeadershipSection() {
                   {/* Member Name and Role Details */}
                   <div className="space-y-1 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <h4 className="text-sm sm:text-base font-semibold text-[#F8FAFC] tracking-wide truncate">
+                      <h4 className="text-sm sm:text-base font-semibold text-[#F8FAFC] tracking-wide truncate group-hover:text-white transition-colors">
                         {member.name}
                       </h4>
                       <div className="flex items-center gap-1.5 shrink-0">
@@ -219,7 +218,7 @@ export default function LeadershipSection() {
                             href={member.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-1 rounded-md text-[#64748B] hover:text-[#38BDF8] hover:bg-white/[0.06] transition-colors"
+                            className="p-1 rounded-md text-[#64748B] hover:text-[#38BDF8] hover:bg-white/[0.08] transition-colors"
                             aria-label={`${member.name} LinkedIn Profile`}
                           >
                             <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -230,11 +229,6 @@ export default function LeadershipSection() {
                         {isManager && (
                           <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FF6B00]/15 text-[#FF8A3D] border border-[#FF6B00]/30">
                             Manager
-                          </span>
-                        )}
-                        {isDeveloper && (
-                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#38BDF8]/15 text-[#38BDF8] border border-[#38BDF8]/30">
-                            Tech Lead
                           </span>
                         )}
                       </div>
@@ -255,7 +249,7 @@ export default function LeadershipSection() {
           <div className="mt-12 p-6 rounded-2xl bg-[#0D1F3C]/80 border border-[rgba(120,150,200,0.18)] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <div>
               <h5 className="text-sm font-semibold text-[#F8FAFC]">
-                Interested in joining our Investment Banking & DPA advisory desk?
+                Interested in joining our Investment Banking & DPR advisory desk?
               </h5>
               <p className="text-xs text-[#94A3B8] mt-0.5">
                 Please send your resume to our careers desk at{" "}
