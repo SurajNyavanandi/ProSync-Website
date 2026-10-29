@@ -1,257 +1,339 @@
-import { ShieldCheck, ArrowUpRight, ArrowUp, Phone, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
 import { companyData } from "../data/companyData";
+import { 
+  Mail, 
+  Phone, 
+  X as CloseIcon,
+  FileText,
+  ShieldCheck
+} from "lucide-react";
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const [activeModal, setActiveModal] = useState(null); // 'terms' | 'privacy' | null
+
+  const navigationColumns = [
+    {
+      title: "Services",
+      links: [
+        { label: "Debt Syndication", href: "#services" },
+        { label: "Corporate Term Loans", href: "#services" },
+        { label: "Working Capital Lines", href: "#services" },
+        { label: "Project Advisory & DPR", href: "#services" },
+        { label: "Capital & Transactions", href: "#services" },
+        { label: "Growth Equity Advisory", href: "#services" },
+        { label: "Equipment Refinancing", href: "#services" },
+        { label: "Trade & Supply Chain", href: "#services" },
+        { label: "Pre-IPO Structuring", href: "#services" },
+      ],
+    },
+    {
+      title: "Solutions",
+      links: [
+        { label: "Roads & Highways (HAM)", href: "#sectors" },
+        { label: "Solar & Clean Energy", href: "#sectors" },
+        { label: "Industrial EPC & Civil", href: "#sectors" },
+        { label: "Agribusiness & Cold Chain", href: "#sectors" },
+        { label: "Automated Manufacturing", href: "#sectors" },
+        { label: "Advanced Materials", href: "#sectors" },
+        { label: "Logistics & Warehousing", href: "#sectors" },
+        { label: "Healthcare & Diagnostics", href: "#sectors" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Techno-Economic Viability (TEV)", href: "#services" },
+        { label: "Detailed Project Reports (DPR)", href: "#services" },
+        { label: "Bank Consortium Structuring", href: "#bankers" },
+        { label: "Dynamic CMA Financial Models", href: "#prosync-global" },
+        { label: "Enterprise Valuation (DCF/LBO)", href: "#prosync-global" },
+        { label: "Debt Capacity Diagnostic", href: "#approach" },
+        { label: "Credit Committee Briefings", href: "#approach" },
+        { label: "Due Diligence & VDR Support", href: "#prosync-global" },
+      ],
+    },
+    {
+      title: "Support",
+      links: [
+        { label: "Mandate Submission Desk", href: "#contact" },
+        { label: "Institutional Banker Network", href: "#bankers" },
+        { label: "Deal Appraisal Timeline", href: "#contact" },
+        { label: "Bilateral NDA Execution", href: "#contact" },
+        { label: "Hyderabad Corporate Office", href: "#contact" },
+        { label: "Direct Inquiries Hotline", href: `tel:${companyData.phoneRaw}` },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About Prosync", href: "#about" },
+        { label: "Partner Leadership", href: "#leadership" },
+        { label: "Project Finance Analysts", href: "#team" },
+        { label: "Authorized Credentials", href: "#clients" },
+        { label: "Verified Mandate Closures", href: "#transactions" },
+        { label: "Global Analytics Desk", href: "#prosync-global" },
+        { label: "Careers & Internships", href: `mailto:${companyData.careersEmail}?subject=Career Inquiry - Prosync` },
+      ],
+    },
+  ];
 
   return (
-    <footer className="relative bg-[#01040A] text-[#94A3B8] border-t border-white/[0.12] transition-colors">
-      {/* Radiant Top Luminous Boundary Accent Beam */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent opacity-90 shadow-[0_0_16px_rgba(255,107,0,0.6)]" />
+    <footer className="w-full bg-white text-[#111827] border-t border-gray-200 font-sans antialiased">
+      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 pt-14 pb-8 sm:pt-16 sm:pb-10">
+        
+        {/* Main Content Grid: 5 Categorical Columns + 1 Brand Column */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 sm:gap-x-8">
+          
+          {/* Categorical Link Columns (1 to 5) */}
+          {navigationColumns.map((col, idx) => (
+            <div key={idx} className="flex flex-col">
+              <h3 className="text-[15px] font-semibold text-[#111827] tracking-tight mb-4">
+                {col.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {col.links.map((link, linkIdx) => (
+                  <li key={linkIdx}>
+                    <a
+                      href={link.href}
+                      className="text-[13px] text-[#4B5563] hover:text-[#002244] hover:underline underline-offset-2 transition-colors duration-150 inline-block leading-snug"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-      {/* Subtle Ambient Radial Glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[180px] bg-[radial-gradient(ellipse_at_top,_rgba(255,107,0,0.08)_0%,_transparent_70%)] blur-2xl z-0"
-      />
-
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20 relative z-10 space-y-14">
-
-        {/* Top Tier: Brand Identity & Instant Action */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-white/[0.08]">
-          <div className="flex items-center gap-4">
-            <div className="relative h-12 w-12 rounded-xl overflow-hidden bg-white/95 p-1.5 border border-white/20 shadow-md shrink-0">
+          {/* Far-Right Column: Large Brand Mark, Mission Paragraph & Key Links */}
+          <div className="col-span-2 sm:col-span-1 md:col-span-3 lg:col-span-1 flex flex-col pt-2 lg:pt-0">
+            {/* Bold Brand Lockup */}
+            <a href="#" className="inline-flex items-center gap-2.5 group mb-4">
               <img
-                src={companyData.logoUrl}
-                alt="Prosync Consulting"
-                className="w-full h-full object-contain"
+                src={companyData.monogramUrl || companyData.logoUrl}
+                alt="Prosync"
+                className="w-8 h-8 object-contain shrink-0"
               />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xl font-bold tracking-tight text-white font-sans">
-                  {companyData.name}
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/30 text-[10px] font-mono text-[#34D399]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-                  Active Advisory
-                </span>
+              <span className="text-2xl font-black tracking-tight text-[#002244] uppercase">
+                PROSYNC
+              </span>
+            </a>
+
+            {/* Concise Mission / Bio */}
+            <p className="text-[13px] text-[#4B5563] leading-relaxed mb-6 pr-2">
+              Prosync is a premier corporate finance and debt syndication advisory firm. We structure high-value corporate credit, renewable energy financing, and infrastructure capital solutions for enterprises and concessionaires across India.
+            </p>
+
+            {/* Prominent Quick Navigation Links */}
+            <div className="space-y-2 text-[14px] font-medium text-[#111827]">
+              <div>
+                <a
+                  href="#about"
+                  className="hover:text-[#FF5500] hover:underline underline-offset-2 transition-colors inline-block"
+                >
+                  About
+                </a>
               </div>
-              <p className="text-xs text-[#64748B] font-mono">
-                {companyData.legalName}
-              </p>
+              <div>
+                <a
+                  href="#contact"
+                  className="hover:text-[#FF5500] hover:underline underline-offset-2 transition-colors inline-block"
+                >
+                  Contact Us
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Quick Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="#contact"
-              className="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-[#FF6B00] hover:bg-[#FF8A3D] shadow-[0_4px_16px_rgba(255,107,0,0.25)] transition-all inline-flex items-center gap-2 min-h-[44px]"
-            >
-              <span>Submit Mandate Brief</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-            <button
-              onClick={scrollToTop}
-              className="p-2.5 rounded-xl text-xs text-[#94A3B8] hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors inline-flex items-center justify-center min-h-[44px] min-w-[44px]"
-              aria-label="Back to top"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
-          </div>
         </div>
 
-        {/* Main Content Grid: 4 Distinct Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 text-xs">
-
-          {/* Column 1: Institutional Overview */}
-          <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#FF8A3D] uppercase tracking-wider font-semibold block">
-              About Prosync
-            </span>
-            <p className="text-[#94A3B8] leading-relaxed text-xs">
-              Premier corporate finance and deal architecture firm structuring multi-hundred crore debt syndication, private credit, and growth equity across India's infrastructure, energy, and industrial sectors.
-            </p>
-            <div className="space-y-1.5 pt-1 text-[11px] font-mono text-[#64748B]">
-              <div>CIN: <span className="text-[#CBD5E1]">{companyData.cin}</span></div>
-              <div className="flex items-center gap-1.5 text-[#10B981] pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
-                <span>Strict Non-Disclosure Guarantee</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Column 2: Advisory Practices */}
-          <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#38BDF8] uppercase tracking-wider font-semibold block">
-              Practice Disciplines
-            </span>
-            <ul className="space-y-2.5 text-xs text-[#94A3B8]">
-              <li>
-                <a href="#practice" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Debt Syndication & Consortium Loans
-                </a>
-              </li>
-              <li>
-                <a href="#practice" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Pre-IPO Advisory & Capital Structuring
-                </a>
-              </li>
-              <li>
-                <a href="#practice" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Solar & Clean Energy Project Finance
-                </a>
-              </li>
-              <li>
-                <a href="#practice" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  Infrastructure Concessions & HAM Models
-                </a>
-              </li>
-              <li>
-                <a href="#practice" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  DPR, TEV & Financial Feasibility
-                </a>
-              </li>
-              <li>
-                <a href="#practice" className="hover:text-white hover:translate-x-0.5 transition-all inline-block">
-                  M&A Advisory & Structured Working Capital
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Site Navigation & Mandates */}
-          <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#38BDF8] uppercase tracking-wider font-semibold block">
-              Direct Access
-            </span>
-            <ul className="space-y-2.5 text-xs text-[#94A3B8]">
-              <li>
-                <a href="#transactions" className="hover:text-white transition-colors">
-                  Track Record (₹250 Cr Flagship)
-                </a>
-              </li>
-              <li>
-                <a href="#bankers" className="hover:text-white transition-colors">
-                  Banking Consortia & Lending Partners
-                </a>
-              </li>
-              <li>
-                <a href="#sectors" className="hover:text-white transition-colors">
-                  Industry & Sector Coverage
-                </a>
-              </li>
-              <li>
-                <a href="#mandates" className="hover:text-white transition-colors">
-                  Mandate Matrix & Execution Roadmap
-                </a>
-              </li>
-              <li>
-                <a href="#clients" className="hover:text-white transition-colors">
-                  Client Credentials (MEIL, AR Petro, AARA)
-                </a>
-              </li>
-              <li>
-                <a href="#leadership" className="hover:text-white transition-colors">
-                  Executive Leadership & Senior Deal Team
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  Advisory FAQ & Evaluation Timelines
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Deal Desk & Direct Coordinates */}
-          <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#FF8A3D] uppercase tracking-wider font-semibold block">
-              Direct Deal Desk
-            </span>
-
-            <div className="space-y-3 text-xs">
-              {/* Phone */}
+        {/* Hairline Divider */}
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5 text-[13px] text-[#6B7280]">
+            
+            {/* Left: Minimal Social & Contact Icons matching Wix reference */}
+            <div className="flex items-center gap-4 text-[#111827]">
+              {/* Facebook */}
               <a
-                href={`tel:${companyData.phoneRaw}`}
-                className="p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-[#FF6B00]/40 transition-all flex items-center gap-3 text-[#CBD5E1] group"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-[#111827] hover:text-[#002244] transition-colors p-1"
               >
-                <div className="p-2 rounded-lg bg-[#071224] text-[#FF6B00]">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-[#64748B] block uppercase">Direct Line</span>
-                  <span className="font-mono text-white font-semibold text-xs group-hover:text-[#FF8A3D] transition-colors">
-                    {companyData.phone}
-                  </span>
-                </div>
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+
+              {/* YouTube */}
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="text-[#111827] hover:text-[#002244] transition-colors p-1"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-[#111827] hover:text-[#002244] transition-colors p-1"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+
+              {/* X (formerly Twitter) */}
+              <a
+                href="https://x.com/prosyncindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (formerly Twitter)"
+                className="text-[#111827] hover:text-[#002244] transition-colors p-1"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/prosyncindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-[#111827] hover:text-[#002244] transition-colors p-1"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
               </a>
 
               {/* Email */}
               <a
                 href={`mailto:${companyData.email}`}
-                className="p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-[#FF6B00]/40 transition-all flex items-center gap-3 text-[#CBD5E1] group"
+                aria-label="Direct Email"
+                className="text-[#111827] hover:text-[#FF5500] transition-colors p-1"
               >
-                <div className="p-2 rounded-lg bg-[#071224] text-[#38BDF8]">
-                  <Mail className="w-3.5 h-3.5" />
-                </div>
-                <div className="min-w-0">
-                  <span className="text-[10px] font-mono text-[#64748B] block uppercase">Executive Inbox</span>
-                  <span className="font-mono text-white font-medium text-xs truncate block group-hover:text-[#38BDF8] transition-colors">
-                    {companyData.email}
-                  </span>
-                </div>
+                <Mail className="w-4 h-4" />
               </a>
 
-              {/* Address */}
-              <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] flex items-start gap-3 text-[#94A3B8]">
-                <div className="p-2 rounded-lg bg-[#071224] text-[#94A3B8] shrink-0 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-[11px] leading-relaxed">
-                  <span className="text-[10px] font-mono text-[#64748B] block uppercase mb-0.5">Corporate HQ</span>
-                  {companyData.officeAddress}
-                </div>
-              </div>
-
-              {/* Careers */}
-              <div className="pt-1">
-                <a
-                  href={`mailto:${companyData.email}?subject=Job%20Application%20Resume%20-%20Prosync`}
-                  className="text-[#FF8A3D] hover:text-[#FFA767] font-mono text-[11px] inline-flex items-center gap-1.5 transition-colors"
-                >
-                  <span>Careers & Analyst Submissions</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </div>
+              {/* Phone */}
+              <a
+                href={`tel:${companyData.phoneRaw}`}
+                aria-label="Direct Phone"
+                className="text-[#111827] hover:text-[#FF5500] transition-colors p-1"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
             </div>
+
+            {/* Right: Legal Links & Copyright */}
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
+              <button
+                onClick={() => setActiveModal("terms")}
+                className="hover:text-[#111827] hover:underline underline-offset-2 transition-colors cursor-pointer text-left"
+              >
+                Terms of Use
+              </button>
+              <button
+                onClick={() => setActiveModal("privacy")}
+                className="hover:text-[#111827] hover:underline underline-offset-2 transition-colors cursor-pointer text-left"
+              >
+                Privacy Policy
+              </button>
+              <span className="text-[#6B7280]">
+                © 2015–{new Date().getFullYear()} {companyData.legalName || "Prosync Consulting Advisory Pvt. Ltd."}
+              </span>
+            </div>
+
           </div>
-
-        </div>
-
-        {/* Bottom Tier: Corporate Identifier & Notice */}
-        <div className="pt-8 border-t border-white/[0.08] space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-[#64748B] font-mono">
-            <div>
-              © 2026 {companyData.name}. All rights reserved.
-            </div>
-            <div className="flex items-center gap-4">
-              <span>Hyderabad</span>
-              <span>•</span>
-              <span>Mumbai</span>
-              <span>•</span>
-              <span>Bengaluru</span>
-            </div>
-          </div>
-          <p className="text-[11px] leading-relaxed text-[#475569]">
-            Information on this site is for institutional presentation purposes only and does not constitute an offer, invitation or solicitation of an offer to subscribe for, purchase, or otherwise acquire any securities or structured instruments in any jurisdiction.
-          </p>
         </div>
 
       </div>
+
+      {/* Institutional Legal Modals */}
+      {activeModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in duration-200"
+          onClick={() => setActiveModal(null)}
+        >
+          <div 
+            className="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-gray-200 text-[#1D1D1F] relative max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveModal(null)}
+              className="absolute top-5 right-5 p-1.5 text-gray-400 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Close"
+            >
+              <CloseIcon className="w-5 h-5" />
+            </button>
+
+            {activeModal === "terms" ? (
+              <div className="space-y-4">
+                <div className="flex items-center gap-2.5 text-[#002244]">
+                  <FileText className="w-6 h-6 text-[#FF5500]" />
+                  <h3 className="text-xl font-bold">Terms of Advisory Engagement</h3>
+                </div>
+                <div className="text-xs text-[#6B7280] font-mono">
+                  CIN: {companyData.cin} • Registered in Telangana, India
+                </div>
+                <div className="text-sm text-[#4B5563] space-y-3 leading-relaxed pt-2 border-t border-gray-100">
+                  <p>
+                    <strong>1. Institutional Mandate:</strong> Prosync Consulting Advisory Private Limited provides corporate debt syndication, project appraisal, and corporate finance transaction advisory. Content on this website is for informational reference and does not constitute a public credit offer or retail underwriting solicitation.
+                  </p>
+                  <p>
+                    <strong>2. Confidentiality:</strong> All client data, financial projections, CMA packages, and loan documentation are processed under binding bilateral Non-Disclosure Agreements (NDAs) adhering to statutory banking guidelines.
+                  </p>
+                  <p>
+                    <strong>3. Lender Sanction Authority:</strong> Final sanction, loan pricing, collateral haircut, and disbursement conditions remain the sole authority of the respective banking consortia, NBFCs, or institutional investors.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex items-center gap-2.5 text-[#002244]">
+                  <ShieldCheck className="w-6 h-6 text-[#002244]" />
+                  <h3 className="text-xl font-bold">Client Privacy & Data Safeguards</h3>
+                </div>
+                <div className="text-xs text-[#6B7280] font-mono">
+                  Strict Financial Confidentiality Observed
+                </div>
+                <div className="text-sm text-[#4B5563] space-y-3 leading-relaxed pt-2 border-t border-gray-100">
+                  <p>
+                    <strong>1. Information Collection:</strong> We collect business contact details, company balance sheets, project DPRs, and CMA models solely for the purpose of credit evaluation and lender placement.
+                  </p>
+                  <p>
+                    <strong>2. Institutional Data Handling:</strong> Proprietary data is never sold, traded, or shared with third parties without express mandate authorization from the client.
+                  </p>
+                  <p>
+                    <strong>3. Data Security:</strong> Communications and financial models are stored on secure institutional servers with encrypted access restricted to designated senior partners and execution analysts.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <div className="mt-6 pt-4 border-t border-gray-100 flex justify-end">
+              <button
+                onClick={() => setActiveModal(null)}
+                className="px-5 py-2 text-xs font-semibold text-white bg-[#002244] hover:bg-[#001830] rounded-lg transition-colors cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

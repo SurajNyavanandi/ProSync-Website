@@ -1,270 +1,337 @@
-import { useState, useEffect } from "react";
-import { ArrowUpRight, ShieldCheck, User } from "lucide-react";
+import { useState } from "react";
+import {
+  ArrowRight,
+  Mail,
+  User,
+  Building2,
+  Award
+} from "lucide-react";
 import { companyData } from "../data/companyData";
+import { Reveal, TiltCard } from "./common/Motion";
 
 export default function LeadershipSection() {
-  const [visibleCards, setVisibleCards] = useState({});
+  const [pradeepImgError, setPradeepImgError] = useState(false);
+  const [anandImgError, setAnandImgError] = useState(false);
+  const [teamImgErrors, setTeamImgErrors] = useState({});
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("data-observe-id");
-            if (id) {
-              setVisibleCards((prev) => ({ ...prev, [id]: true }));
-            }
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+  const handleTeamImgError = (name) => {
+    setTeamImgErrors((prev) => ({ ...prev, [name]: true }));
+  };
 
-    const elements = document.querySelectorAll("[data-observe-id]");
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  // Quadruple team list for seamless infinite carousel
+  const infiniteTeam = [
+    ...companyData.employees,
+    ...companyData.employees,
+    ...companyData.employees,
+    ...companyData.employees
+  ];
 
   return (
-    <section id="leadership" className="py-16 md:py-24 relative bg-[#07152B] border-y border-[rgba(120,150,200,0.15)] overflow-hidden">
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-
+    <section id="leadership" className="py-20 md:py-28 relative bg-white text-[#1D1D1F] border-b border-black/[0.05] overflow-hidden">
+      <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 space-y-24 md:space-y-32">
+        
         {/* Section Header */}
-        <div className="max-w-xl space-y-2 mb-12">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
-            Advisory Leadership
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-white/95">
-            Senior Partners & Deal Team
+        <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#002244] mb-3 font-sans">
+            Our Leadership
           </h2>
-          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
-            Direct partner oversight across every mandate and lender negotiation.
+          <p className="text-base sm:text-lg text-[#6E6E73] font-normal leading-relaxed">
+            Senior financial partners leading every mandate.
           </p>
-        </div>
+        </Reveal>
 
         {/* ======================================================== */}
-        {/* 1. EXECUTIVE LEADERS (Pradeep Tanuku & Anand Bandam) */}
+        {/* 1. EXECUTIVE FOUNDERS SPOTLIGHT (Alternating 2-Row Split) */}
         {/* ======================================================== */}
-        <div className="space-y-20 lg:space-y-28 mb-32">
-          {companyData.leadership.map((leader, index) => {
-            const observeId = `leader-${index}`;
-            const isVisible = visibleCards[observeId];
+        <div className="space-y-16 md:space-y-24">
+          
+          {/* ------------------------------------------------------ */}
+          {/* ROW 1: FOUNDER & MANAGING PARTNER (Pradeep Tanuku)     */}
+          {/* Text Left + Large Portrait Photo Right                  */}
+          {/* ------------------------------------------------------ */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Name, Title, Bio, Action Buttons */}
+            <div className="lg:col-span-7 space-y-6 sm:space-y-7 order-2 lg:order-1">
+              <Reveal delay={50} className="space-y-2">
+                <span className="text-xs font-mono font-bold text-[#FF5500] uppercase tracking-wider block">
+                  Founder &amp; Managing Partner
+                </span>
+                <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#002244] leading-[1.12]">
+                  Pradeep Tanuku
+                </h3>
+              </Reveal>
 
-            return (
-              <div
-                key={leader.name}
-                data-observe-id={observeId}
-                className={`transition-all duration-700 ease-out transform ${
-                  isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-16 scale-[0.98]"
-                }`}
-              >
-                <div className="fintech-panel rounded-3xl p-6 sm:p-10 lg:p-14 border border-[rgba(120,150,200,0.22)] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] group relative overflow-hidden bg-[#0D1F3C]/95">
-                  <div className="absolute top-0 left-0 w-32 h-1 bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-transparent" />
+              <Reveal delay={120}>
+                <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-normal">
+                  Pradeep Tanuku is a qualified Chartered Accountant with over 15 years of institutional experience across corporate debt syndication, project appraisal, and balance-sheet structuring. He established Prosync to provide mid-market enterprises and infrastructure sponsors with direct senior partner oversight from financial modeling through to bank sanction and disbursement.
+                </p>
+              </Reveal>
 
-                  <div className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${
-                    leader.reverse ? "lg:flex-row-reverse" : ""
-                  }`}>
+              {/* Action Buttons */}
+              <Reveal delay={200} className="pt-2 flex flex-wrap items-center gap-3.5">
+                <a
+                  href="#contact"
+                  className="px-7 py-3.5 rounded-full text-xs font-bold text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Discuss a Mandate</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
 
-                    {/* Image Column */}
-                    <div className={`lg:col-span-5 ${leader.reverse ? "lg:order-2" : "lg:order-1"}`}>
-                      <div className="relative mx-auto max-w-md lg:max-w-none">
-                        <div
-                          aria-hidden="true"
-                          className="absolute -inset-3 bg-gradient-to-tr from-[#FF6B00]/20 via-[#38BDF8]/15 to-[#FF8A3D]/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"
-                        />
-                        <div className="relative rounded-2xl overflow-hidden bg-[#0A1A33] border-2 border-[rgba(120,150,200,0.25)] shadow-2xl aspect-[4/5] sm:aspect-[4/5]">
-                          <img
-                            src={leader.image}
-                            alt={leader.name}
-                            onError={(e) => {
-                              e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop";
-                            }}
-                            className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
-                          />
-                          <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none z-10" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A33]/80 via-transparent to-transparent pointer-events-none" />
+                <a
+                  href={`mailto:${companyData.email}?subject=Mandate%20Inquiry%20-%20Attention%20Pradeep%20Tanuku`}
+                  className="px-7 py-3.5 rounded-full text-xs font-semibold text-[#002244] bg-[#F5F5F7] hover:bg-slate-200 border border-black/[0.08] transition-all inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
+                  <span>Contact Partner</span>
+                </a>
+              </Reveal>
+            </div>
 
-                          <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between p-3 rounded-xl bg-[#0A1A33]/90 backdrop-blur-md border border-[rgba(120,150,200,0.25)]">
-                            <span className="text-xs font-mono font-semibold text-[#FF8A3D] uppercase tracking-wider">
-                              {leader.role}
-                            </span>
-                            <div className="flex items-center gap-1.5 text-[11px] text-[#38BDF8] font-mono">
-                              <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-                              <span>Prosync Advisory</span>
-                            </div>
-                          </div>
+            {/* Right Column: Large Portrait Photo Card */}
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <Reveal delay={150}>
+                <TiltCard
+                  maxTilt={4}
+                  scale={1.015}
+                  glowColor="rgba(0, 34, 68, 0.08)"
+                  className="rounded-3xl overflow-hidden"
+                >
+                  <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden bg-slate-100 border border-black/[0.08] shadow-[0_20px_50px_rgba(0,34,68,0.12)] group">
+                    {!pradeepImgError ? (
+                      <img
+                        src="https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/pradeepsir_ffnpct.jpg"
+                        alt="Pradeep Tanuku - Founder & Managing Partner"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={() => setPradeepImgError(true)}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-[#0A2240] to-[#041224] text-white">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-mono uppercase tracking-widest text-[#FF8A3D] font-bold">
+                            Leadership
+                          </span>
+                          <Award className="w-6 h-6 text-[#FF8A3D]" />
+                        </div>
+                        <div className="space-y-2">
+                          <h3 className="text-2xl font-bold text-white">Pradeep Tanuku</h3>
+                          <p className="text-xs text-slate-300 font-mono">Chartered Accountant • Founder</p>
+                        </div>
+                        <div className="text-xs font-mono text-slate-400 border-t border-white/10 pt-3">
+                          Prosync Advisory Private Limited
                         </div>
                       </div>
-                    </div>
+                    )}
 
-                    {/* Editorial Content Column */}
-                    <div className={`lg:col-span-7 space-y-6 ${leader.reverse ? "lg:order-1" : "lg:order-2"}`}>
+                    {/* Bottom frosted caption badge */}
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/92 backdrop-blur-md border border-white/40 shadow-sm flex items-center justify-between">
                       <div>
-                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F8FAFC] font-sans">
-                          {leader.name}
-                        </h3>
-
-                        <div className="mt-2 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#38BDF8] font-mono">
-                          {leader.role}
-                        </div>
-
-                        <div className="w-16 h-0.5 bg-[#FF6B00] mt-4 mb-6 rounded-full" />
+                        <h3 className="text-sm font-bold text-[#002244]">Pradeep Tanuku</h3>
+                        <span className="text-[11px] font-mono text-[#FF5500] font-semibold block">
+                          Founder & Managing Partner
+                        </span>
                       </div>
-
-                      <p className="text-base sm:text-lg text-[#CBD5E1] leading-relaxed font-normal">
-                        {leader.bio}
-                      </p>
-
-                      <div className="pt-2">
-                        <div className="text-[11px] font-mono uppercase tracking-wider text-[#94A3B8] mb-3">
-                          Core Practice Competencies
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {leader.focus.map((item) => (
-                            <span
-                              key={item}
-                              className="px-3.5 py-1.5 rounded-lg bg-[#0A1A33] border border-[rgba(120,150,200,0.2)] text-xs font-medium text-[#F8FAFC] flex items-center gap-2 group-hover:border-[#38BDF8]/40 transition-colors"
-                            >
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                              {item}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                      <span className="text-[10px] font-mono text-[#6E6E73] px-2.5 py-1 rounded-md bg-slate-100 font-medium">
+                        FCA • 15+ Yrs
+                      </span>
                     </div>
-
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                </TiltCard>
+              </Reveal>
+            </div>
 
-        {/* ======================================================== */}
-        {/* 2. TEAM SECTION: Blank Avatar Placeholders & Exact 6 Names */}
-        {/* ======================================================== */}
-        <div id="team" className="pt-8">
-          <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
-            <h3 className="text-xl sm:text-2xl font-bold tracking-widest uppercase text-[#F8FAFC] font-sans">
-              INVESTMENT BANKING & DPR ADVISORY TEAM
-            </h3>
-            <div className="w-20 h-0.5 bg-[#FF6B00] mx-auto rounded-full" />
-            <p className="text-xs sm:text-sm text-[#94A3B8] pt-2">
-              Our multidisciplinary team of techno-economic analysts, chartered financial modelers, and full-stack deal engineers.
-            </p>
           </div>
 
-          {/* 6 Clean High-Contrast Cards Grid (No Fade-Out, 100% Clarity, Animated Motion) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {companyData.employees.map((member, idx) => {
-              const isManager = member.role.toLowerCase().includes("manager");
-              const floatClass = idx % 3 === 0 ? "animate-card-float-1" : idx % 3 === 1 ? "animate-card-float-2" : "animate-card-float-3";
-
-              return (
-                <div
-                  key={member.name}
-                  className={`fintech-panel ${floatClass} rounded-2xl p-6 bg-[#0D1F3C] border border-[rgba(120,150,200,0.25)] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] shadow-lg flex items-center gap-5 hover:border-[#FF6B00]/70 hover:shadow-[0_16px_36px_rgba(255,107,0,0.18)] relative overflow-hidden group opacity-100 ${
-                    isManager ? "border-[#FF6B00]/40 shadow-[0_8px_24px_rgba(255,107,0,0.12)]" : ""
-                  }`}
+          {/* ------------------------------------------------------ */}
+          {/* ROW 2: BANKING & TRANSACTIONS PARTNER (Anand Bandam)   */}
+          {/* Inverted Layout: Large Photo Left + Content Right      */}
+          {/* ------------------------------------------------------ */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-4">
+            
+            {/* Left Column: Large Portrait Photo Card */}
+            <div className="lg:col-span-5 order-1">
+              <Reveal delay={150}>
+                <TiltCard
+                  maxTilt={4}
+                  scale={1.015}
+                  glowColor="rgba(255, 85, 0, 0.08)"
+                  className="rounded-3xl overflow-hidden"
                 >
-                  {/* Animated Top Orange Beam that glides across on hover */}
-                  <div className="absolute top-0 left-0 w-16 h-[2px] bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-transparent group-hover:w-full transition-all duration-500 ease-out" />
+                  <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden bg-slate-100 border border-black/[0.08] shadow-[0_20px_50px_rgba(0,34,68,0.12)] group">
+                    {!anandImgError ? (
+                      <img
+                        src="https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/anandsir_jusx9i.jpg"
+                        alt="Anand Bandam - Partner Banking & Transactions"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={() => setAnandImgError(true)}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col justify-between p-8 bg-gradient-to-br from-[#0F2744] via-[#0A1D36] to-[#061426] text-white">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">
+                            Banking Desk
+                          </span>
+                          <Building2 className="w-6 h-6 text-emerald-400" />
+                        </div>
+                        <div className="space-y-2">
+                          <h3 className="text-2xl font-bold text-white">Anand Bandam</h3>
+                          <p className="text-xs text-slate-300 font-mono">Banking & Credit Syndication</p>
+                        </div>
+                        <div className="text-xs font-mono text-slate-400 border-t border-white/10 pt-3">
+                          Consortium Lead • Tier-1 Banks
+                        </div>
+                      </div>
+                    )}
 
-                  {/* Modern Profile Photo or Minimalist Silhouette */}
-                  <div className="relative w-16 h-16 rounded-2xl bg-[#0A1A33] border border-[rgba(120,150,200,0.3)] overflow-hidden flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 group-hover:border-[#FF6B00]/50 transition-all duration-300">
-                    {member.image ? (
+                    {/* Bottom frosted caption badge */}
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/92 backdrop-blur-md border border-white/40 shadow-sm flex items-center justify-between">
+                      <div>
+                        <h3 className="text-sm font-bold text-[#002244]">Anand Bandam</h3>
+                        <span className="text-[11px] font-mono text-[#002244] font-semibold block">
+                          Partner - Banking & Transactions
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-mono text-emerald-700 px-2.5 py-1 rounded-md bg-emerald-50 font-semibold border border-emerald-200/50">
+                        Consortium Lead
+                      </span>
+                    </div>
+                  </div>
+                </TiltCard>
+              </Reveal>
+            </div>
+
+            {/* Right Column: Name, Title, Bio, Action Buttons */}
+            <div className="lg:col-span-7 space-y-6 sm:space-y-7 order-2">
+              <Reveal delay={50} className="space-y-2">
+                <span className="text-xs font-mono font-bold text-[#002244] uppercase tracking-wider block">
+                  Partner – Banking &amp; Transactions
+                </span>
+                <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#002244] leading-[1.12]">
+                  Anand Bandam
+                </h3>
+              </Reveal>
+
+              <Reveal delay={120}>
+                <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-normal">
+                  Anand Bandam spearheads corporate banking institutional relations and syndicated loan placement. His extensive experience across public sector banking leadership and credit committees enables Prosync to structure bankable proposals that address lender covenants, mitigate risk premiums, and expedite financial closure.
+                </p>
+              </Reveal>
+
+              {/* Action Buttons */}
+              <Reveal delay={200} className="pt-2 flex flex-wrap items-center gap-3.5">
+                <a
+                  href="#contact"
+                  className="px-7 py-3.5 rounded-full text-xs font-bold text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Discuss a Mandate</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href={`mailto:${companyData.email}?subject=Mandate%20Inquiry%20-%20Attention%20Anand%20Bandam`}
+                  className="px-7 py-3.5 rounded-full text-xs font-semibold text-[#002244] bg-[#F5F5F7] hover:bg-slate-200 border border-black/[0.08] transition-all inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
+                  <span>Contact Partner</span>
+                </a>
+              </Reveal>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ======================================================== */}
+        {/* 2. "MEET OUR TEAM" INFINITE SCROLLING CAROUSEL           */}
+        {/* ======================================================== */}
+        <div id="team" className="pt-6">
+          
+          {/* Centered Section Header */}
+          <Reveal className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#002244] mb-3 font-sans">
+              Meet Our Team
+            </h2>
+            <p className="text-base sm:text-lg text-[#6E6E73] font-normal leading-relaxed">
+              The specialists supporting your financial transactions.
+            </p>
+          </Reveal>
+
+          {/* Seamless Infinite Horizontal Carousel Track */}
+          <div className="relative w-full overflow-hidden py-6">
+            {/* Edge fade gradient masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+
+            <div className="animate-marquee-cards flex items-stretch gap-6 sm:gap-7 whitespace-nowrap">
+              {infiniteTeam.map((member, index) => {
+                const hasError = teamImgErrors[`${member.name}-${index}`];
+                const isManager = Boolean(member.role?.toLowerCase().includes("manager"));
+
+                return (
+                  <div
+                    key={`${member.name}-${index}`}
+                    className="w-[240px] sm:w-[270px] h-[340px] sm:h-[380px] rounded-3xl overflow-hidden relative group shrink-0 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] select-none border border-black/[0.08] bg-[#0A1E38]"
+                  >
+                    {/* Portrait Photo with Monochrome-to-Color Hover Effect */}
+                    {member.image && !hasError ? (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover object-top filter contrast-105"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                          if (e.currentTarget.nextSibling) {
-                            e.currentTarget.nextSibling.style.display = "flex";
-                          }
-                        }}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={() => handleTeamImgError(`${member.name}-${index}`)}
+                        className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"
                       />
-                    ) : null}
+                    ) : (
+                      // Clean fallback avatar container
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#0F2744] via-[#0A1D36] to-[#061426] p-6 text-center">
+                        <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-white font-mono font-bold text-xl mb-3 border border-white/15">
+                          {member.initials || <User className="w-7 h-7 text-slate-300" />}
+                        </div>
+                        <h4 className="text-base font-bold text-white tracking-tight">{member.name}</h4>
+                        <p className="text-xs text-slate-300 mt-1">{member.role || "Corporate Finance"}</p>
+                      </div>
+                    )}
 
-                    {/* Initials Fallback if no photo or error loading */}
-                    <div className={`flex flex-col items-center justify-center ${member.image ? "hidden" : "flex"}`}>
-                      {member.initials ? (
-                        <span className="text-sm font-mono font-bold text-[#A9B8CF] tracking-wider">
-                          {member.initials}
-                        </span>
-                      ) : (
-                        <User className="w-7 h-7 text-[#64748B] group-hover:text-[#38BDF8] transition-colors" />
-                      )}
-                    </div>
+                    {/* Dark gradient vignette over photo */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-                    {/* Role Color Dot */}
-                    <span
-                      className={`absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full border border-[#0A1A33] z-10 ${
-                        isManager ? "bg-[#FF6B00]" : "bg-[#10B981]"
-                      }`}
-                    />
-                  </div>
+                    {/* Manager Chip on Top Right */}
+                    {isManager && (
+                      <div className="absolute top-3.5 right-3.5 z-10 px-2.5 py-1 rounded-md bg-[#FF5500] text-white text-[10px] font-mono font-bold tracking-wider uppercase shadow-xs">
+                        Manager
+                      </div>
+                    )}
 
-                  {/* Member Name and Role Details */}
-                  <div className="space-y-1 flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <h4 className="text-sm sm:text-base font-semibold text-[#F8FAFC] tracking-wide truncate group-hover:text-white transition-colors">
-                        {member.name}
-                      </h4>
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        {member.linkedin && (
-                          <a
-                            href={member.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-1 rounded-md text-[#64748B] hover:text-[#38BDF8] hover:bg-white/[0.08] transition-colors"
-                            aria-label={`${member.name} LinkedIn Profile`}
-                          >
-                            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                            </svg>
-                          </a>
-                        )}
-                        {isManager && (
-                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#FF6B00]/15 text-[#FF8A3D] border border-[#FF6B00]/30">
-                            Manager
+                    {/* Bottom Frosted Glass Overlay (image_bfa67e0f.png reference style) */}
+                    <div className="absolute bottom-3 left-3 right-3 p-3.5 rounded-2xl bg-white/92 backdrop-blur-md border border-white/40 shadow-sm text-left transition-all duration-300 group-hover:bg-white">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-sm font-bold text-[#002244] tracking-tight truncate group-hover:text-[#FF5500] transition-colors">
+                          {member.name}
+                        </h4>
+                        {member.department && (
+                          <span className="text-[10px] font-mono text-[#6E6E73] truncate pl-1">
+                            {member.department.split("&")[0].trim()}
                           </span>
                         )}
                       </div>
+                      <p className="text-xs text-[#475569] font-medium truncate mt-0.5">
+                        {member.role || "Financial Advisory"}
+                      </p>
                     </div>
-                    <p className="text-xs text-[#38BDF8] font-medium truncate">
-                      {member.role}
-                    </p>
-                    <p className="text-[11px] font-mono text-[#64748B] truncate">
-                      {member.department}
-                    </p>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
 
-          {/* Clean Careers Callout */}
-          <div className="mt-12 p-6 rounded-2xl bg-[#0D1F3C]/80 border border-[rgba(120,150,200,0.18)] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div>
-              <h5 className="text-sm font-semibold text-[#F8FAFC]">
-                Interested in joining our Investment Banking & DPR advisory desk?
-              </h5>
-              <p className="text-xs text-[#94A3B8] mt-0.5">
-                Please send your resume to our careers desk at{" "}
-                <a href={`mailto:${companyData.email}`} className="text-[#38BDF8] font-mono hover:underline">
-                  {companyData.email}
-                </a>.
-              </p>
-            </div>
-            <a
-              href={`mailto:${companyData.email}?subject=Job%20Application%20-%20Prosync%20Advisory`}
-              className="btn-vivid-orange px-5 py-2.5 text-xs uppercase tracking-wider font-semibold whitespace-nowrap inline-flex items-center gap-2"
-            >
-              <span>Send Resume</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+          {/* Bottom Career Contact Strip */}
+          <div className="mt-8 text-center text-xs text-[#6E6E73] font-mono">
+            <span>Direct partner-led analyst desks • Full compliance with SEBI and RBI statutory standards</span>
           </div>
 
         </div>

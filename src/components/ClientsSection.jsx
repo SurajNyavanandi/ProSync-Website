@@ -1,61 +1,59 @@
-import { companyData } from "../data/companyData";
+import { Reveal } from "./common/Motion";
 
 export default function ClientsSection() {
+  const clientNames = [
+    "DRM Infrastructure",
+    "MEIL Projects",
+    "AR Petrochem",
+    "AARA Group",
+    "Navayuga Engineering",
+    "GVR Infra",
+    "KNR Constructions",
+    "Saradha Foods",
+    "Husuro Robotics",
+    "Chrome Silicon",
+    "Joist Group",
+    "Blue Lotus Logistics"
+  ];
+
+  // Quadruple the array for a seamless infinite marquee loop (-50% translation)
+  const infiniteClients = [
+    ...clientNames,
+    ...clientNames,
+    ...clientNames,
+    ...clientNames
+  ];
+
   return (
-    <section id="clients" className="py-16 md:py-24 relative bg-[#07152B]/80 border-b border-[rgba(120,150,200,0.15)] overflow-hidden">
-      <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 mb-8 sm:mb-10">
-
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div className="max-w-xl space-y-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
-              Clients & Sponsors
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-[#F8FAFC]">
-              Corporate Credentials
-            </h2>
-            <p className="text-sm text-[#94A3B8] font-light">
-              Selected enterprises and infrastructure concessionaires advised by Prosync.
-            </p>
-          </div>
-
-          <span className="text-[11px] font-mono text-[#64748B] hidden md:inline-block">
-            Auto-scrolling • Hover to pause
+    <section id="clients" className="py-14 md:py-18 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
+      <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 mb-8 text-center">
+        {/* Minimalist Section Header */}
+        <Reveal className="max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#FF5500] font-semibold block">
+            CLIENTS &amp; MANDATES
           </span>
-        </div>
-
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#002244] font-sans">
+            Trusted by Leading Enterprises &amp; Sponsors
+          </h2>
+        </Reveal>
       </div>
 
-      {/* Infinite Seamless Scrolling Client Cards Carousel */}
-      <div className="py-4 overflow-hidden relative">
-        {/* Soft edge fade gradient masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#07152B] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#07152B] to-transparent z-10 pointer-events-none" />
+      {/* Minimalist Text-Only Marquee Track */}
+      <div className="relative w-full overflow-hidden py-3">
+        {/* Soft gradient edge fade masks */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee-cards flex items-center gap-5 sm:gap-6 whitespace-nowrap">
-          {[...companyData.clients, ...companyData.clients, ...companyData.clients].map((client, idx) => (
+        <div className="animate-marquee flex items-center whitespace-nowrap">
+          {infiniteClients.map((client, index) => (
             <div
-              key={`${client.name}-${idx}`}
-              className="fintech-panel w-[280px] sm:w-[340px] p-5 rounded-2xl bg-[#0D1F3C]/95 border border-[rgba(120,150,200,0.18)] hover:border-[#FF6B00]/60 hover:shadow-[0_8px_24px_rgba(255,107,0,0.15)] transition-all duration-300 flex flex-col justify-between shrink-0 group relative overflow-hidden"
+              key={`${client}-${index}`}
+              className="inline-flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12"
             >
-              {/* Subtle top orange indicator line on hover */}
-              <div className="absolute top-0 left-0 w-12 h-[2px] bg-gradient-to-r from-[#FF6B00] to-transparent group-hover:w-24 transition-all duration-300" />
-
-              <div className="flex items-center justify-between gap-3 mb-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-base sm:text-lg text-[#F8FAFC] group-hover:text-white transition-colors">
-                    {client.name}
-                  </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                </div>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-[#0A1A33] border border-[rgba(120,150,200,0.2)] text-[#38BDF8] group-hover:border-[#FF6B00]/40 group-hover:text-[#FF8A3D] transition-colors shrink-0">
-                  {client.tag}
-                </span>
-              </div>
-
-              <p className="text-xs text-[#94A3B8] font-medium leading-tight whitespace-normal">
-                {client.fullName}
-              </p>
+              <span className="text-lg sm:text-xl font-bold tracking-tight text-[#002244] hover:text-[#FF5500] transition-colors cursor-default select-none">
+                {client}
+              </span>
+              <span className="text-black/15 font-mono text-base font-light select-none">/</span>
             </div>
           ))}
         </div>

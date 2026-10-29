@@ -8,7 +8,7 @@ export default function SEO({
   title = "Prosync India (Pro Sync) | Investment Banking, Debt Syndication & Advisory | prosyncindia.com",
   description = "Prosync India (Pro Sync Consulting) is a premier boutique investment banking advisory firm in Hyderabad, India. Specializing in corporate debt syndication, project finance, pre-IPO advisory, solar funding, and DPR studies.",
   canonical = "https://prosyncindia.com/",
-  image = "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793098353/prosync_ufbcfj.jpg"
+  image = "/assets/aistudio/Prosync_Circular_P_Logo_166619fe.png"
 }) {
   useEffect(() => {
     // 1. Update Document Title

@@ -1,111 +1,167 @@
-import { ArrowUpRight, CheckCircle2, TrendingUp, Landmark, ShieldCheck, Sun, FileSpreadsheet, Handshake } from "lucide-react";
-import { companyData } from "../data/companyData";
+import { useState } from "react";
+import { ArrowRight, Landmark, TrendingUp, Compass, Layers } from "lucide-react";
+import { Reveal, TiltCard } from "./common/Motion";
+import { IMAGES } from "../data/images";
 
 export default function PracticeSection() {
-  const getDisciplineIcon = (category) => {
-    switch (category) {
-      case "Senior Debt":
-        return <Landmark className="w-5 h-5 text-[#FF6B00]" />;
-      case "Institutional Capital":
-        return <TrendingUp className="w-5 h-5 text-[#FF8A3D]" />;
-      case "Public Readiness":
-        return <ShieldCheck className="w-5 h-5 text-[#FF6B00]" />;
-      case "Clean Energy":
-        return <Sun className="w-5 h-5 text-[#FF8A3D]" />;
-      case "Tenders & Public Works":
-        return <FileSpreadsheet className="w-5 h-5 text-[#FF6B00]" />;
-      default:
-        return <Handshake className="w-5 h-5 text-[#FF8A3D]" />;
+  const [imageErrors, setImageErrors] = useState({});
+
+  const services = [
+    {
+      id: "debt-syndication",
+      title: "Corporate Debt Syndication",
+      category: "Senior Debt & Bank Lines",
+      description: "Structure and syndicate term loans and consortium credit lines from premier Indian public and private banks.",
+      image: IMAGES.SERVICE_DEBT,
+      fallbackIcon: Landmark,
+      deliverable: "Bank sanction letters & consortium agreements",
+      cta: "Learn More"
+    },
+    {
+      id: "capital-transactions",
+      title: "Capital & Transactions",
+      category: "Growth Equity & Private Credit",
+      description: "Guide mid-market promoters through growth capital, structured mezzanine debt, and institutional cap-table design.",
+      image: IMAGES.SERVICE_CAPITAL,
+      fallbackIcon: TrendingUp,
+      deliverable: "Term sheets & cap-table modeling",
+      cta: "Learn More"
+    },
+    {
+      id: "project-advisory",
+      title: "Project Advisory & TEV",
+      category: "Infrastructure & Appraisal",
+      description: "Advise concessionaires on project feasibility, techno-economic valuation (TEV), and tender bid compliance.",
+      image: IMAGES.SERVICE_PROJECT,
+      fallbackIcon: Compass,
+      deliverable: "Lender-grade TEV & DPR appraisal",
+      cta: "Learn More"
+    },
+    {
+      id: "working-capital",
+      title: "Working Capital Facilities",
+      category: "Consortium Limits & Non-Fund",
+      description: "Optimize cash credit limits, letters of credit (LC), and bank guarantees (BG) to fuel scalable industrial operations.",
+      image: IMAGES.SERVICE_WORKING_CAPITAL,
+      fallbackIcon: Layers,
+      deliverable: "CMA data modeling & limit enhancement",
+      cta: "Learn More"
     }
+  ];
+
+  const handleImageError = (id) => {
+    setImageErrors((prev) => ({ ...prev, [id]: true }));
   };
 
   return (
-    <section id="practice" className="py-24 md:py-32 relative fintech-grid-bg">
-      <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8">
-
+    <section id="services" className="py-20 md:py-28 relative bg-[#FBFBFC] text-[#1D1D1F] border-b border-black/[0.05]">
+      <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8">
+        
         {/* Section Header */}
-        <div className="max-w-xl space-y-2 mb-12">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
-            Practice Disciplines
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-[#F8FAFC]">
-            Advisory Practice
+        <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#002244] mb-3 font-sans">
+            Our Services
           </h2>
-          <p className="text-sm sm:text-base text-[#94A3B8] font-light">
-            Debt syndication, private credit, and institutional deal architecture.
+          <p className="text-base sm:text-lg text-[#6E6E73] font-normal leading-relaxed">
+            Comprehensive financial advisory and debt syndication tailored for your business.
           </p>
-        </div>
+        </Reveal>
 
-        {/* 6 Disciplines Grid with Signature Prosync Orange Accents */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {companyData.disciplines.map((item, idx) => (
-            <div
-              key={idx}
-              className="fintech-panel rounded-2xl p-7 bg-[#0D1F3C]/95 border border-[rgba(120,150,200,0.18)] hover:border-[#FF6B00]/50 hover:shadow-[0_12px_32px_rgba(255,107,0,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-            >
-              {/* Signature 2px Gradient Orange Corner Accent */}
-              <div className="absolute top-0 left-0 w-20 h-[2px] bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-transparent group-hover:w-32 transition-all duration-300" />
+        {/* 4-Column Image Card Grid (image_a75a330b.png reference style) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch">
+          {services.map((service, idx) => {
+            const hasError = imageErrors[service.id];
+            const Icon = service.fallbackIcon;
 
-              <div>
-                {/* Header: Icon & Category */}
-                <div className="flex items-center justify-between pb-4 border-b border-[rgba(120,150,200,0.14)] mb-5">
-                  <div className="p-2.5 rounded-xl bg-[#0A1A33] border border-[#FF6B00]/30 shadow-xs group-hover:scale-105 transition-transform duration-200">
-                    {getDisciplineIcon(item.category)}
-                  </div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-semibold">
-                    {item.category}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-[#F8FAFC] group-hover:text-white transition-colors mb-3">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-[#94A3B8] leading-relaxed mb-6 font-normal">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Bottom Deliverable & Action */}
-              <div className="pt-4 border-t border-[rgba(120,150,200,0.12)] flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2 text-[#CBD5E1]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                  <span className="truncate max-w-[190px]">{item.deliverable}</span>
-                </div>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1 text-[#FF8A3D] hover:text-[#FF6B00] font-semibold transition-colors group-hover:translate-x-0.5 duration-150"
-                  aria-label={`Inquire about ${item.title}`}
+            return (
+              <Reveal key={service.id} delay={idx * 100} className="h-full">
+                <TiltCard
+                  maxTilt={4}
+                  scale={1.015}
+                  glowColor="rgba(0, 34, 68, 0.05)"
+                  className="h-full rounded-2xl"
                 >
-                  <span>Inquire</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          ))}
+                  <div className="h-full rounded-2xl bg-white border border-black/[0.06] hover:border-black/[0.14] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden p-4 sm:p-5">
+                    
+                    <div className="space-y-4">
+                      {/* Top Rounded Photo Banner */}
+                      <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-slate-100 border border-black/[0.04]">
+                        {!hasError ? (
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            loading="lazy"
+                            referrerPolicy="no-referrer"
+                            onError={() => handleImageError(service.id)}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        ) : (
+                          // Styled CSS/SVG Fallback Container
+                          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#EEF4FA] to-[#E2EBF5] text-[#002244] p-4 text-center">
+                            <div className="p-3 rounded-xl bg-white/80 shadow-2xs mb-2">
+                              <Icon className="w-6 h-6 text-[#FF5500]" />
+                            </div>
+                            <span className="text-[11px] font-mono font-semibold text-[#002244] tracking-tight">
+                              {service.category}
+                            </span>
+                          </div>
+                        )}
+                        
+                        {/* Subtle category tag overlay */}
+                        <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-xs border border-black/[0.06] text-[10px] font-mono font-semibold text-[#002244] shadow-2xs">
+                          {service.category.split("&")[0].trim()}
+                        </div>
+                      </div>
+
+                      {/* Content Area */}
+                      <div className="space-y-2 pt-1">
+                        <h3 className="text-lg sm:text-xl font-bold text-[#002244] tracking-tight group-hover:text-[#FF5500] transition-colors leading-snug">
+                          {service.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#6E6E73] leading-relaxed line-clamp-3 font-normal">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Bottom Action Link ("Learn More >") */}
+                    <div className="pt-4 mt-4 border-t border-black/[0.06] flex items-center justify-between">
+                      <a
+                        href="#contact"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#002244] group-hover:text-[#FF5500] transition-colors cursor-pointer"
+                      >
+                        <span>{service.cta}</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                      <span className="text-[10px] font-mono text-slate-400">
+                        Senior Partner Lead
+                      </span>
+                    </div>
+
+                  </div>
+                </TiltCard>
+              </Reveal>
+            );
+          })}
         </div>
 
-        {/* Advisory Banner with Orange Accent */}
-        <div className="mt-14 p-6 sm:p-7 rounded-2xl bg-[#0D1F3C] border border-[rgba(120,150,200,0.2)] flex flex-col md:flex-row items-center justify-between gap-6 shadow-md relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-24 h-1 bg-gradient-to-r from-[#FF6B00] to-transparent" />
-          <div className="space-y-1">
-            <h4 className="text-base font-semibold text-[#F8FAFC]">
-              Looking for a custom combination of bank debt and equity?
+        {/* Bottom Scope Banner */}
+        <Reveal delay={300} className="mt-12 p-6 sm:p-8 rounded-2xl bg-white border border-black/[0.06] flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+          <div className="space-y-1 max-w-2xl text-center md:text-left">
+            <h4 className="text-base sm:text-lg font-bold text-[#002244]">
+              Need customized bank consortium underwriting?
             </h4>
-            <p className="text-xs sm:text-sm text-[#94A3B8]">
-              We frequently structure hybrid funding packages combining low-cost bank loans with institutional equity.
+            <p className="text-xs sm:text-sm text-[#6E6E73] leading-relaxed">
+              We structure debt and mezzanine facilities directly aligned with Tier-1 PSU and private bank credit committees.
             </p>
           </div>
           <a
             href="#contact"
-            className="btn-vivid-orange px-6 py-3 text-xs font-semibold uppercase tracking-wider whitespace-nowrap shrink-0 inline-flex items-center gap-2 shadow-[0_4px_16px_rgba(255,107,0,0.4)]"
+            className="shrink-0 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#002244] hover:bg-[#FF5500] transition-all min-h-[44px] flex items-center shadow-md active:scale-95 cursor-pointer"
           >
-            <span>Consult Our Team</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            Discuss a Mandate
           </a>
-        </div>
+        </Reveal>
 
       </div>
     </section>

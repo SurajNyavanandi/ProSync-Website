@@ -4,66 +4,62 @@ import Navbar from "../components/layout/Navbar";
 import Hero from "../components/Hero";
 import BankersSection from "../components/BankersSection";
 import PracticeSection from "../components/PracticeSection";
+import AboutSplitSection from "../components/AboutSplitSection";
 import TransactionsSection from "../components/TransactionsSection";
-import SectorSection from "../components/SectorSection";
-import MandateMatrixSection from "../components/MandateMatrixSection";
 import ApproachSection from "../components/ApproachSection";
 import ClientsSection from "../components/ClientsSection";
 import LeadershipSection from "../components/LeadershipSection";
-import FaqSection from "../components/FaqSection";
+import ProsyncGlobalSection from "../components/ProsyncGlobalSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/layout/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#071224] text-[#F8FAFC] selection:bg-[#FF6B00] selection:text-white flex flex-col font-sans overflow-x-hidden">
-      {/* Dynamic SEO Meta for prosyncindia.com */}
+    <div className="min-h-screen bg-white text-[#1D1D1F] selection:bg-[#FF5500] selection:text-white flex flex-col font-sans overflow-x-hidden">
+      {/* Specification 20: SEO Meta & Structured Data */}
       <SEO />
 
-      {/* 1. Transparent Apple-Style Navigation */}
+      {/* Specification 1: Navigation (Logo, Services, About, Contact, Discuss a Mandate) */}
       <Navbar />
 
-      {/* Main Narrative Flow */}
+      {/* Main Corporate Finance & Investment Banking Narrative Flow */}
       <main className="flex-1 w-full">
-        {/* 2. Hero Section: Strategic Capital & Deal Architecture */}
+        {/* Specification 2, 3, 4, 5: Hero Banner with exact headline, dual buttons & floating bottom filter bar */}
         <Hero />
 
-        {/* 3. Banks We Work With: Immediate institutional credibility right below Hero */}
+        {/* Specification 11: Lending Partners Infinite Marquee Track (SBI, Canara, Kotak, BOB, Vivriti) */}
         <BankersSection />
 
-        {/* 4. Our Services: Core Practice Disciplines */}
+        {/* Core Services Section with Image Card Grid (image_a75a330b.png style) */}
         <PracticeSection />
 
-        {/* 5. Our Track Record: Flagship ₹250 Cr NHAI Concession Mandate */}
+        {/* About Prosync Split Section with Large Photo Card (image_ed04aee0.png style) */}
+        <AboutSplitSection />
+
+        {/* Specification 9: Case Studies Carousel (image_b1be602b.png style with corner notch & money highlight) */}
         <TransactionsSection />
 
-        {/* 6. Industries We Support: Sector Coverage */}
-        <SectorSection />
-
-        {/* 7. How We Work: Execution Roadmap by Mandate Type */}
-        <MandateMatrixSection />
-
-        {/* 8. Our Process & Key Metrics: Understand, Structure, Execute, Close */}
+        {/* Approach Section with Photographic Core Sectors Showcase */}
         <ApproachSection />
 
-        {/* 9. Our Clients: Enterprise Corporate Credentials Infinite Marquee */}
+        {/* Specification 11: Verified Client Credentials (DRM Infrastructure, MEIL, AR Petro, AARA Group) */}
         <ClientsSection />
 
-        {/* 10. Leadership & Advisory Team: Founders + Investment Banking & DPR Team */}
+        {/* Specification 10: Executive Leadership & Our Advisory Team (image_75b503d4.png & image_bfa67e0f.png styles) */}
         <LeadershipSection />
 
-        {/* 11. Advisory Intelligence: Frequently Asked Questions */}
-        <FaqSection />
+        {/* Specification 18: Dedicated Prosync Global Research Desk */}
+        <ProsyncGlobalSection />
 
-        {/* 12. Confidential Enquiry Form & Principal Deal Room */}
+        {/* Specification 15 & 16: Contact Section Split Card (image_4c537ec8.png style) */}
         <ContactSection />
       </main>
 
-      {/* 13. Institutional Footer */}
+      {/* Specification 16 & 17: Minimal Executive Footer */}
       <Footer />
 
-      {/* Persistent Quick-Contact Floating Actions */}
+      {/* Quick Action Floating Tools */}
       <FloatingWhatsApp />
       <ScrollToTop />
     </div>

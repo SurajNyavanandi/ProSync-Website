@@ -1,209 +1,370 @@
-import { useState } from 'react';
-import { ArrowRight, Layers, ShieldCheck, ChevronRight } from 'lucide-react';
-import { companyData } from '../data/companyData';
+import { useState } from "react";
+import {
+  MapPin,
+  Building2,
+  TrendingUp,
+  Search,
+  ChevronDown,
+  Play,
+  ArrowRight,
+  ShieldCheck,
+  Check
+} from "lucide-react";
+import { Reveal } from "./common/Motion";
 
 export default function Hero() {
-  const [activeStackIndex, setActiveStackIndex] = useState(0);
+  // State for interactive floating bottom filter bar
+  const [location, setLocation] = useState("Hyderabad / Pan-India");
+  const [facilityType, setFacilityType] = useState("Debt Syndication & TEV");
+  const [capitalRange, setCapitalRange] = useState("₹50 Cr - ₹500 Cr+");
+
+  // Dropdown open states
+  const [openDropdown, setOpenDropdown] = useState(null); // 'location' | 'type' | 'range' | null
+  const [filterMessage, setFilterMessage] = useState(null);
+  const [heroImgError, setHeroImgError] = useState(false);
+
+  const heroImageUrl = "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793277767/Executive_Portrait_in_a_City_Boardroom_ftx5ws.png";
+
+  const locationOptions = [
+    "Hyderabad / Pan-India",
+    "Mumbai Financial Hub",
+    "Bengaluru & South Hub",
+    "Delhi NCR & North",
+    "Multi-State Corridor"
+  ];
+
+  const facilityOptions = [
+    "Debt Syndication & TEV",
+    "Consortium Term Loans",
+    "Project Finance Appraisal",
+    "Structured Mezzanine Debt",
+    "Working Capital Facilities"
+  ];
+
+  const capitalOptions = [
+    "₹50 Cr - ₹500 Cr+",
+    "₹25 Cr - ₹75 Cr",
+    "₹75 Cr - ₹150 Cr",
+    "₹150 Cr - ₹300 Cr",
+    "₹300 Cr - ₹750 Cr+"
+  ];
+
+  const handleSearch = () => {
+    setFilterMessage(`Filtering mandates: ${facilityType} in ${location} (${capitalRange})`);
+    setTimeout(() => {
+      const el = document.getElementById("transactions") || document.getElementById("contact");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 400);
+  };
 
   return (
-    <section id="top" className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden fintech-grid-bg">
-      {/* Executive Advisory Background Image */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      >
+    <section
+      id="top"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white text-[#1D1D1F]"
+    >
+      {/* Ambient Faded Hero Background on the right side */}
+      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 pointer-events-none select-none overflow-hidden z-0 hidden lg:block opacity-20">
         <img
-          src="/assets/aistudio/Screenshot_2026-10-21_131742_8846fa8c.png"
-          alt="Where Ambition Meets Opportunity advisory meeting"
-          className="w-full h-full object-cover object-[75%_center] md:object-right opacity-65 md:opacity-80 transition-opacity duration-300"
+          src={heroImageUrl}
+          alt=""
+          className="w-full h-full object-cover object-right"
+          style={{
+            maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.8) 80%, black 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.8) 80%, black 100%)"
+          }}
         />
-        {/* Soft directional scrims: dark on left for text legibility, clear on right for image visibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1A33] via-[#0A1A33]/85 md:via-[#0A1A33]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A33] via-transparent to-[#0A1A33]/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A33]/60 via-transparent to-[#0A1A33]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
       </div>
 
-      {/* Subtle radial glow accents */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,_rgba(255,107,0,0.08)_0%,_transparent_70%)] blur-3xl z-[1]"
-      />
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute top-48 right-10 w-[450px] h-[450px] bg-[radial-gradient(circle,_rgba(110,147,199,0.07)_0%,_transparent_70%)] blur-3xl z-[1]"
-      />
-
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 relative z-10">
+        
+        {/* ======================================================== */}
+        {/* SPLIT 2-COLUMN HERO (image_0956d9f0.png reference style) */}
+        {/* ======================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[460px] md:min-h-[520px]">
           
-          {/* Left Column: Proposition & Call to Action */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Clean Kicker / Eyebrow */}
-            <span className="text-xs font-mono uppercase tracking-wider text-[#FF8A3D] font-medium block">
-              Strategic Capital Advisory
-            </span>
+          {/* ------------------------------------------------------ */}
+          {/* LEFT COLUMN: Content & Typography */}
+          {/* ------------------------------------------------------ */}
+          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
+            
+            {/* Two-tiered Headline matching reference */}
+            <div className="space-y-1 sm:space-y-2">
+              <Reveal delay={50}>
+                <span className="block text-3xl sm:text-5xl lg:text-[54px] font-medium tracking-tight text-[#1D1D1F] leading-[1.12]">
+                  Financial Advisory.
+                </span>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1 className="block text-4xl sm:text-6xl lg:text-[68px] font-extrabold tracking-tight text-[#002244] leading-[1.06]">
+                  Built Around Your Business.
+                </h1>
+              </Reveal>
+            </div>
 
-            {/* Apple-style Display Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#F5F7FA] leading-[1.12] [text-wrap:balance]">
-              {companyData.headlineLead}
-              <br />
-              <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] via-[#FF8A3D] to-[#FFA767]">
-                {companyData.headlineAccent}
-              </span>
-            </h1>
+            {/* Concise 2-Sentence Description */}
+            <Reveal delay={200}>
+              <p className="text-base sm:text-lg text-[#6E6E73] leading-relaxed max-w-xl font-normal">
+                We provide corporate debt syndication, private credit, and growth capital advisory across infrastructure, manufacturing, and mid-market enterprises. Partner-led execution from financial modeling to sanction.
+              </p>
+            </Reveal>
 
-            {/* Subtitle with high legibility */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#A9B8CF] leading-relaxed max-w-2xl font-light">
-              {companyData.subtitle}
-            </p>
-
-            {/* Dual CTAs */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            {/* Dual Action Buttons matching reference */}
+            <Reveal delay={280} className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6">
+              {/* 1. Primary Solid Pill Button */}
               <a
                 href="#contact"
-                className="btn-vivid-orange w-full sm:w-auto px-6 py-3.5 text-xs sm:text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2.5 min-h-[44px]"
+                className="px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-[#002244] hover:bg-[#FF5500] shadow-md shadow-[#002244]/15 hover:shadow-[#FF5500]/25 transition-all duration-200 inline-flex items-center gap-2 min-h-[48px] active:scale-95 cursor-pointer"
               >
                 <span>Discuss a Mandate</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
+              {/* 2. Secondary Circular Outline Icon Button ("Watch Demo" / "Explore Transactions") */}
               <a
-                href="#practice"
-                className="btn-secondary-fintech w-full sm:w-auto px-6 py-3.5 text-xs sm:text-sm font-medium inline-flex items-center justify-center gap-2 min-h-[44px]"
+                href="#transactions"
+                className="inline-flex items-center gap-3 text-sm font-semibold text-[#002244] hover:text-[#FF5500] group transition-colors cursor-pointer py-2"
               >
-                <span>Explore the Practice</span>
-                <ChevronRight className="w-4 h-4 text-[#6E93C7]" />
+                <div className="w-10 h-10 rounded-full border-2 border-[#002244] group-hover:border-[#FF5500] flex items-center justify-center transition-all duration-200 group-hover:scale-105 shadow-2xs">
+                  <Play className="w-4 h-4 fill-[#002244] group-hover:fill-[#FF5500] text-[#002244] group-hover:text-[#FF5500] ml-0.5 transition-colors" />
+                </div>
+                <span>Explore Transactions</span>
               </a>
-            </div>
+            </Reveal>
 
-            {/* Micro Trust Markers */}
-            <div className="pt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#A9B8CF]/80 border-t border-[rgba(120,150,200,0.15)]">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
-                <span>Strict Partner-Level Discretion & NDA</span>
-              </div>
-              <span aria-hidden="true" className="text-[rgba(120,150,200,0.3)]">|</span>
-              <div>
-                <span>Registered CIN: <span className="text-[#F5F7FA] font-mono">{companyData.cin}</span></span>
-              </div>
-            </div>
+            {/* Micro Credential Trust Line */}
+            <Reveal delay={340} className="pt-1 flex items-center gap-6 text-xs text-[#6E6E73] font-mono">
+              <span className="flex items-center gap-1.5 font-medium">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>Statutory NDA</span>
+              </span>
+              <span>•</span>
+              <span>₹2,500+ Cr Syndicated</span>
+              <span>•</span>
+              <span>25+ Lead Banks</span>
+            </Reveal>
           </div>
 
-          {/* Right Column: Interactive Apple-style Floating Capital Stack Panel */}
-          <div className="lg:col-span-5 relative">
-            {/* Subtle moving ambient light behind the card */}
-            <div 
-              aria-hidden="true"
-              className="absolute -inset-4 bg-gradient-to-r from-[#FF6B00]/15 via-[#6E93C7]/10 to-[#FF8A3D]/15 rounded-3xl blur-2xl opacity-60 animate-pulse-glow pointer-events-none"
-            />
+          {/* ------------------------------------------------------ */}
+          {/* RIGHT COLUMN: Executive Portrait in City Boardroom     */}
+          {/* (Faded seamlessly into the background on one side)    */}
+          {/* ------------------------------------------------------ */}
+          <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end min-h-[380px] lg:min-h-[520px]">
+            <Reveal delay={150} className="w-full">
+              <div className="relative w-full max-w-lg lg:max-w-xl mx-auto lg:mr-0 aspect-[4/3] sm:aspect-[5/4] lg:aspect-[6/5] flex items-center justify-center select-none group">
+                
+                {/* Subtle ambient light gradient glow behind the photo */}
+                <div className="absolute -inset-4 bg-gradient-to-tr from-[#002244]/10 via-[#FF5500]/08 to-transparent rounded-3xl blur-2xl pointer-events-none" />
 
-            <div className="floating-card-apple animate-float-slow rounded-2xl bg-[#13284A]/85 backdrop-blur-xl border border-[rgba(120,150,200,0.28)] p-6 md:p-7 relative overflow-hidden">
-              {/* Corner accent glow */}
-              <div 
-                aria-hidden="true"
-                className="absolute top-0 right-0 w-28 h-28 bg-[radial-gradient(circle_at_top_right,_rgba(255,107,0,0.2)_0%,_transparent_70%)] pointer-events-none"
-              />
+                {/* Main Executive Image with Smooth Fade on the Left & Bottom Edges */}
+                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,34,68,0.14)] border border-black/[0.06] bg-[#0A1A33]">
+                  {!heroImgError ? (
+                    <img
+                      src={heroImageUrl}
+                      alt="Prosync Executive Financial Advisory"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      loading="eager"
+                      onError={() => setHeroImgError(true)}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-[#002244] to-[#0A1A33] flex items-center justify-center text-white">
+                      <span className="font-mono text-sm">Prosync Advisory</span>
+                    </div>
+                  )}
 
-              {/* Panel Header */}
-              <div className="flex items-center justify-between pb-5 border-b border-[rgba(120,150,200,0.18)]">
-                <div className="flex items-center gap-2.5">
-                  <div className="p-1.5 rounded-lg bg-[#0A1A33] border border-[rgba(120,150,200,0.25)] text-[#FF6B00]">
-                    <Layers className="w-4 h-4" />
+                  {/* Soft gradient fade mask overlay on the inner/left side (facing the text) */}
+                  <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-white/95 via-white/40 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/80 via-white/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
+                </div>
+
+                {/* Floating Metric Badge 1: ₹2,500+ Cr Syndicated */}
+                <div className="absolute -bottom-4 left-4 sm:left-6 z-20 p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_12px_30px_rgba(0,34,68,0.12)] flex items-center gap-3 animate-card-float-1">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                    <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-sm font-semibold tracking-wide text-[#F5F7FA] block">Capital Stack</span>
-                    <span className="text-[11px] font-mono text-[#6E93C7]">PRS / ADV</span>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#6E6E73] font-bold block">
+                      Capital Syndicated
+                    </span>
+                    <span className="text-base sm:text-lg font-extrabold font-mono text-[#002244]">
+                      ₹2,500+ Cr
+                    </span>
                   </div>
                 </div>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#A9B8CF] px-2 py-0.5 rounded bg-[#0A1A33]/80 border border-[rgba(120,150,200,0.2)]">
-                  Seniority Order
-                </span>
-              </div>
 
-              {/* Stack Tranches */}
-              <div className="space-y-3 py-5">
-                {companyData.capitalStack.map((tier, idx) => {
-                  const isActive = activeStackIndex === idx;
-                  return (
-                    <div
-                      key={tier.level}
-                      onClick={() => setActiveStackIndex(idx)}
-                      onMouseEnter={() => setActiveStackIndex(idx)}
-                      className={`cursor-pointer rounded-xl p-3.5 transition-all duration-200 border ${
-                        isActive
-                          ? 'bg-[#0D1F3C] border-[#FF6B00]/70 shadow-[0_4px_16px_rgba(255,107,0,0.12)] -translate-x-1'
-                          : 'bg-[#0E203B]/60 border-[rgba(120,150,200,0.14)] hover:border-[rgba(120,150,200,0.35)] hover:bg-[#0E203B]'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-3">
-                          <span
-                            className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${
-                              isActive ? 'bg-[#FF6B00] text-white' : 'bg-[#183159] text-[#6E93C7]'
-                            }`}
-                          >
-                            {tier.level}
-                          </span>
-                          <span className="text-sm font-medium text-[#F5F7FA]">
-                            {tier.name}
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono text-[#A9B8CF] hidden sm:inline">
-                          {tier.riskProfile}
-                        </span>
-                      </div>
-
-                      {/* Tranche Detail Drawer (Animated on active) */}
-                      {isActive && (
-                        <div className="mt-2.5 pt-2.5 border-t border-[rgba(120,150,200,0.15)] text-xs text-[#A9B8CF] leading-relaxed animate-in fade-in duration-150">
-                          <p>{tier.detail}</p>
-                          <div className="mt-2 flex items-center justify-between text-[11px] font-mono text-[#6E93C7]">
-                            <span>Instrument: {tier.role}</span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Solutions Quick Bar */}
-              <div className="pt-4 border-t border-[rgba(120,150,200,0.18)]">
-                <div className="text-[11px] uppercase tracking-wider font-mono text-[#A9B8CF]/70 mb-2">
-                  Integrated Execution
+                {/* Floating Metric Badge 2: Partner-Led Execution */}
+                <div className="hidden sm:flex absolute -top-3 right-4 z-20 px-4 py-2.5 rounded-2xl bg-[#002244]/95 text-white backdrop-blur-md border border-white/20 shadow-[0_12px_30px_rgba(0,34,68,0.18)] items-center gap-2.5 animate-card-float-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-pulse" />
+                  <span className="text-xs font-semibold tracking-tight">
+                    Partner-Led Advisory Desk
+                  </span>
                 </div>
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="bg-[#0A1A33] border border-[rgba(120,150,200,0.2)] rounded-lg p-2 text-center">
-                    <span className="block text-xs font-semibold text-[#F5F7FA]">Debt</span>
-                    <span className="block text-[10px] text-[#6E93C7]">Solutions</span>
-                  </div>
-                  <div className="bg-[#0A1A33] border border-[rgba(120,150,200,0.2)] rounded-lg p-2 text-center">
-                    <span className="block text-xs font-semibold text-[#F5F7FA]">Equity</span>
-                    <span className="block text-[10px] text-[#6E93C7]">Solutions</span>
-                  </div>
-                  <div className="bg-[#0A1A33] border border-[rgba(120,150,200,0.2)] rounded-lg p-2 text-center">
-                    <span className="block text-xs font-semibold text-[#F5F7FA]">Advisory</span>
-                    <span className="block text-[10px] text-[#6E93C7]">Solutions</span>
-                  </div>
-                </div>
+
               </div>
-            </div>
+            </Reveal>
           </div>
-        </div>
-      </div>
 
-      {/* Solutions Continuous Infinite Marquee Strip */}
-      <div className="mt-16 md:mt-20 border-y border-[rgba(120,150,200,0.15)] bg-[#07152B]/80 py-3.5 overflow-hidden">
-        <div className="animate-marquee flex items-center gap-10 whitespace-nowrap">
-          {[...companyData.solutionMarquee, ...companyData.solutionMarquee, ...companyData.solutionMarquee].map(
-            (item, index) => (
-              <div key={index} className="inline-flex items-center gap-10 text-xs font-mono uppercase tracking-widest text-[#A9B8CF]/90">
-                <span className="hover:text-[#FF8A3D] transition-colors">{item}</span>
-                <span className="text-[#FF6B00]/70">/</span>
+        </div>
+
+        {/* ======================================================== */}
+        {/* SIGNATURE FLOATING BOTTOM INTERACTIVE BAR */}
+        {/* (image_0956d9f0.png reference signature component) */}
+        {/* ======================================================== */}
+        <div className="mt-12 sm:mt-16 lg:mt-20 relative z-30">
+          <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl bg-white border border-black/[0.08] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,34,68,0.09)] transition-all">
+            
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-0 items-center">
+              
+              {/* Field 1: Location */}
+              <div className="md:col-span-4 relative px-4 py-2 hover:bg-slate-50/80 rounded-xl transition-colors">
+                <button
+                  type="button"
+                  onClick={() => setOpenDropdown(openDropdown === "location" ? null : "location")}
+                  className="w-full text-left flex items-center justify-between group cursor-pointer"
+                >
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#6E6E73] font-semibold uppercase tracking-wider">
+                      <MapPin className="w-3.5 h-3.5 text-[#FF5500]" />
+                      <span>Location</span>
+                    </div>
+                    <div className="text-sm font-bold text-[#002244] truncate">
+                      {location}
+                    </div>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 text-slate-400 group-hover:text-[#002244] transition-transform ${openDropdown === "location" ? "rotate-180" : ""}`} />
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === "location" && (
+                  <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-black/[0.08] p-2 z-50">
+                    {locationOptions.map((opt) => (
+                      <div
+                        key={opt}
+                        onClick={() => {
+                          setLocation(opt);
+                          setOpenDropdown(null);
+                        }}
+                        className="px-3.5 py-2 text-xs font-medium text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl cursor-pointer flex items-center justify-between"
+                      >
+                        <span>{opt}</span>
+                        {location === opt && <Check className="w-3.5 h-3.5 text-[#FF5500]" />}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )
+
+              {/* Hairline Divider */}
+              <div className="hidden md:block w-px h-10 bg-black/[0.08]" />
+
+              {/* Field 2: Advisory / Facility Type */}
+              <div className="md:col-span-4 relative px-4 py-2 hover:bg-slate-50/80 rounded-xl transition-colors">
+                <button
+                  type="button"
+                  onClick={() => setOpenDropdown(openDropdown === "type" ? null : "type")}
+                  className="w-full text-left flex items-center justify-between group cursor-pointer"
+                >
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#6E6E73] font-semibold uppercase tracking-wider">
+                      <Building2 className="w-3.5 h-3.5 text-[#002244]" />
+                      <span>Facility Type</span>
+                    </div>
+                    <div className="text-sm font-bold text-[#002244] truncate">
+                      {facilityType}
+                    </div>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 text-slate-400 group-hover:text-[#002244] transition-transform ${openDropdown === "type" ? "rotate-180" : ""}`} />
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === "type" && (
+                  <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-black/[0.08] p-2 z-50">
+                    {facilityOptions.map((opt) => (
+                      <div
+                        key={opt}
+                        onClick={() => {
+                          setFacilityType(opt);
+                          setOpenDropdown(null);
+                        }}
+                        className="px-3.5 py-2 text-xs font-medium text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl cursor-pointer flex items-center justify-between"
+                      >
+                        <span>{opt}</span>
+                        {facilityType === opt && <Check className="w-3.5 h-3.5 text-[#FF5500]" />}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Hairline Divider */}
+              <div className="hidden md:block w-px h-10 bg-black/[0.08]" />
+
+              {/* Field 3: Ticket Size / Price Range */}
+              <div className="md:col-span-3 relative px-4 py-2 hover:bg-slate-50/80 rounded-xl transition-colors">
+                <button
+                  type="button"
+                  onClick={() => setOpenDropdown(openDropdown === "range" ? null : "range")}
+                  className="w-full text-left flex items-center justify-between group cursor-pointer"
+                >
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#6E6E73] font-semibold uppercase tracking-wider">
+                      <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Capital Range</span>
+                    </div>
+                    <div className="text-sm font-bold text-[#002244] truncate">
+                      {capitalRange}
+                    </div>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 text-slate-400 group-hover:text-[#002244] transition-transform ${openDropdown === "range" ? "rotate-180" : ""}`} />
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === "range" && (
+                  <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-black/[0.08] p-2 z-50">
+                    {capitalOptions.map((opt) => (
+                      <div
+                        key={opt}
+                        onClick={() => {
+                          setCapitalRange(opt);
+                          setOpenDropdown(null);
+                        }}
+                        className="px-3.5 py-2 text-xs font-medium text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl cursor-pointer flex items-center justify-between"
+                      >
+                        <span>{opt}</span>
+                        {capitalRange === opt && <Check className="w-3.5 h-3.5 text-[#FF5500]" />}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Action: Circular Search Button */}
+              <div className="md:col-span-1 flex items-center justify-end px-2">
+                <button
+                  type="button"
+                  onClick={handleSearch}
+                  className="w-12 h-12 rounded-full bg-[#002244] hover:bg-[#FF5500] text-white flex items-center justify-center shadow-md shadow-[#002244]/20 hover:shadow-[#FF5500]/30 transition-all duration-200 active:scale-95 cursor-pointer"
+                  title="Search & Filter Mandates"
+                  aria-label="Search & Filter Mandates"
+                >
+                  <Search className="w-5 h-5 stroke-[2.2]" />
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Optional Action Toast */}
+          {filterMessage && (
+            <div className="mt-3 text-center text-xs font-mono text-emerald-700 animate-fade-in font-medium">
+              ✓ {filterMessage}
+            </div>
           )}
         </div>
+
       </div>
     </section>
   );
