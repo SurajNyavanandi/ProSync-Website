@@ -21,9 +21,9 @@ export default function Hero() {
   // Dropdown open states
   const [openDropdown, setOpenDropdown] = useState(null); // 'location' | 'type' | 'range' | null
   const [filterMessage, setFilterMessage] = useState(null);
-  const [heroImgError, setHeroImgError] = useState(false);
 
-  const heroImageUrl = "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793277767/Executive_Portrait_in_a_City_Boardroom_ftx5ws.png";
+  const heroBgUrl = "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793334844/Executive_Presentation_with_City_View_xv9uyz.png";
+  const heroFallbackUrl = "/assets/aistudio/Executive_Presentation_with_City_View_f9a1ae0a.png";
 
   const locationOptions = [
     "Hyderabad / Pan-India",
@@ -62,19 +62,22 @@ export default function Hero() {
       id="top"
       className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white text-[#1D1D1F]"
     >
-      {/* Ambient Faded Hero Background on the right side */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 pointer-events-none select-none overflow-hidden z-0 hidden lg:block opacity-20">
+      {/* Full-Bleed Executive Boardroom Presentation Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden">
         <img
-          src={heroImageUrl}
-          alt=""
-          className="w-full h-full object-cover object-right"
-          style={{
-            maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.8) 80%, black 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.8) 80%, black 100%)"
+          src={heroBgUrl}
+          alt="Executive Financial Advisory Presentation in City Boardroom"
+          className="w-full h-full object-cover object-right opacity-95 transition-opacity duration-700"
+          onError={(e) => {
+            if (e.currentTarget.src !== heroFallbackUrl) {
+              e.currentTarget.src = heroFallbackUrl;
+            }
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+        {/* Mobile/Tablet gradient overlay ensuring 100% text contrast on narrower viewports */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:hidden pointer-events-none" />
+        {/* Bottom soft gradient fade into the subsequent section */}
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
       </div>
 
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 relative z-10">
@@ -85,19 +88,19 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[460px] md:min-h-[520px]">
           
           {/* ------------------------------------------------------ */}
-          {/* LEFT COLUMN: Content & Typography */}
+          {/* LEFT COLUMN: Content & Typography                      */}
           {/* ------------------------------------------------------ */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             
-            {/* Two-tiered Headline matching reference */}
+            {/* Two-tiered Headline with refined modern tracking */}
             <div className="space-y-1 sm:space-y-2">
               <Reveal delay={50}>
-                <span className="block text-3xl sm:text-5xl lg:text-[54px] font-medium tracking-tight text-[#1D1D1F] leading-[1.12]">
+                <span className="block text-3xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.03em] text-[#1D1D1F] leading-[1.1]">
                   Financial Advisory.
                 </span>
               </Reveal>
               <Reveal delay={120}>
-                <h1 className="block text-4xl sm:text-6xl lg:text-[68px] font-extrabold tracking-tight text-[#002244] leading-[1.06]">
+                <h1 className="block text-4xl sm:text-6xl lg:text-[70px] font-black tracking-[-0.035em] text-[#002244] leading-[1.04]">
                   Built Around Your Business.
                 </h1>
               </Reveal>
@@ -105,7 +108,7 @@ export default function Hero() {
 
             {/* Concise 2-Sentence Description */}
             <Reveal delay={200}>
-              <p className="text-base sm:text-lg text-[#6E6E73] leading-relaxed max-w-xl font-normal">
+              <p className="text-base sm:text-lg text-[#52525B] leading-relaxed max-w-xl font-normal tracking-[-0.01em]">
                 We provide corporate debt syndication, private credit, and growth capital advisory across infrastructure, manufacturing, and mid-market enterprises. Partner-led execution from financial modeling to sanction.
               </p>
             </Reveal>
@@ -121,7 +124,7 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* 2. Secondary Circular Outline Icon Button ("Watch Demo" / "Explore Transactions") */}
+              {/* 2. Secondary Circular Outline Icon Button ("Explore Transactions") */}
               <a
                 href="#transactions"
                 className="inline-flex items-center gap-3 text-sm font-semibold text-[#002244] hover:text-[#FF5500] group transition-colors cursor-pointer py-2"
@@ -147,63 +150,45 @@ export default function Hero() {
           </div>
 
           {/* ------------------------------------------------------ */}
-          {/* RIGHT COLUMN: Executive Portrait in City Boardroom     */}
-          {/* (Faded seamlessly into the background on one side)    */}
+          {/* RIGHT COLUMN: Floating Frosted Badges Over Scene       */}
           {/* ------------------------------------------------------ */}
-          <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end min-h-[380px] lg:min-h-[520px]">
-            <Reveal delay={150} className="w-full">
-              <div className="relative w-full max-w-lg lg:max-w-xl mx-auto lg:mr-0 aspect-[4/3] sm:aspect-[5/4] lg:aspect-[6/5] flex items-center justify-center select-none group">
-                
-                {/* Subtle ambient light gradient glow behind the photo */}
-                <div className="absolute -inset-4 bg-gradient-to-tr from-[#002244]/10 via-[#FF5500]/08 to-transparent rounded-3xl blur-2xl pointer-events-none" />
+          <div className="lg:col-span-5 relative hidden lg:flex flex-col justify-between items-end min-h-[440px] pointer-events-none select-none">
+            
+            {/* Floating Frosted Pill 1: Lead Arranger Desk */}
+            <div className="p-4 rounded-2xl bg-white/88 backdrop-blur-md border border-white/80 shadow-[0_14px_35px_rgba(0,34,68,0.1)] flex items-center gap-3.5 animate-card-float-2 pointer-events-auto mt-6">
+              <div className="w-10 h-10 rounded-xl bg-[#002244] text-white flex items-center justify-center shrink-0 shadow-xs">
+                <Building2 className="w-5 h-5 text-[#FF8A3D]" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#6E6E73] font-bold block">
+                  Institutional Syndicate Desk
+                </span>
+                <span className="text-xs font-bold text-[#002244]">
+                  Tier-1 PSU &amp; Private Bank Consortia
+                </span>
+              </div>
+            </div>
 
-                {/* Main Executive Image with Smooth Fade on the Left & Bottom Edges */}
-                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,34,68,0.14)] border border-black/[0.06] bg-[#0A1A33]">
-                  {!heroImgError ? (
-                    <img
-                      src={heroImageUrl}
-                      alt="Prosync Executive Financial Advisory"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                      loading="eager"
-                      onError={() => setHeroImgError(true)}
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-[#002244] to-[#0A1A33] flex items-center justify-center text-white">
-                      <span className="font-mono text-sm">Prosync Advisory</span>
-                    </div>
-                  )}
-
-                  {/* Soft gradient fade mask overlay on the inner/left side (facing the text) */}
-                  <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-white/95 via-white/40 to-transparent pointer-events-none" />
-                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/80 via-white/20 to-transparent pointer-events-none" />
-                  <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
-                </div>
-
-                {/* Floating Metric Badge 1: ₹2,500+ Cr Syndicated */}
-                <div className="absolute -bottom-4 left-4 sm:left-6 z-20 p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-black/[0.08] shadow-[0_12px_30px_rgba(0,34,68,0.12)] flex items-center gap-3 animate-card-float-1">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#6E6E73] font-bold block">
-                      Capital Syndicated
-                    </span>
-                    <span className="text-base sm:text-lg font-extrabold font-mono text-[#002244]">
-                      ₹2,500+ Cr
-                    </span>
-                  </div>
-                </div>
-
-                {/* Floating Metric Badge 2: Partner-Led Execution */}
-                <div className="hidden sm:flex absolute -top-3 right-4 z-20 px-4 py-2.5 rounded-2xl bg-[#002244]/95 text-white backdrop-blur-md border border-white/20 shadow-[0_12px_30px_rgba(0,34,68,0.18)] items-center gap-2.5 animate-card-float-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-pulse" />
-                  <span className="text-xs font-semibold tracking-tight">
-                    Partner-Led Advisory Desk
+            {/* Floating Frosted Badge 2: ₹2,500+ Cr Capital Syndicated */}
+            <div className="p-4 rounded-2xl bg-white/92 backdrop-blur-md border border-white/80 shadow-[0_18px_40px_rgba(0,34,68,0.12)] flex items-center gap-3.5 animate-card-float-1 pointer-events-auto mb-8">
+              <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#6E6E73] font-bold block">
+                  Capital Syndicated
+                </span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xl font-extrabold font-mono text-[#002244] tracking-tight">
+                    ₹2,500+ Cr
+                  </span>
+                  <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
+                    100% Closure
                   </span>
                 </div>
-
               </div>
-            </Reveal>
+            </div>
+
           </div>
 
         </div>
