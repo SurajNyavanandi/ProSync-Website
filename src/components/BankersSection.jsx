@@ -21,20 +21,22 @@ function BankLogoItem({ bank }) {
   const activeUrl = urls[currentUrlIndex];
 
   return (
-    <div className="inline-flex items-center gap-10 sm:gap-14 group cursor-pointer">
-      <div className="flex items-center gap-3.5 transition-all duration-200 group-hover:scale-105">
-        <div className="h-10 min-w-[42px] px-3 py-1.5 rounded-xl bg-white border border-black/[0.06] group-hover:border-[#FF5500]/50 shadow-xs transition-all duration-200 shrink-0 flex items-center justify-center">
-          {activeUrl && !imageError ? (
-            <img
-              src={activeUrl}
-              alt={bank.name}
-              className="h-6 w-auto max-w-[105px] object-contain"
-              loading="lazy"
-              onError={handleImgError}
-            />
-          ) : (
-            bank.renderFallback()
-          )}
+    <div className="inline-flex items-center gap-8 sm:gap-12 group cursor-pointer select-none">
+      <div className="flex items-center gap-3.5 transition-all duration-300 group-hover:scale-105">
+        <div className="h-11 min-w-[46px] px-3.5 py-1.5 rounded-xl bg-white border border-black/[0.06] group-hover:border-[#FF5500]/50 shadow-xs transition-all duration-300 shrink-0 flex items-center justify-center">
+          <div className="filter grayscale group-hover:grayscale-0 transition-all duration-300 flex items-center justify-center">
+            {activeUrl && !imageError ? (
+              <img
+                src={activeUrl}
+                alt={bank.name}
+                className="h-6 w-auto max-w-[110px] object-contain"
+                loading="lazy"
+                onError={handleImgError}
+              />
+            ) : (
+              bank.renderFallback()
+            )}
+          </div>
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-bold tracking-tight text-[#002244] group-hover:text-[#FF5500] transition-colors">
@@ -46,8 +48,8 @@ function BankLogoItem({ bank }) {
         </div>
       </div>
 
-      {/* Minimalist slash separator */}
-      <span className="text-black/10 font-mono text-base font-light">/</span>
+      {/* Subtle minimalist hairline divider */}
+      <span className="text-black/15 font-mono text-base font-light">/</span>
     </div>
   );
 }
@@ -71,13 +73,33 @@ export default function BankersSection() {
       )
     },
     {
+      name: "Bank of Baroda",
+      abbr: "BOB",
+      logoUrls: [
+        "https://cdn.brandfetch.io/idTahEUgCz/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+        "https://cdn.brandfetch.io/idTahEUgCz/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+        "https://cdn.brandfetch.io/idTahEUgCz?c=1dxbfHSJFAPEGdCLU4o5B"
+      ],
+      renderFallback: () => (
+        <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#F26522" />
+          <g fill="#FFFFFF">
+            <rect x="22" y="20" width="10" height="60" rx="4" />
+            <path d="M28 20h20a18 18 0 0 1 18 18c0 7-4 13-10 16-4-2-9-3-14-3H28V20z" />
+            <path d="M28 47h18c7 0 13 3 17 8 2 3 3 7 3 10a18 18 0 0 1-18 18H28V47z" />
+          </g>
+          <circle cx="46" cy="36" r="6" fill="#F26522" />
+          <circle cx="48" cy="65" r="7" fill="#F26522" />
+        </svg>
+      )
+    },
+    {
       name: "Canara Bank",
       abbr: "Canara",
       logoUrls: [
         "https://cdn.brandfetch.io/idqom7F9TV/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
         "https://cdn.brandfetch.io/idqom7F9TV/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idqom7F9TV?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idTFbf09Qq/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+        "https://cdn.brandfetch.io/idqom7F9TV?c=1dxbfHSJFAPEGdCLU4o5B"
       ],
       renderFallback: () => (
         <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,23 +132,17 @@ export default function BankersSection() {
       )
     },
     {
-      name: "Bank of Baroda",
-      abbr: "BOB",
+      name: "Axis Bank",
+      abbr: "Axis",
       logoUrls: [
-        "https://cdn.brandfetch.io/idTahEUgCz/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idTahEUgCz/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idTahEUgCz?c=1dxbfHSJFAPEGdCLU4o5B"
+        "https://cdn.brandfetch.io/idA0mZk62h/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+        "https://cdn.brandfetch.io/idA0mZk62h/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
       ],
       renderFallback: () => (
         <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="20" fill="#F26522" />
-          <g fill="#FFFFFF">
-            <rect x="22" y="20" width="10" height="60" rx="4" />
-            <path d="M28 20h20a18 18 0 0 1 18 18c0 7-4 13-10 16-4-2-9-3-14-3H28V20z" />
-            <path d="M28 47h18c7 0 13 3 17 8 2 3 3 7 3 10a18 18 0 0 1-18 18H28V47z" />
-          </g>
-          <circle cx="46" cy="36" r="6" fill="#F26522" />
-          <circle cx="48" cy="65" r="7" fill="#F26522" />
+          <rect width="100" height="100" rx="20" fill="#97144D" />
+          <polygon points="50,22 82,78 18,78" fill="#FFFFFF" />
+          <polygon points="50,42 70,78 30,78" fill="#97144D" />
         </svg>
       )
     },
@@ -136,8 +152,7 @@ export default function BankersSection() {
       logoUrls: [
         "https://cdn.brandfetch.io/id_ksa6-Ww/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
         "https://cdn.brandfetch.io/id_ksa6-Ww/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/id_ksa6-Ww?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idX0uPlW59/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+        "https://cdn.brandfetch.io/id_ksa6-Ww?c=1dxbfHSJFAPEGdCLU4o5B"
       ],
       renderFallback: () => (
         <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,11 +164,10 @@ export default function BankersSection() {
     },
     {
       name: "Edelweiss Alternatives",
-      abbr: "EAAA",
+      abbr: "Edelweiss",
       logoUrls: [
         "https://cdn.brandfetch.io/idbRL32llu/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idbRL32llu/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-        "https://cdn.brandfetch.io/idbRL32llu?c=1dxbfHSJFAPEGdCLU4o5B"
+        "https://cdn.brandfetch.io/idbRL32llu/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
       ],
       renderFallback: () => (
         <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,25 +177,11 @@ export default function BankersSection() {
           <circle cx="50" cy="56" r="7" fill="#0E2340" />
         </svg>
       )
-    },
-    {
-      name: "AIMS Institutional",
-      abbr: "AIMS",
-      logoUrls: [],
-      renderFallback: () => (
-        <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="20" fill="#1E1B4B" />
-          <circle cx="50" cy="50" r="34" stroke="#818CF8" strokeWidth="5" strokeDasharray="8 5" />
-          <text x="50" y="58" fontFamily="monospace, sans-serif" fontSize="22" fontWeight="800" fill="#FFFFFF" textAnchor="middle">
-            AIMS
-          </text>
-        </svg>
-      )
     }
   ];
 
   return (
-    <section id="bankers" className="py-12 md:py-14 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
+    <section id="bankers" className="py-14 md:py-16 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
       {/* Clear Minimalist Heading */}
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 mb-6 text-center">
         <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-[#6E6E73] font-semibold">
@@ -189,13 +189,13 @@ export default function BankersSection() {
         </h2>
       </div>
 
-      {/* Infinite Seamless Logo Marquee Track */}
-      <div className="py-2 overflow-hidden relative">
+      {/* Infinite Seamless Logo Marquee Track (21st.dev Velocity style) */}
+      <div className="py-2 overflow-hidden relative group">
         {/* Soft edge fade masks on Apple light gray */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex items-center gap-10 sm:gap-14 whitespace-nowrap">
+        <div className="animate-marquee flex items-center gap-8 sm:gap-12 whitespace-nowrap hover:[animation-play-state:paused]">
           {[...banks, ...banks, ...banks, ...banks].map((bank, index) => (
             <BankLogoItem key={`${bank.abbr}-${index}`} bank={bank} />
           ))}

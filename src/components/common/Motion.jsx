@@ -21,12 +21,11 @@ export function Reveal({
       style={{
         transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,
-        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)"
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        transform: isVisible ? "none" : `translateY(${distance}px)`
       }}
       className={`transition-all ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : `opacity-0 translate-y-[${distance}px]`
+        isVisible ? "opacity-100" : "opacity-0"
       } ${className}`}
     >
       {children}

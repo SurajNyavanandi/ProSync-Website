@@ -25,7 +25,7 @@ export default function ClientsSection() {
   ];
 
   return (
-    <section id="clients" className="py-14 md:py-18 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
+    <section id="clients" className="py-14 md:py-16 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 mb-8 text-center">
         {/* Minimalist Section Header */}
         <Reveal className="max-w-2xl mx-auto space-y-2">
@@ -44,7 +44,7 @@ export default function ClientsSection() {
         <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[#F5F5F7] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex items-center whitespace-nowrap">
+        <div className="animate-marquee flex items-center whitespace-nowrap hover:[animation-play-state:paused]">
           {infiniteClients.map((client, index) => (
             <div
               key={`${client}-${index}`}

@@ -1,60 +1,77 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import {
-  MapPin,
+  ArrowRight,
+  Play,
+  ShieldCheck,
   Building2,
   TrendingUp,
-  Search,
-  ChevronDown,
-  Play,
-  ArrowRight,
-  ShieldCheck,
-  Check
+  FileCheck2,
+  Layers,
+  Landmark
 } from "lucide-react";
 import { Reveal } from "./common/Motion";
 
 export default function Hero() {
-  // State for interactive floating bottom filter bar
-  const [location, setLocation] = useState("Hyderabad / Pan-India");
-  const [facilityType, setFacilityType] = useState("Debt Syndication & TEV");
-  const [capitalRange, setCapitalRange] = useState("₹50 Cr - ₹500 Cr+");
+  const [selectedPill, setSelectedPill] = useState("term-debt");
 
-  // Dropdown open states
-  const [openDropdown, setOpenDropdown] = useState(null); // 'location' | 'type' | 'range' | null
-  const [filterMessage, setFilterMessage] = useState(null);
+  const heroBgUrl =
+    "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793334844/Executive_Presentation_with_City_View_xv9uyz.png";
+  const heroFallbackUrl =
+    "/assets/aistudio/Executive_Presentation_with_City_View_f9a1ae0a.png";
 
-  const heroBgUrl = "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793334844/Executive_Presentation_with_City_View_xv9uyz.png";
-  const heroFallbackUrl = "/assets/aistudio/Executive_Presentation_with_City_View_f9a1ae0a.png";
-
-  const locationOptions = [
-    "Hyderabad / Pan-India",
-    "Mumbai Financial Hub",
-    "Bengaluru & South Hub",
-    "Delhi NCR & North",
-    "Multi-State Corridor"
+  const mandatePills = [
+    {
+      id: "term-debt",
+      label: "Term Debt",
+      icon: Landmark,
+      ticket: "₹50 Cr - ₹500 Cr+",
+      desc: "Project capex & consortium loan syndication with Tier-1 PSU and private banks.",
+      turnaround: "4-6 Weeks",
+      rate: "Competitive Spread"
+    },
+    {
+      id: "mezzanine",
+      label: "Mezzanine",
+      icon: TrendingUp,
+      ticket: "₹25 Cr - ₹200 Cr",
+      desc: "Subordinated growth capital, bridge credit, and promoter debt refinancing.",
+      turnaround: "3-5 Weeks",
+      rate: "Flexible Covenants"
+    },
+    {
+      id: "working-capital",
+      label: "Working Capital",
+      icon: Layers,
+      ticket: "₹25 Cr - ₹300 Cr",
+      desc: "Cash credit limits, Letter of Credit (LC), and Bank Guarantee (BG) consortium syndication.",
+      turnaround: "3-4 Weeks",
+      rate: "Multi-Bank Lines"
+    },
+    {
+      id: "tev-report",
+      label: "TEV Report",
+      icon: FileCheck2,
+      ticket: "Institutional Grade",
+      desc: "Bankable Techno-Economic Viability (TEV) and Detailed Project Report (DPR) appraisal.",
+      turnaround: "10-14 Days",
+      rate: "99% Sanction Rate"
+    }
   ];
 
-  const facilityOptions = [
-    "Debt Syndication & TEV",
-    "Consortium Term Loans",
-    "Project Finance Appraisal",
-    "Structured Mezzanine Debt",
-    "Working Capital Facilities"
-  ];
+  const activePillData = mandatePills.find((p) => p.id === selectedPill) || mandatePills[0];
 
-  const capitalOptions = [
-    "₹50 Cr - ₹500 Cr+",
-    "₹25 Cr - ₹75 Cr",
-    "₹75 Cr - ₹150 Cr",
-    "₹150 Cr - ₹300 Cr",
-    "₹300 Cr - ₹750 Cr+"
-  ];
-
-  const handleSearch = () => {
-    setFilterMessage(`Filtering mandates: ${facilityType} in ${location} (${capitalRange})`);
-    setTimeout(() => {
-      const el = document.getElementById("transactions") || document.getElementById("contact");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 400);
+  const handleDiscussMandate = (mandateLabel) => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+      // Dispatch custom event to sync with contact form
+      window.dispatchEvent(
+        new CustomEvent("prosync:selectMandate", {
+          detail: { mandate: mandateLabel }
+        })
+      );
+    }
   };
 
   return (
@@ -62,6 +79,9 @@ export default function Hero() {
       id="top"
       className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white text-[#1D1D1F]"
     >
+      {/* 21st.dev Ambient Spotlight Glow Effect */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#002244]/[0.04] to-[#FF5500]/[0.04] rounded-full blur-3xl pointer-events-none" />
+
       {/* Full-Bleed Executive Boardroom Presentation Background */}
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden">
         <img
@@ -74,22 +94,22 @@ export default function Hero() {
             }
           }}
         />
-        {/* Mobile/Tablet gradient overlay ensuring 100% text contrast on narrower viewports */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:hidden pointer-events-none" />
-        {/* Bottom soft gradient fade into the subsequent section */}
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+        {/* Desktop left-fade mask ensuring headline contrast across all wide resolutions */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
+        {/* Mobile/Tablet gradient overlay ensuring contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent lg:hidden pointer-events-none" />
+        {/* Bottom soft gradient fade into subsequent section */}
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none" />
       </div>
 
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 relative z-10">
         
-        {/* ======================================================== */}
-        {/* SPLIT 2-COLUMN HERO (image_0956d9f0.png reference style) */}
-        {/* ======================================================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[460px] md:min-h-[520px]">
+        {/* ------------------------------------------------------ */}
+        {/* SPLIT 2-COLUMN HERO                                    */}
+        {/* ------------------------------------------------------ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[460px] md:min-h-[500px]">
           
-          {/* ------------------------------------------------------ */}
-          {/* LEFT COLUMN: Content & Typography                      */}
-          {/* ------------------------------------------------------ */}
+          {/* Left Column: Typography & CTAs */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             
             {/* Two-tiered Headline with refined modern tracking */}
@@ -113,9 +133,9 @@ export default function Hero() {
               </p>
             </Reveal>
 
-            {/* Dual Action Buttons matching reference */}
+            {/* Dual Action Buttons matching design reference */}
             <Reveal delay={280} className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6">
-              {/* 1. Primary Solid Pill Button */}
+              {/* Primary Solid Pill Button */}
               <a
                 href="#contact"
                 className="px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-[#002244] hover:bg-[#FF5500] shadow-md shadow-[#002244]/15 hover:shadow-[#FF5500]/25 transition-all duration-200 inline-flex items-center gap-2 min-h-[48px] active:scale-95 cursor-pointer"
@@ -124,7 +144,7 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* 2. Secondary Circular Outline Icon Button ("Explore Transactions") */}
+              {/* Secondary Circular Outline Icon Button ("Explore Transactions") */}
               <a
                 href="#transactions"
                 className="inline-flex items-center gap-3 text-sm font-semibold text-[#002244] hover:text-[#FF5500] group transition-colors cursor-pointer py-2"
@@ -149,13 +169,11 @@ export default function Hero() {
             </Reveal>
           </div>
 
-          {/* ------------------------------------------------------ */}
-          {/* RIGHT COLUMN: Floating Frosted Badges Over Scene       */}
-          {/* ------------------------------------------------------ */}
+          {/* Right Column: Floating Frosted Badges Over Scene */}
           <div className="lg:col-span-5 relative hidden lg:flex flex-col justify-between items-end min-h-[440px] pointer-events-none select-none">
             
             {/* Floating Frosted Pill 1: Lead Arranger Desk */}
-            <div className="p-4 rounded-2xl bg-white/88 backdrop-blur-md border border-white/80 shadow-[0_14px_35px_rgba(0,34,68,0.1)] flex items-center gap-3.5 animate-card-float-2 pointer-events-auto mt-6">
+            <div className="p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/80 shadow-[0_14px_35px_rgba(0,34,68,0.1)] flex items-center gap-3.5 pointer-events-auto mt-6">
               <div className="w-10 h-10 rounded-xl bg-[#002244] text-white flex items-center justify-center shrink-0 shadow-xs">
                 <Building2 className="w-5 h-5 text-[#FF8A3D]" />
               </div>
@@ -170,7 +188,7 @@ export default function Hero() {
             </div>
 
             {/* Floating Frosted Badge 2: ₹2,500+ Cr Capital Syndicated */}
-            <div className="p-4 rounded-2xl bg-white/92 backdrop-blur-md border border-white/80 shadow-[0_18px_40px_rgba(0,34,68,0.12)] flex items-center gap-3.5 animate-card-float-1 pointer-events-auto mb-8">
+            <div className="p-4 rounded-2xl bg-white/92 backdrop-blur-md border border-white/80 shadow-[0_18px_40px_rgba(0,34,68,0.12)] flex items-center gap-3.5 pointer-events-auto mb-8">
               <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -194,160 +212,87 @@ export default function Hero() {
         </div>
 
         {/* ======================================================== */}
-        {/* SIGNATURE FLOATING BOTTOM INTERACTIVE BAR */}
-        {/* (image_0956d9f0.png reference signature component) */}
+        {/* 21ST.DEV FLOATING SEGMENTED PILL & MANDATE FILTER        */}
         {/* ======================================================== */}
         <div className="mt-12 sm:mt-16 lg:mt-20 relative z-30">
-          <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl bg-white border border-black/[0.08] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,34,68,0.09)] transition-all">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-white/95 backdrop-blur-xl border border-black/[0.08] p-3 sm:p-5 shadow-[0_20px_50px_rgba(0,34,68,0.08)]">
             
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-0 items-center">
-              
-              {/* Field 1: Location */}
-              <div className="md:col-span-4 relative px-4 py-2 hover:bg-slate-50/80 rounded-xl transition-colors">
-                <button
-                  type="button"
-                  onClick={() => setOpenDropdown(openDropdown === "location" ? null : "location")}
-                  className="w-full text-left flex items-center justify-between group cursor-pointer"
-                >
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#6E6E73] font-semibold uppercase tracking-wider">
-                      <MapPin className="w-3.5 h-3.5 text-[#FF5500]" />
-                      <span>Location</span>
-                    </div>
-                    <div className="text-sm font-bold text-[#002244] truncate">
-                      {location}
-                    </div>
-                  </div>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 group-hover:text-[#002244] transition-transform ${openDropdown === "location" ? "rotate-180" : ""}`} />
-                </button>
+            {/* Top Segmented Controls Track */}
+            <div className="flex flex-wrap items-center justify-between gap-2 p-1.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.04]">
+              {mandatePills.map((pill) => {
+                const isSelected = selectedPill === pill.id;
+                const IconComponent = pill.icon;
+                return (
+                  <button
+                    key={pill.id}
+                    type="button"
+                    onClick={() => setSelectedPill(pill.id)}
+                    className={`relative flex-1 min-w-[140px] sm:min-w-0 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
+                      isSelected
+                        ? "text-[#002244] shadow-xs"
+                        : "text-[#6E6E73] hover:text-[#002244]"
+                    }`}
+                  >
+                    {isSelected && (
+                      <motion.div
+                        layoutId="activeHeroPill"
+                        className="absolute inset-0 bg-white rounded-xl shadow-sm border border-black/[0.04]"
+                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      <IconComponent className={`w-4 h-4 ${isSelected ? "text-[#FF5500]" : "text-slate-400"}`} />
+                      <span>{pill.label}</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
 
-                {/* Dropdown Menu */}
-                {openDropdown === "location" && (
-                  <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-black/[0.08] p-2 z-50">
-                    {locationOptions.map((opt) => (
-                      <div
-                        key={opt}
-                        onClick={() => {
-                          setLocation(opt);
-                          setOpenDropdown(null);
-                        }}
-                        className="px-3.5 py-2 text-xs font-medium text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl cursor-pointer flex items-center justify-between"
-                      >
-                        <span>{opt}</span>
-                        {location === opt && <Check className="w-3.5 h-3.5 text-[#FF5500]" />}
-                      </div>
-                    ))}
-                  </div>
-                )}
+            {/* Expanded Active Mandate Details Bar & Direct 1-Click CTA */}
+            <div className="mt-3.5 px-3 py-3 rounded-2xl bg-white border border-black/[0.04] flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 w-full md:w-auto">
+                <div className="space-y-0.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#6E6E73] font-bold block">
+                    Typical Ticket Size
+                  </span>
+                  <span className="text-sm font-extrabold text-[#002244] font-mono">
+                    {activePillData.ticket}
+                  </span>
+                </div>
+
+                <div className="hidden sm:block w-px h-8 bg-black/[0.08]" />
+
+                <div className="space-y-0.5 max-w-sm">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#6E6E73] font-bold block">
+                    Advisory Scope
+                  </span>
+                  <p className="text-xs text-[#52525B] leading-tight">
+                    {activePillData.desc}
+                  </p>
+                </div>
+
+                <div className="hidden lg:block w-px h-8 bg-black/[0.08]" />
+
+                <div className="hidden lg:flex items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-[11px] font-mono font-bold border border-emerald-200/60">
+                    {activePillData.rate}
+                  </span>
+                </div>
               </div>
 
-              {/* Hairline Divider */}
-              <div className="hidden md:block w-px h-10 bg-black/[0.08]" />
-
-              {/* Field 2: Advisory / Facility Type */}
-              <div className="md:col-span-4 relative px-4 py-2 hover:bg-slate-50/80 rounded-xl transition-colors">
-                <button
-                  type="button"
-                  onClick={() => setOpenDropdown(openDropdown === "type" ? null : "type")}
-                  className="w-full text-left flex items-center justify-between group cursor-pointer"
-                >
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#6E6E73] font-semibold uppercase tracking-wider">
-                      <Building2 className="w-3.5 h-3.5 text-[#002244]" />
-                      <span>Facility Type</span>
-                    </div>
-                    <div className="text-sm font-bold text-[#002244] truncate">
-                      {facilityType}
-                    </div>
-                  </div>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 group-hover:text-[#002244] transition-transform ${openDropdown === "type" ? "rotate-180" : ""}`} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {openDropdown === "type" && (
-                  <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-black/[0.08] p-2 z-50">
-                    {facilityOptions.map((opt) => (
-                      <div
-                        key={opt}
-                        onClick={() => {
-                          setFacilityType(opt);
-                          setOpenDropdown(null);
-                        }}
-                        className="px-3.5 py-2 text-xs font-medium text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl cursor-pointer flex items-center justify-between"
-                      >
-                        <span>{opt}</span>
-                        {facilityType === opt && <Check className="w-3.5 h-3.5 text-[#FF5500]" />}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Hairline Divider */}
-              <div className="hidden md:block w-px h-10 bg-black/[0.08]" />
-
-              {/* Field 3: Ticket Size / Price Range */}
-              <div className="md:col-span-3 relative px-4 py-2 hover:bg-slate-50/80 rounded-xl transition-colors">
-                <button
-                  type="button"
-                  onClick={() => setOpenDropdown(openDropdown === "range" ? null : "range")}
-                  className="w-full text-left flex items-center justify-between group cursor-pointer"
-                >
-                  <div className="space-y-0.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#6E6E73] font-semibold uppercase tracking-wider">
-                      <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Capital Range</span>
-                    </div>
-                    <div className="text-sm font-bold text-[#002244] truncate">
-                      {capitalRange}
-                    </div>
-                  </div>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 group-hover:text-[#002244] transition-transform ${openDropdown === "range" ? "rotate-180" : ""}`} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {openDropdown === "range" && (
-                  <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-black/[0.08] p-2 z-50">
-                    {capitalOptions.map((opt) => (
-                      <div
-                        key={opt}
-                        onClick={() => {
-                          setCapitalRange(opt);
-                          setOpenDropdown(null);
-                        }}
-                        className="px-3.5 py-2 text-xs font-medium text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl cursor-pointer flex items-center justify-between"
-                      >
-                        <span>{opt}</span>
-                        {capitalRange === opt && <Check className="w-3.5 h-3.5 text-[#FF5500]" />}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Action: Circular Search Button */}
-              <div className="md:col-span-1 flex items-center justify-end px-2">
-                <button
-                  type="button"
-                  onClick={handleSearch}
-                  className="w-12 h-12 rounded-full bg-[#002244] hover:bg-[#FF5500] text-white flex items-center justify-center shadow-md shadow-[#002244]/20 hover:shadow-[#FF5500]/30 transition-all duration-200 active:scale-95 cursor-pointer"
-                  title="Search & Filter Mandates"
-                  aria-label="Search & Filter Mandates"
-                >
-                  <Search className="w-5 h-5 stroke-[2.2]" />
-                </button>
-              </div>
-
+              {/* Direct 1-Click CTA */}
+              <button
+                type="button"
+                onClick={() => handleDiscussMandate(activePillData.label)}
+                className="w-full md:w-auto px-6 py-3 rounded-xl bg-[#002244] hover:bg-[#FF5500] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#002244]/15 hover:shadow-[#FF5500]/25 transition-all duration-200 inline-flex items-center justify-center gap-2 shrink-0 active:scale-95 cursor-pointer"
+              >
+                <span>Discuss {activePillData.label} Mandate</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
 
           </div>
-
-          {/* Optional Action Toast */}
-          {filterMessage && (
-            <div className="mt-3 text-center text-xs font-mono text-emerald-700 animate-fade-in font-medium">
-              ✓ {filterMessage}
-            </div>
-          )}
         </div>
 
       </div>

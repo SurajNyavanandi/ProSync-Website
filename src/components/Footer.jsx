@@ -78,7 +78,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-white text-[#111827] border-t border-gray-200 font-sans antialiased">
+    <footer className="w-full bg-[#EDF3F9] text-[#0f172a] border-t border-[#002244]/15 font-sans antialiased">
       <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 pt-14 pb-8 sm:pt-16 sm:pb-10">
         
         {/* Main Content Grid: 5 Categorical Columns + 1 Brand Column */}
@@ -87,7 +87,7 @@ export default function Footer() {
           {/* Categorical Link Columns (1 to 5) */}
           {navigationColumns.map((col, idx) => (
             <div key={idx} className="flex flex-col">
-              <h3 className="text-[15px] font-semibold text-[#111827] tracking-tight mb-4">
+              <h3 className="text-[15px] font-bold text-[#002244] tracking-tight mb-4">
                 {col.title}
               </h3>
               <ul className="space-y-2.5">
@@ -95,7 +95,7 @@ export default function Footer() {
                   <li key={linkIdx}>
                     <a
                       href={link.href}
-                      className="text-[13px] text-[#4B5563] hover:text-[#002244] hover:underline underline-offset-2 transition-colors duration-150 inline-block leading-snug"
+                      className="text-[13px] text-[#334155] hover:text-[#002244] hover:underline underline-offset-2 transition-colors duration-150 inline-block leading-snug"
                     >
                       {link.label}
                     </a>
@@ -120,18 +120,18 @@ export default function Footer() {
             </a>
 
             {/* Concise Mission / Bio */}
-            <p className="text-[13px] text-[#4B5563] leading-relaxed mb-6 pr-2">
+            <p className="text-[13px] text-[#334155] leading-relaxed mb-6 pr-2">
               Prosync is a premier corporate finance and debt syndication advisory firm. We structure high-value corporate credit, renewable energy financing, and infrastructure capital solutions for enterprises and concessionaires across India.
             </p>
 
             {/* Prominent Quick Navigation Links */}
-            <div className="space-y-2 text-[14px] font-medium text-[#111827]">
+            <div className="space-y-2 text-[14px] font-semibold text-[#002244]">
               <div>
                 <a
                   href="#about"
                   className="hover:text-[#FF5500] hover:underline underline-offset-2 transition-colors inline-block"
                 >
-                  About
+                  About Us
                 </a>
               </div>
               <div>
@@ -148,11 +148,11 @@ export default function Footer() {
         </div>
 
         {/* Hairline Divider */}
-        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-5 text-[13px] text-[#6B7280]">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-[#002244]/15">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5 text-[13px] text-[#475569]">
             
             {/* Left: Minimal Social & Contact Icons matching Wix reference */}
-            <div className="flex items-center gap-4 text-[#111827]">
+            <div className="flex items-center gap-4 text-[#002244]">
               {/* Facebook */}
               <a
                 href="https://facebook.com"
@@ -241,17 +241,17 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
               <button
                 onClick={() => setActiveModal("terms")}
-                className="hover:text-[#111827] hover:underline underline-offset-2 transition-colors cursor-pointer text-left"
+                className="text-[#334155] hover:text-[#002244] hover:underline underline-offset-2 transition-colors cursor-pointer text-left font-medium"
               >
                 Terms of Use
               </button>
               <button
                 onClick={() => setActiveModal("privacy")}
-                className="hover:text-[#111827] hover:underline underline-offset-2 transition-colors cursor-pointer text-left"
+                className="text-[#334155] hover:text-[#002244] hover:underline underline-offset-2 transition-colors cursor-pointer text-left font-medium"
               >
                 Privacy Policy
               </button>
-              <span className="text-[#6B7280]">
+              <span className="text-[#52637A]">
                 © 2015–{new Date().getFullYear()} {companyData.legalName || "Prosync Consulting Advisory Pvt. Ltd."}
               </span>
             </div>

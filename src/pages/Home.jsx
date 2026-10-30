@@ -25,34 +25,34 @@ export default function Home() {
 
       {/* Main Corporate Finance & Investment Banking Narrative Flow */}
       <main className="flex-1 w-full">
-        {/* Specification 2, 3, 4, 5: Hero Banner with exact headline, dual buttons & floating bottom filter bar */}
+        {/* 1. Hero Banner with executive background, typography, dual CTAs & segmented pill */}
         <Hero />
 
-        {/* Specification 11: Lending Partners Infinite Marquee Track (SBI, Canara, Kotak, BOB, Vivriti) */}
+        {/* 2. Lending Partners Infinite Marquee Track (Tier-1 PSU & Private banks) */}
         <BankersSection />
 
-        {/* Core Services Section with Image Card Grid (image_a75a330b.png style) */}
-        <PracticeSection />
-
-        {/* About Prosync Split Section with Large Photo Card (image_ed04aee0.png style) */}
+        {/* 3. About Prosync & Track Record Bento (₹5,000+ Cr syndicated metric counter & loan lifecycle) */}
         <AboutSplitSection />
 
-        {/* Specification 9: Case Studies Carousel (image_b1be602b.png style with corner notch & money highlight) */}
-        <TransactionsSection />
+        {/* 4. Core Services / Practice Areas (Modern Interactive Feature Grid, No 1,2 Pagination) */}
+        <PracticeSection />
 
-        {/* Approach Section with Photographic Core Sectors Showcase */}
+        {/* 5. Execution Approach & Methodology (4-Stage Connected Milestone Progression) */}
         <ApproachSection />
 
-        {/* Specification 11: Verified Client Credentials (DRM Infrastructure, MEIL, AR Petro, AARA Group) */}
-        <ClientsSection />
+        {/* 6. Closed Landmark Transactions (Filterable tombstone showcase by sector) */}
+        <TransactionsSection />
 
-        {/* Specification 10: Executive Leadership & Our Advisory Team (image_75b503d4.png & image_bfa67e0f.png styles) */}
-        <LeadershipSection />
-
-        {/* Specification 18: Dedicated Prosync Global Research Desk */}
+        {/* 7. Dedicated Prosync Global Research & Analytics Desk (Modern Bento Showcase) */}
         <ProsyncGlobalSection />
 
-        {/* Specification 15 & 16: Contact Section Split Card (image_4c537ec8.png style) */}
+        {/* 8. Enterprise Clients & Mandates Marquee (Verified Corporate Sponsors) */}
+        <ClientsSection />
+
+        {/* 9. Executive Leadership & Senior Advisory Team Directory */}
+        <LeadershipSection />
+
+        {/* 10. Mandate Inquiry & Get In Touch (Interactive Calculator + Direct WhatsApp Redirection) */}
         <ContactSection />
       </main>
 
