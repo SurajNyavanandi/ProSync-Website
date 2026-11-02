@@ -9,8 +9,8 @@ export const companyData = {
   cin: "U74999TG2015PTC099824",
   address: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
   shortAddress: "Jubilee Hills & Hitec City, Hyderabad",
-  email: "info@prosync.in",
-  careersEmail: "info@prosync.in",
+  email: "Email.psc@prosyncindia.com",
+  careersEmail: "Email.psc@prosyncindia.com",
   phone: "+91 99514 45544",
   phoneRaw: "+919951445544",
   brandName: "Prosync Consulting",
@@ -218,10 +218,10 @@ export const companyData = {
       focus: ["Debt Syndication", "Project Finance", "Strategic Advisory"],
     },
     {
-      name: "ANAND BANDAM",
+      name: "ANAND BANDHAM",
       role: "PARTNER - BANKING & TRANSACTIONS",
       image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/anandsir_jusx9i.jpg",
-      bio: "Anand Bandam brings deep experience across banking institutions and corporate financial services. His cross-sector background strengthens Prosync's credit syndication capability, structuring bankable proposals tailored to institutional lender requirements.",
+      bio: "Anand Bandham brings deep experience across banking institutions and corporate financial services. His cross-sector background strengthens Prosync's credit syndication capability, structuring bankable proposals tailored to institutional lender requirements.",
       focus: ["Corporate Banking", "Consortium Credit", "Transaction Strategy"],
     },
   ],
@@ -334,7 +334,7 @@ export const companyData = {
     },
     {
       question: "How does Prosync manage confidentiality throughout the mandate?",
-      answer: "We execute formal bilateral Non-Disclosure Agreements (NDAs) prior to examining any internal financial records, forecasts, or corporate documents. All communications and documentation are handled strictly by our senior partners.",
+      answer: "We execute formal bilateral non-disclosure agreements prior to reviewing internal corporate records, forecasts, or transaction details. All communications and documentation are managed directly by our senior partners.",
     },
     {
       question: "Which institutions does Prosync work with for debt and equity?",

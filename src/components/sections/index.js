@@ -1,0 +1,10 @@
+export { default as Hero } from "./Hero";
+export { default as BankersSection } from "./BankersSection";
+export { default as AboutSplitSection } from "./AboutSplitSection";
+export { default as PracticeSection } from "./PracticeSection";
+export { default as ApproachSection } from "./ApproachSection";
+export { default as TransactionsSection } from "./TransactionsSection";
+export { default as ProsyncGlobalSection } from "./ProsyncGlobalSection";
+export { default as ClientsSection } from "./ClientsSection";
+export { default as LeadershipSection } from "./LeadershipSection";
+export { default as ContactSection } from "./ContactSection";

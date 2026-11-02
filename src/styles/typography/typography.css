@@ -1,0 +1,134 @@
+/**
+ * ProSync Typography System
+ * Inspired by modern minimalism (Adidas / Wix / Goldman Sachs / Stripe)
+ * Confident headings (Plus Jakarta Sans) + Ultra-crisp body text (Inter) + Technical metrics (JetBrains Mono)
+ */
+
+@layer utilities {
+  /* Font Family Classes */
+  .font-heading {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+
+  /* Centralized Typographic Hierarchy Utility Classes */
+
+  /* 1. Main Hero Headline */
+  .type-hero {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: #002244;
+  }
+
+  /* 2. Primary Page / Section Title */
+  .type-section-title {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1.875rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #002244;
+  }
+
+  /* 3. Subheading / Section Lead */
+  .type-subheading {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: #002244;
+  }
+
+  /* 4. Card & Feature Headings */
+  .type-card-title {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: #002244;
+  }
+
+  /* 5. Eyebrows & Structural Overlines */
+  .type-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #FF5500;
+  }
+
+  /* 6. Body Text - Large Lead Paragraphs */
+  .type-body-lead {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.65;
+    color: #52525B;
+  }
+
+  /* 7. Standard Body Paragraphs */
+  .type-body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #52525B;
+  }
+
+  /* 8. Small Body & Secondary Text */
+  .type-body-sm {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #6E6E73;
+  }
+
+  /* 9. Financial Metrics & Currency Numbers */
+  .type-metric {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  /* 10. Navigation Links */
+  .type-nav {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* 11. Buttons & CTAs */
+  .type-btn {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  /* 12. Captions & Badges */
+  .type-caption {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+}

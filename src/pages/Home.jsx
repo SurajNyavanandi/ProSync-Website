@@ -1,62 +1,61 @@
-import SEO from "../components/common/SEO";
-import ScrollToTop from "../components/common/ScrollToTop";
-import Navbar from "../components/layout/Navbar";
-import Hero from "../components/Hero";
-import BankersSection from "../components/BankersSection";
-import PracticeSection from "../components/PracticeSection";
-import AboutSplitSection from "../components/AboutSplitSection";
-import TransactionsSection from "../components/TransactionsSection";
-import ApproachSection from "../components/ApproachSection";
-import ClientsSection from "../components/ClientsSection";
-import LeadershipSection from "../components/LeadershipSection";
-import ProsyncGlobalSection from "../components/ProsyncGlobalSection";
-import ContactSection from "../components/ContactSection";
-import Footer from "../components/layout/Footer";
-import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import { SEO, ScrollToTop, FloatingWhatsApp } from "../components/common";
+import { Navbar, Footer } from "../components/layout";
+import {
+  Hero,
+  AboutSplitSection,
+  PracticeSection,
+  ApproachSection,
+  BankersSection,
+  TransactionsSection,
+  ClientsSection,
+  ProsyncGlobalSection,
+  LeadershipSection,
+  ContactSection,
+} from "../components/sections";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#1D1D1F] selection:bg-[#FF5500] selection:text-white flex flex-col font-sans overflow-x-hidden">
-      {/* Specification 20: SEO Meta & Structured Data */}
+      {/* SEO Meta & Structured Data */}
       <SEO />
 
-      {/* Specification 1: Navigation (Logo, Services, About, Contact, Discuss a Mandate) */}
+      {/* Navigation Header & Mobile Drawer */}
       <Navbar />
 
-      {/* Main Corporate Finance & Investment Banking Narrative Flow */}
+      {/* Main Corporate Finance Narrative Flow */}
       <main className="flex-1 w-full">
-        {/* 1. Hero Banner with executive background, typography, dual CTAs & segmented pill */}
+        {/* 1. Hero Banner: Primary value proposition & dual CTAs */}
         <Hero />
 
-        {/* 2. Lending Partners Infinite Marquee Track (Tier-1 PSU & Private banks) */}
-        <BankersSection />
-
-        {/* 3. About Prosync & Track Record Bento (₹5,000+ Cr syndicated metric counter & loan lifecycle) */}
+        {/* 2. About Prosync: Company overview, mission, track record & loan lifecycle */}
         <AboutSplitSection />
 
-        {/* 4. Core Services / Practice Areas (Modern Interactive Feature Grid, No 1,2 Pagination) */}
+        {/* 3. Core Services / Practice Areas: Debt syndication, growth equity, project advisory */}
         <PracticeSection />
 
-        {/* 5. Execution Approach & Methodology (4-Stage Connected Milestone Progression) */}
+        {/* 4. Execution Approach & Sector Coverage: 4-Stage methodology & core sectors */}
         <ApproachSection />
 
-        {/* 6. Closed Landmark Transactions (Filterable tombstone showcase by sector) */}
+        {/* 5. Lending Partners: Tier-1 PSU & Private bank network marquee */}
+        <BankersSection />
+
+        {/* 6. Closed Landmark Transactions: Filterable deal tombstones & case studies */}
         <TransactionsSection />
 
-        {/* 7. Dedicated Prosync Global Research & Analytics Desk (Modern Bento Showcase) */}
-        <ProsyncGlobalSection />
-
-        {/* 8. Enterprise Clients & Mandates Marquee (Verified Corporate Sponsors) */}
+        {/* 7. Enterprise Clients: Corporate sponsors & client marquee */}
         <ClientsSection />
 
-        {/* 9. Executive Leadership & Senior Advisory Team Directory */}
+        {/* 8. Global Analytics Desk: Financial modeling, VDR & TEV research unit */}
+        <ProsyncGlobalSection />
+
+        {/* 9. Executive Leadership: Managing Partners & Advisory Team */}
         <LeadershipSection />
 
-        {/* 10. Mandate Inquiry & Get In Touch (Interactive Calculator + Direct WhatsApp Redirection) */}
+        {/* 10. Mandate Inquiry & Get In Touch: Interactive calculator & direct contact desk */}
         <ContactSection />
       </main>
 
-      {/* Specification 16 & 17: Minimal Executive Footer */}
+      {/* Minimal Executive Footer */}
       <Footer />
 
       {/* Quick Action Floating Tools */}

@@ -34,6 +34,36 @@ export function Reveal({
 }
 
 /**
+ * Fade-in container with smooth opacity transition
+ */
+export function FadeIn({
+  children,
+  delay = 0,
+  duration = 500,
+  className = "",
+  threshold = 0.1,
+  as: Component = "div"
+}) {
+  const [ref, isVisible] = useScrollReveal({ threshold });
+
+  return (
+    <Component
+      ref={ref}
+      style={{
+        transitionDuration: `${duration}ms`,
+        transitionDelay: `${delay}ms`,
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
+      className={`transition-opacity ${
+        isVisible ? "opacity-100" : "opacity-0"
+      } ${className}`}
+    >
+      {children}
+    </Component>
+  );
+}
+
+/**
  * Word-by-word reveal effect for high-impact headlines
  */
 export function WordReveal({

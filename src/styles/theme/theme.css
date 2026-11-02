@@ -1,0 +1,47 @@
+/**
+ * ProSync Theme Design Tokens
+ * Tailwind v4 compatible theme variables
+ */
+
+@theme {
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Brand Colors */
+  --color-brand-navy: #002244;
+  --color-brand-navy-dark: #06182E;
+  --color-brand-navy-card: #0A2240;
+  --color-brand-orange: #FF5500;
+  --color-brand-orange-hover: #FF661A;
+  --color-brand-orange-light: #FF8A3D;
+  --color-brand-gray-surface: #F5F5F7;
+  --color-brand-gray-card: #FBFBFC;
+  --color-brand-text-dark: #1D1D1F;
+  --color-brand-text-muted: #52525B;
+  --color-brand-text-light: #6E6E73;
+}
+
+@layer utilities {
+  /* Glassmorphism Presets */
+  .glass-header {
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-card-light {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-card-dark {
+    background-color: rgba(10, 34, 64, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
