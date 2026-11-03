@@ -59,7 +59,7 @@ export default function LeadershipSection() {
                   Pradeep Tanuku
                 </h3>
                 <span className="text-xs font-mono text-[#6E6E73] block">
-                  Chartered Accountant (FCA) • 15+ Years Corporate Finance
+                  Chartered Accountant • 15+ Years Corporate Finance
                 </span>
               </Reveal>
 
@@ -125,7 +125,7 @@ export default function LeadershipSection() {
                         </span>
                       </div>
                       <span className="text-[10px] font-mono text-[#6E6E73] px-2.5 py-1 rounded-md bg-slate-100 font-medium">
-                        FCA • 15+ Yrs
+                        CA • 15+ Yrs
                       </span>
                     </div>
                   </div>
