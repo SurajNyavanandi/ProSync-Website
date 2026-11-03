@@ -2,18 +2,14 @@ import { Reveal } from "../common/Motion";
 
 export default function ClientsSection() {
   const clientNames = [
-    "DRM Infrastructure",
-    "MEIL Projects",
-    "AR Petrochem",
-    "AARA Group",
-    "Navayuga Engineering",
-    "GVR Infra",
-    "KNR Constructions",
-    "Saradha Foods",
-    "Husuro Robotics",
+    "MEIL",
+    "DRN Infra",
+    "HUSORO Robotics",
+    "Rasavardhana Foods",
     "Chrome Silicon",
-    "Joist Group",
-    "Blue Lotus Logistics"
+    "AR Petro",
+    "AARA Group",
+    "Joist Group"
   ];
 
   // Quadruple the array for a seamless infinite marquee loop (-50% translation)

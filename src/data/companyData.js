@@ -35,9 +35,9 @@ export const companyData = {
   // Specification 5: Verified Deal Credentials (No placeholder stats)
   metrics: [
     {
-      value: "₹250+ Cr",
-      label: "Flagship Project Closure",
-      detail: "NHAI HAM Highway Concession",
+      value: "₹2,500 Cr+",
+      label: "Total Portfolio Syndicated",
+      detail: "Corporate & Project Finance",
     },
     {
       value: "15+ Yrs",
@@ -94,7 +94,7 @@ export const companyData = {
       title: "National Highway HAM Concession Debt Syndication",
       size: "₹250 Cr",
       sector: "Transportation & Highway Concession",
-      client: "DRM Infrastructure Projects",
+      client: "National Highway Concessionaire",
       assignment:
         "Sole financial advisor for debt syndication and financial closure of a Four-Laning National Highway HAM project under NHAI.",
       scope:
@@ -280,15 +280,14 @@ export const companyData = {
 
   // Specification 11: Verified Client Logos & Authorized Credentials
   clients: [
-    { name: "DRM Infrastructure", fullName: "DRM Infrastructure Projects", tag: "Highway Concessions" },
     { name: "MEIL", fullName: "Megha Engineering & Infrastructures Ltd", tag: "Infrastructure & EPC" },
+    { name: "DRN Infra", fullName: "DRN Infrastructure Projects", tag: "Highway Concessions" },
+    { name: "HUSORO Robotics", fullName: "HUSORO Robotics Automation", tag: "Industrial Automation" },
+    { name: "Rasavardhana Foods", fullName: "Rasavardhana Foods", tag: "Food Processing" },
+    { name: "Chrome Silicon", fullName: "Chrome Silicon Technologies", tag: "Advanced Materials" },
     { name: "AR Petro", fullName: "AR Petrochem & Fuels", tag: "Energy & Petrochemicals" },
     { name: "AARA Group", fullName: "AARA Group Agribusiness", tag: "Agri-Enterprise" },
-    { name: "Saradha Foods", fullName: "Saradha Foods & Processing", tag: "Food Processing" },
-    { name: "Husuro Robotics", fullName: "Husuro Robotics Automation", tag: "Industrial Automation" },
-    { name: "Chrome Silicon", fullName: "Chrome Silicon Technologies", tag: "Advanced Materials" },
-    { name: "Joist Group", fullName: "Joist Group Construction", tag: "Civil & Commercial" },
-    { name: "Blue Lotus", fullName: "Blue Lotus Logistics", tag: "Warehousing & Supply Chain" },
+    { name: "Joist Group", fullName: "Joist Group Construction", tag: "Civil & Commercial" }
   ],
 
   // Institutional Bankers

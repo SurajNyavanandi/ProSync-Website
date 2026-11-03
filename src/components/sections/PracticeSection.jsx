@@ -25,7 +25,7 @@ export default function PracticeSection() {
       title: "Corporate Debt Syndication",
       category: "Senior Debt & Consortium Loans",
       ticketSize: "₹50 Cr - ₹500 Cr+",
-      stat: "₹5,000+ Cr Closed",
+      stat: "₹2,500+ Cr Closed",
       icon: Landmark,
       image: IMAGES.SERVICE_DEBT,
       description:
@@ -36,7 +36,7 @@ export default function PracticeSection() {
         "Security charge creation & collateral covenant structuring",
         "Escrow and debt-service reserve (DSRA) mechanism"
       ],
-      lenders: "State Bank of India, Bank of Baroda, Canara Bank, PNB Consortia",
+      lenders: "Tier-1 Public Sector & Private Commercial Bank Consortia",
       turnaround: "4-6 Weeks to Sanction"
     },
     {
@@ -56,7 +56,7 @@ export default function PracticeSection() {
         "Flexible repayment moratoriums & milestone amortization",
         "Subordinated debt with customized equity upside"
       ],
-      lenders: "Vivriti Capital, Edelweiss Alternatives, Leading AIFs",
+      lenders: "Private Credit Funds, NBFCs & AIF Institutions",
       turnaround: "3-5 Weeks Execution"
     },
     {

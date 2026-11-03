@@ -195,7 +195,7 @@ export default function AboutSplitSection() {
                   Cumulative Capital Syndicated
                 </span>
                 <div className="text-4xl sm:text-6xl">
-                  <NumberTicker target={5000} suffix="+ Cr" prefix="₹" />
+                  <NumberTicker target={2500} suffix="+ Cr" prefix="₹" />
                 </div>
               </div>
 
