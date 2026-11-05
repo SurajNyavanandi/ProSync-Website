@@ -12,6 +12,7 @@ import { Reveal, TiltCard } from "../common/Motion";
 export default function LeadershipSection() {
   const [pradeepImgError, setPradeepImgError] = useState(false);
   const [anandImgError, setAnandImgError] = useState(false);
+  const [prasadImgError, setPrasadImgError] = useState(false);
   const [teamImgErrors, setTeamImgErrors] = useState({});
 
   const handleTeamImgError = (name) => {
@@ -27,20 +28,17 @@ export default function LeadershipSection() {
   ];
 
   return (
-    <section id="leadership" className="py-20 md:py-28 relative bg-[#FBFBFC] text-[#1D1D1F] border-b border-black/[0.05] overflow-hidden">
+    <section id="leadership" className="py-20 md:py-28 relative bg-white text-[#1D1D1F] border-b border-black/[0.05] overflow-hidden">
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 space-y-24 md:space-y-28">
         
         {/* Section Header */}
         <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#FF5500] font-bold block mb-1">
+          <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block mb-1">
             PARTNER DIRECTORY
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold font-heading tracking-tight text-[#002244] mb-3">
+          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F]">
             Our Leadership
           </h2>
-          <p className="text-base sm:text-lg font-body text-[#6E6E73] font-normal leading-relaxed">
-            Senior financial partners leading every mandate.
-          </p>
         </Reveal>
 
         {/* 1. MINIMAL PROFILE SPOTLIGHT CARDS */}
@@ -52,10 +50,10 @@ export default function LeadershipSection() {
             {/* Left Column: Concise Narrative */}
             <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
               <Reveal delay={50} className="space-y-2">
-                <span className="text-xs font-mono font-bold text-[#FF5500] uppercase tracking-wider block">
+                <span className="text-xs font-mono font-medium text-[#002244] uppercase tracking-wider block">
                   Founder &amp; Managing Partner
                 </span>
-                <h3 className="text-3xl sm:text-5xl font-bold font-heading tracking-tight text-[#002244] leading-[1.12]">
+                <h3 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.12]">
                   Pradeep Tanuku
                 </h3>
                 <span className="text-xs font-mono text-[#6E6E73] block">
@@ -64,7 +62,7 @@ export default function LeadershipSection() {
               </Reveal>
 
               <Reveal delay={120}>
-                <p className="text-base sm:text-lg font-body text-[#475569] leading-relaxed font-normal">
+                <p className="text-base sm:text-lg text-[#515154] leading-relaxed font-normal">
                   Pradeep Tanuku leads Prosync with over 15 years of institutional experience across syndicated debt structuring, balance-sheet engineering, and project appraisals. He personally steers financial modeling and bank negotiations to ensure maximum capital certainty and rapid sanction for enterprise promoters.
                 </p>
               </Reveal>
@@ -182,10 +180,10 @@ export default function LeadershipSection() {
             {/* Right Column: Concise Narrative */}
             <div className="lg:col-span-7 space-y-6 order-2">
               <Reveal delay={50} className="space-y-2">
-                <span className="text-xs font-mono font-bold text-[#002244] uppercase tracking-wider block">
+                <span className="text-xs font-mono font-medium text-[#002244] uppercase tracking-wider block">
                   Partner – Banking &amp; Transactions
                 </span>
-                <h3 className="text-3xl sm:text-5xl font-bold font-heading tracking-tight text-[#002244] leading-[1.12]">
+                <h3 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.12]">
                   Anand Bandham
                 </h3>
                 <span className="text-xs font-mono text-[#6E6E73] block">
@@ -194,7 +192,7 @@ export default function LeadershipSection() {
               </Reveal>
 
               <Reveal delay={120}>
-                <p className="text-base sm:text-lg font-body text-[#475569] leading-relaxed font-normal">
+                <p className="text-base sm:text-lg text-[#515154] leading-relaxed font-normal">
                   Anand Bandham leads Prosync's institutional banking relationships and syndicated debt distribution. Leveraging extensive senior banking connections, he aligns proposals with lender appraisal policies, optimizes debt terms, and drives consortium closures without delays.
                 </p>
               </Reveal>
@@ -221,21 +219,104 @@ export default function LeadershipSection() {
 
           </div>
 
+          {/* ROW 3: FINANCIAL DUE DILIGENCE PARTNER (Prasad) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-4">
+            
+            {/* Left Column: Concise Narrative */}
+            <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
+              <Reveal delay={50} className="space-y-2">
+                <span className="text-xs font-mono font-medium text-[#002244] uppercase tracking-wider block">
+                  Partner – Financial Due Diligence
+                </span>
+                <h3 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.12]">
+                  Prasad
+                </h3>
+                <span className="text-xs font-mono text-[#6E6E73] block">
+                  Financial Due Diligence • Quality of Earnings &amp; Risk Auditing
+                </span>
+              </Reveal>
+
+              <Reveal delay={120}>
+                <p className="text-base sm:text-lg text-[#515154] leading-relaxed font-normal">
+                  Prasad leads Prosync's Financial Due Diligence practice. He brings specialized expertise in forensic balance sheet analysis, Quality of Earnings (QoE) auditing, working capital evaluation, and financial risk assessment for corporate acquisitions and institutional credit syndication.
+                </p>
+              </Reveal>
+
+              {/* Action Buttons */}
+              <Reveal delay={200} className="pt-2 flex flex-wrap items-center gap-3.5">
+                <a
+                  href="#contact"
+                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Discuss a Mandate</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href={`mailto:${companyData.email}?subject=Mandate%20Inquiry%20-%20Attention%20Prasad`}
+                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
+                  <span>Contact Partner</span>
+                </a>
+              </Reveal>
+            </div>
+
+            {/* Right Column: High-Res Portrait Photo Card */}
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <Reveal delay={150}>
+                <TiltCard
+                  maxTilt={4}
+                  scale={1.015}
+                  glowColor="rgba(0, 34, 68, 0.08)"
+                  className="rounded-3xl overflow-hidden shadow-xl"
+                >
+                  <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden bg-[#002244] border border-black/[0.08] group flex items-center justify-center p-8">
+                    {!prasadImgError ? (
+                      <img
+                        src="https://res.cloudinary.com/dfr0zghtc/image/upload/v1793258172/Navy_and_Orange_CP_Monogram_Logo_xkgmso.jpg"
+                        alt="Prasad - Partner Financial Due Diligence"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={() => setPrasadImgError(true)}
+                        className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col justify-between p-8 bg-[#002244] text-white">
+                        <Building2 className="w-8 h-8 text-[#FF8A3D]" />
+                        <h3 className="text-2xl font-bold font-heading">Prasad</h3>
+                        <span className="text-xs font-mono text-slate-300">Financial Due Diligence Partner</span>
+                      </div>
+                    )}
+
+                    {/* Minimalist Glass Caption */}
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 shadow-sm flex items-center justify-between">
+                      <div>
+                        <h4 className="text-sm font-bold font-heading text-[#002244]">Prasad</h4>
+                        <span className="text-[11px] font-mono text-[#FF5500] font-semibold block">
+                          Partner – Financial Due Diligence
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </TiltCard>
+              </Reveal>
+            </div>
+
+          </div>
+
         </div>
 
         {/* 2. "MEET OUR TEAM" HORIZONTAL MARQUEE */}
         <div id="team" className="pt-6">
           
           <Reveal className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#FF5500] font-bold block mb-1">
+            <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block mb-1">
               EXECUTION DEAL DESK
             </span>
-            <h2 className="text-3xl sm:text-5xl font-bold font-heading tracking-tight text-[#002244] mb-3">
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F]">
               Meet Our Team
             </h2>
-            <p className="text-base sm:text-lg font-body text-[#6E6E73] font-normal leading-relaxed">
-              The specialists supporting your financial transactions.
-            </p>
           </Reveal>
 
           {/* Marquee Track with Grayscale-to-Color Hover Effect */}
@@ -293,11 +374,6 @@ export default function LeadershipSection() {
               })}
             </div>
           </div>
-
-          <div className="mt-8 text-center text-xs text-[#6E6E73] font-mono">
-            <span>Direct partner-led analyst desks • Aligned with institutional banking and appraisal guidelines</span>
-          </div>
-
         </div>
 
       </div>

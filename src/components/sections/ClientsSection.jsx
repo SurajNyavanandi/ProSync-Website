@@ -24,12 +24,9 @@ export default function ClientsSection() {
     <section id="clients" className="py-14 md:py-16 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 mb-8 text-center">
         {/* Minimalist Section Header */}
-        <Reveal className="max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#FF5500] font-bold block mb-1">
-            CLIENTS &amp; MANDATES
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading tracking-tight text-[#002244]">
-            Trusted by Leading Enterprises &amp; Sponsors
+        <Reveal className="max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#1D1D1F]">
+            CLIENTS &amp; SPONSORS
           </h2>
         </Reveal>
       </div>
@@ -46,7 +43,7 @@ export default function ClientsSection() {
               key={`${client}-${index}`}
               className="inline-flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12"
             >
-              <span className="text-lg sm:text-xl font-bold font-heading tracking-tight text-[#002244] hover:text-[#FF5500] transition-colors cursor-default select-none">
+              <span className="text-lg sm:text-xl font-medium tracking-tight text-[#1D1D1F] hover:text-[#FF5500] transition-colors cursor-default select-none">
                 {client}
               </span>
               <span className="text-black/15 font-mono text-base font-light select-none">/</span>

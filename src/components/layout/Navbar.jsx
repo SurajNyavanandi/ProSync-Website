@@ -5,7 +5,6 @@ import {
   ArrowUpRight, 
   Building2, 
   Briefcase, 
-  Layers, 
   FileText, 
   Users, 
   Mail, 
@@ -25,7 +24,7 @@ export default function Navbar() {
   // Active section spy
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "services", "sectors", "bankers", "transactions", "global-research", "leadership", "contact"];
+      const sections = ["top", "about", "services", "experience", "contact"];
       const scrollPos = window.scrollY + 100;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -82,23 +81,22 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
 
-  // Primary desktop navigation links (Ultra-Minimalist 4 Items)
+  // Primary desktop navigation links (Exact 5 Items)
   const navLinks = [
-    { label: "About", href: "#about", id: "about" },
+    { label: "Home", href: "#top", id: "top" },
+    { label: "About Us", href: "#about", id: "about" },
     { label: "Services", href: "#services", id: "services" },
-    { label: "Transactions", href: "#transactions", id: "transactions" },
-    { label: "Contact Us", href: "#contact", id: "contact" }
+    { label: "Our Experience", href: "#experience", id: "experience" },
+    { label: "Contact", href: "#contact", id: "contact" }
   ];
 
-  // Extended drawer links with icons
+  // Mobile drawer links
   const drawerLinks = [
-    { label: "About Prosync", href: "#about", id: "about", icon: Building2, desc: "Boutique capital advisory & track record" },
-    { label: "Practice Areas", href: "#services", id: "services", icon: Briefcase, desc: "Debt syndication & project finance" },
-    { label: "Sector Intelligence", href: "#sectors", id: "sectors", icon: Layers, desc: "HAM highways, renewables, industry" },
-    { label: "Closed Transactions", href: "#transactions", id: "transactions", icon: FileText, desc: "₹2,500+ Cr verified tombstone mandates" },
-    { label: "Global Analytics Desk", href: "#global-research", id: "global-research", icon: Layers, desc: "Financial modeling & VDR unit" },
-    { label: "Partner Leadership", href: "#leadership", id: "leadership", icon: Users, desc: "Chartered accountants & corporate bankers" },
-    { label: "Mandate Deal Desk", href: "#contact", id: "contact", icon: Mail, desc: "Direct partner appraisal & pricing" },
+    { label: "Home", href: "#top", id: "top", icon: Building2, desc: "Capital. Strategy. Growth." },
+    { label: "About Us", href: "#about", id: "about", icon: Users, desc: "Financial advisory experience since 2015" },
+    { label: "Services", href: "#services", id: "services", icon: Briefcase, desc: "Debt, equity, infrastructure & research" },
+    { label: "Our Experience", href: "#experience", id: "experience", icon: FileText, desc: "₹800+ Cr multi-sector transaction experience" },
+    { label: "Contact", href: "#contact", id: "contact", icon: Mail, desc: "Discuss a mandate with our team" },
   ];
 
   const handleLinkClick = () => {
@@ -107,48 +105,42 @@ export default function Navbar() {
 
   return (
     <>
-      {/* 1. MODERN ULTRA-MINIMAL TRANSPARENT GLASS HEADER */}
+      {/* 1. MINIMALIST ULTRA-TRANSPARENT HEADER */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 right-0 z-40 w-full transition-colors duration-300 ${
           isScrolled
-            ? "py-2.5 sm:py-3 bg-white/55 backdrop-blur-2xl border-b border-black/[0.05] shadow-[0_8px_32px_0_rgba(0,34,68,0.04)]"
-            : "py-3.5 sm:py-5 bg-white/20 backdrop-blur-md border-b border-black/[0.02]"
+            ? "py-3 bg-white/85 backdrop-blur-md"
+            : "py-4 sm:py-5 bg-transparent"
         }`}
-        style={{
-          WebkitBackdropFilter: isScrolled ? "blur(20px)" : "blur(12px)"
-        }}
       >
-        <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="w-full max-w-[1280px] mx-auto px-5 sm:px-8 flex items-center justify-between">
           
-          {/* Brand Wordmark & Circular Emblem */}
+          {/* Brand Wordmark & Logo (Pure & Unbordered) */}
           <a
             href="#"
-            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5500] rounded-xl"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none py-1"
             aria-label="Prosync India Home"
           >
-            <div className="relative h-8 w-8 sm:h-9 sm:w-9 rounded-full overflow-hidden bg-white/90 p-0.5 border border-black/[0.08] shadow-2xs transition-transform duration-300 group-hover:scale-105 shrink-0 flex items-center justify-center">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 flex items-center justify-center">
               <img
-                src="/assets/aistudio/Prosync_Circular_P_Logo_166619fe.png"
+                src={companyData.logoUrl}
                 alt="Prosync Logo"
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  e.currentTarget.src = companyData.logoUrl;
-                }}
+                className="w-full h-full object-contain rounded-full"
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-[17px] sm:text-xl font-bold font-heading tracking-tight text-[#002244] group-hover:text-[#FF5500] transition-colors leading-none">
+              <span className="text-[17px] sm:text-xl font-bold font-heading tracking-tight text-[#002244] group-hover:text-[#FF5500] transition-colors duration-200 leading-none">
                 Prosync
               </span>
               <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.22em] text-[#6E6E73] uppercase mt-0.5 font-medium">
-                Advisory
+                Consulting
               </span>
             </div>
           </a>
 
-          {/* Center Navigation Links (Desktop) */}
+          {/* Center Navigation Links: Pure Minimalist Borderless Text Links */}
           <nav 
-            className="hidden md:flex items-center gap-8 lg:gap-10 text-[13px] lg:text-sm font-medium font-body text-[#4B5563]"
+            className="hidden md:flex items-center gap-8 lg:gap-10"
             aria-label="Main Navigation"
           >
             {navLinks.map((link) => {
@@ -157,50 +149,45 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`relative py-1 font-semibold transition-all duration-200 hover:text-[#002244] ${
-                    isActive ? "text-[#002244]" : "text-[#4B5563]"
+                  className={`text-sm font-medium transition-colors duration-200 select-none ${
+                    isActive
+                      ? "text-[#FF5500] font-semibold"
+                      : "text-[#1D1D1F] hover:text-[#FF5500]"
                   }`}
                 >
-                  <span>{link.label}</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="navActiveUnderline"
-                      className="absolute left-0 right-0 -bottom-1 h-[2px] bg-[#FF5500] rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
+                  {link.label}
                 </a>
               );
             })}
           </nav>
 
-          {/* Desktop Right Action CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop Right Action CTA: Simple & Clean */}
+          <div className="hidden md:flex items-center gap-4">
             <a
               href="#contact"
-              className="px-6 py-2.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all duration-200 inline-flex items-center gap-1.5 shadow-sm shadow-[#002244]/10 hover:shadow-[#FF5500]/25 active:scale-95 cursor-pointer"
+              className="px-5 py-2 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-colors duration-200 inline-flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
             >
               <span>Discuss a Mandate</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-90" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* Mobile Right Controls: Compact "Discuss" Pill + Drawer Trigger */}
-          <div className="flex items-center gap-2 md:hidden">
+          {/* Mobile Right Controls: Minimal Borderless Controls */}
+          <div className="flex items-center gap-3 md:hidden">
             <a
               href="#contact"
-              className="px-3.5 py-1.5 rounded-full text-[11px] font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] shadow-2xs active:scale-95 transition-colors min-h-[34px] flex items-center justify-center cursor-pointer"
+              className="px-3.5 py-1.5 rounded-full text-[11px] font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-colors active:scale-95 flex items-center justify-center cursor-pointer"
             >
-              Discuss
+              <span>Discuss</span>
             </a>
 
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 rounded-xl text-[#002244] hover:bg-black/[0.05] transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5500]"
+              className="p-1.5 text-[#002244] hover:text-[#FF5500] transition-colors flex items-center justify-center cursor-pointer"
               aria-label="Open Navigation Menu"
               aria-expanded={mobileMenuOpen}
             >
-              <Menu className="w-5 h-5 text-[#002244]" />
+              <Menu className="w-6 h-6" />
             </button>
           </div>
 
@@ -242,9 +229,9 @@ export default function Navbar() {
                 <div className="flex items-center gap-2.5">
                   <div className="h-8 w-8 rounded-full overflow-hidden bg-white p-0.5 border border-black/[0.08] flex items-center justify-center">
                     <img
-                      src="/assets/aistudio/Prosync_Circular_P_Logo_166619fe.png"
+                      src={companyData.logoUrl}
                       alt="Prosync Logo"
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain rounded-full"
                     />
                   </div>
                   <div>
@@ -252,7 +239,7 @@ export default function Navbar() {
                       Prosync
                     </span>
                     <span className="text-[9px] font-mono uppercase tracking-widest text-[#6E6E73] block">
-                      Advisory Desk
+                      Consulting Desk
                     </span>
                   </div>
                 </div>

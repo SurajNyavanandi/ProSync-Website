@@ -1,27 +1,29 @@
 export const companyData = {
   name: "Prosync Consulting",
-  logoUrl: "/assets/aistudio/Prosync_Circular_P_Logo_166619fe.png",
-  monogramUrl: "/assets/aistudio/Prosync_Circular_P_Logo_166619fe.png",
-  fullLogoUrl: "/assets/aistudio/Prosync_Circular_P_Logo_166619fe.png",
+  logoUrl: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793258172/Navy_and_Orange_CP_Monogram_Logo_xkgmso.jpg",
+  monogramUrl: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793258172/Navy_and_Orange_CP_Monogram_Logo_xkgmso.jpg",
+  fullLogoUrl: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793258172/Navy_and_Orange_CP_Monogram_Logo_xkgmso.jpg",
   legalName: "Prosync Consulting Advisory Private Limited",
-  tagline: "Corporate Finance & Capital Advisory",
+  tagline: "Financial Advisory | Debt & Structured Finance | Transaction Advisory",
   founded: "2015",
   cin: "U74999TG2015PTC099824",
   address: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
-  shortAddress: "Jubilee Hills & Hitec City, Hyderabad",
-  email: "Email.psc@prosyncindia.com",
-  careersEmail: "Email.psc@prosyncindia.com",
+  shortAddress: "Hyderabad, Vijayawada, Mumbai",
+  locations: ["Hyderabad", "Vijayawada", "Mumbai"],
+  email: "psc@prosyncindia.com",
+  careersEmail: "psc@prosyncindia.com",
   phone: "+91 99514 45544",
   phoneRaw: "+919951445544",
-  brandName: "Prosync Consulting",
+  brandName: "Prosync",
   websiteUrl: "https://prosyncindia.com",
   domain: "prosyncindia.com",
   officeAddress: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
   
-  // Specification 2: Strict Headline & Concise 2-Sentence Description
-  heroHeadline: "Financial Advisory. Built Around Your Business.",
+  // Leadership Specifications
+  heroHeadline: "CAPITAL. STRATEGY. GROWTH.",
+  heroSubheadline: "Financial expertise for businesses navigating their next phase of growth.",
   subtitle:
-    "We provide corporate debt syndication, private credit, and growth equity advisory across infrastructure, energy, and mid-market enterprises. Our senior partners lead every mandate from financial modeling to final disbursement.",
+    "Prosync is an independent financial advisory firm providing debt syndication, structured finance, transaction advisory and strategic financial solutions.",
 
   // WhatsApp helper
   getWhatsAppUrl: function (text) {
@@ -32,58 +34,157 @@ export const companyData = {
   },
   whatsappBaseUrl: "https://wa.me/919951445544?text=Hello%20Prosync%2C%20I%20would%20like%20to%20discuss%20a%20mandate.",
 
-  // Specification 5: Verified Deal Credentials (No placeholder stats)
-  metrics: [
+  // Our Experience - Simple 3-metric strip
+  experienceNumbers: [
     {
-      value: "₹2,500 Cr+",
-      label: "Total Portfolio Syndicated",
-      detail: "Corporate & Project Finance",
+      value: "₹800+ CRORE",
+      label: "Transaction experience",
+      detail: "Completed & syndicated transaction volume"
     },
     {
-      value: "15+ Yrs",
-      label: "Partner Track Record",
-      detail: "Institutional Advisory Experience",
+      value: "SINCE 2015",
+      label: "Financial advisory experience",
+      detail: "Over a decade of advisory track record"
     },
     {
-      value: "5+",
-      label: "Core Focus Sectors",
-      detail: "Infra, Clean Energy & EPC",
+      value: "MULTI-SECTOR",
+      label: "Experience across business and infrastructure sectors",
+      detail: "Highways, energy, industry & mid-market"
+    }
+  ],
+
+  // 4 Core Practice Areas / Services
+  expertiseIntro:
+    "We provide financial advisory across four key areas, supporting businesses from project planning and capital structuring to financing and strategic transactions.",
+
+  servicePillars: [
+    {
+      id: "debt-structured-finance",
+      title: "DEBT & STRUCTURED FINANCE",
+      shortTitle: "Debt & Structured Finance",
+      description:
+        "We help businesses evaluate, structure and raise debt capital aligned with their funding requirements and business plans.",
+      points: [
+        "Project Finance",
+        "Working Capital Finance",
+        "Structured & Mezzanine Finance",
+        "Acquisition Finance",
+        "Refinancing & Debt Restructuring",
+      ],
+      cta: "ENQUIRE ABOUT DEBT FINANCING",
     },
     {
-      value: "100%",
-      label: "Partner-Led Execution",
-      detail: "Modeling to Disbursement",
+      id: "investment-transaction-advisory",
+      title: "INVESTMENT & TRANSACTION ADVISORY",
+      shortTitle: "Investment & Transaction Advisory",
+      description:
+        "We support businesses and investors through financial analysis, transaction evaluation and capital-raising assignments.",
+      points: [
+        "Mergers & Acquisitions Advisory",
+        "Equity Capital Raising Support",
+        "Business Valuation",
+        "Financial Due Diligence",
+        "Transaction Structuring",
+      ],
+      cta: "DISCUSS A TRANSACTION",
+    },
+    {
+      id: "project-infrastructure-advisory",
+      title: "PROJECT & INFRASTRUCTURE ADVISORY",
+      shortTitle: "Project & Infrastructure Advisory",
+      description:
+        "We assist project promoters and businesses in assessing project viability, preparing financial plans and navigating project-related advisory requirements.",
+      points: [
+        "Techno-Economic Viability (TEV) Studies",
+        "Detailed Project Reports (DPRs)",
+        "Project Financial Modelling",
+        "Infrastructure Advisory",
+        "Bid & Tender Advisory",
+      ],
+      cta: "DISCUSS YOUR PROJECT",
+    },
+    {
+      id: "corporate-finance-research",
+      title: "CORPORATE FINANCE & RESEARCH",
+      shortTitle: "Corporate Finance & Research",
+      description:
+        "We provide financial analysis and research support to businesses and investment institutions for better-informed decisions.",
+      points: [
+        "Financial Modelling & Analysis",
+        "Credit Assessment",
+        "Management Reporting",
+        "Sector & Industry Research",
+        "Investment and Portfolio Research Support",
+      ],
+      cta: "EXPLORE RESEARCH SUPPORT",
     },
   ],
 
-  // Specification 6 & 7: Exactly Three Clear Pillars with 2-3 sentence descriptions
-  servicePillars: [
+  // 10. Selected Experience (Capability descriptions, not client case studies)
+  selectedExperience: [
     {
-      id: "corporate-finance",
-      title: "Corporate Finance",
-      category: "Debt Syndication & Bank Lines",
-      summary:
-        "We structure and syndicate term loans, working capital consortia, and project debt facilities from premier Indian banks and financial institutions. Our team evaluates enterprise debt capacity, optimizes repayment schedules, and interfaces directly with credit committees.",
-      deliverable: "Bank sanction letters, CMA documentation & consortium agreements",
-      cta: "Discuss Corporate Finance",
+      id: "exp-project-finance",
+      title: "Project Finance",
+      description: "Supporting project promoters with financial structuring and funding proposals.",
     },
     {
-      id: "capital-transactions",
-      title: "Capital & Transactions",
-      category: "Growth Equity & Private Credit",
-      summary:
-        "We guide high-growth enterprises and mid-market promoters through growth equity rounds, structured mezzanine capital, and Pre-IPO advisory. We build institutional financial models, design cap tables, and negotiate investor term sheets to secure closing certainty.",
-      deliverable: "Term sheets, cap-table models & closing governance",
-      cta: "Discuss Transactions",
+      id: "exp-working-capital",
+      title: "Working Capital Finance",
+      description: "Assisting operating businesses with working capital assessment and lender engagement.",
     },
     {
-      id: "project-advisory",
-      title: "Project Advisory",
-      category: "Infrastructure & Techno-Economic Feasibility",
-      summary:
-        "We advise infrastructure concessionaires, solar developers, and industrial builders on project viability, techno-economic valuation (TEV), and tender bid modeling. From NHAI highway concessions to renewable power assets, we ensure full statutory compliance through to financial closure.",
-      deliverable: "TEV appraisal, concession bid models & financial closure",
-      cta: "Discuss Project Finance",
+      id: "exp-infrastructure",
+      title: "Infrastructure & Industrial Projects",
+      description: "Supporting project evaluation, TEV studies and financial modelling.",
+    },
+    {
+      id: "exp-corporate-tx",
+      title: "Corporate Transactions",
+      description: "Providing valuation, due diligence and transaction support.",
+    },
+  ],
+
+  // 11. Who We Work With
+  whoWeServe: [
+    {
+      id: "corporates",
+      title: "Corporates & Mid-sized Enterprises",
+      desc: "Balancing debt capacity, working capital consortia, and expansion credit."
+    },
+    {
+      id: "infra-devs",
+      title: "Infrastructure & Project Developers",
+      desc: "Concession appraisal, TEV modeling, and project debt structuring."
+    },
+    {
+      id: "promoters",
+      title: "Promoters & Entrepreneurs",
+      desc: "Cap-table advisory, promoter equity financing, and strategic transactions."
+    },
+    {
+      id: "investors-funds",
+      title: "Investors, Family Offices & Funds",
+      desc: "Transaction due diligence, financial modeling, and portfolio analytics."
+    },
+  ],
+
+  // 12. Why Prosync (4 short blocks)
+  whyProsync: [
+    {
+      title: "Financial Perspective",
+      desc: "We assess funding needs, financial position and business objectives before recommending a course of action.",
+    },
+    {
+      title: "Structured Solutions",
+      desc: "We evaluate suitable financing and transaction structures around each assignment.",
+    },
+    {
+      title: "Execution Focus",
+      desc: "We support clients through analysis, preparation and engagement with relevant stakeholders.",
+    },
+    {
+      title: "Cross-sector Experience",
+      desc: "We work with businesses and projects across multiple sectors.",
     },
   ],
 
@@ -139,28 +240,28 @@ export const companyData = {
   // Specification 8: Unified approach - senior partner oversight from modeling to financial closure
   approach: [
     {
-      step: "01",
+      id: "diagnostic",
       name: "Financial Diagnostic",
       tagline: "Balance Sheet & Capacity Audit",
       description:
         "We evaluate historical financials, debt-servicing capability, and project cash flows to establish real borrowing and equity capacity.",
     },
     {
-      step: "02",
+      id: "architecture",
       name: "Capital Architecture",
       tagline: "Bankable Financial Engineering",
       description:
         "We build institutional financial models, dynamic CMA data, and valuation matrices that align with current lender and fund mandates.",
     },
     {
-      step: "03",
+      id: "negotiation",
       name: "Lender & Investor Negotiation",
       tagline: "Credit Committee Engagement",
       description:
         "Senior partners present credit briefs directly to bank credit committees and fund managers, defending assumptions and negotiating rates.",
     },
     {
-      step: "04",
+      id: "closure",
       name: "Execution & Closure",
       tagline: "Disbursement & Documentation",
       description:
@@ -168,13 +269,14 @@ export const companyData = {
     },
   ],
 
-  // Specification 10: Company Profile
+  // 3. About Prosync – homepage
+  aboutParagraph:
+    "Since 2015, Prosync has been helping businesses make informed financial decisions and access the capital required to grow. We work with promoters, corporates and institutions across financing, project advisory and strategic transactions. Our approach combines financial analysis, structured thinking and execution-focused support.",
+
   aboutProfile: {
-    headline: "Senior Partner-Led Advisory for Critical Financial Decisions",
-    paragraphs: [
-      "Founded in 2015 and headquartered in Hyderabad, Prosync Consulting is an executive financial advisory firm. We specialize in corporate debt syndication, project finance, and capital transactions across infrastructure, renewables, and mid-market enterprises.",
-      "Unlike conventional brokerage firms, Prosync operates with direct senior partner involvement from inception to completion. Our multidisciplinary team combines chartered accountancy, project finance modeling, and techno-economic appraisal to structure transactions that stand up to institutional scrutiny.",
-    ],
+    headline: "Financial Advisory Built on Deep Institutional Relationships",
+    paragraph:
+      "Since 2015, Prosync has been helping businesses make informed financial decisions and access the capital required to grow. We work with promoters, corporates and institutions across financing, project advisory and strategic transactions. Our approach combines financial analysis, structured thinking and execution-focused support.",
     sectorsServed: [
       "Roads & Highways (NHAI HAM & EPC)",
       "Solar & Clean Energy IPP",
@@ -184,26 +286,33 @@ export const companyData = {
     ],
   },
 
-  // Specification 18: Prosync Global / Research (separated from domestic corporate finance flow)
+  // 13. Prosync Global
   prosyncGlobal: {
-    title: "Financial Research & Analytics Desk",
-    subtitle: "Dedicated institutional modeling, valuation, and transaction support for enterprises, boards, and global deal teams.",
+    title: "PROSYNC GLOBAL",
+    subtitle: "Financial Research. Better Decisions.",
+    description:
+      "Prosync Global provides research and analytical support to family offices, AIFs, fund houses and investment institutions.",
+    cta: "DISCUSS RESEARCH SUPPORT",
     capabilities: [
       {
-        name: "Valuation & Financial Modeling",
-        desc: "3-statement financial models, discounted cash flow (DCF), LBO, and peer trading multiples.",
+        name: "Due Diligence Reports",
+        desc: "Comprehensive financial, commercial, and risk due diligence dossiers for funds and institutions.",
       },
       {
-        name: "Due Diligence Support & VDR",
-        desc: "Virtual data room setup, commercial due diligence dossiers, and quality of earnings analysis.",
+        name: "Investment & Investment Committee Notes",
+        desc: "Institutional IC memos, thesis articulation, and capital allocation frameworks.",
       },
       {
-        name: "Techno-Economic Appraisal (TEV/DPR)",
-        desc: "Detailed project reports and technical feasibility models compliant with bank consortium standards.",
+        name: "Portfolio Monitoring & Updates",
+        desc: "Covenant tracking, quarterly performance dashboards, and portfolio risk reviews.",
       },
       {
-        name: "Investor Materials & CIM",
-        desc: "Confidential Information Memorandums, board decks, and institutional investment committee briefs.",
+        name: "Sector and Industry Analysis",
+        desc: "Deep-dive sector research, regulatory impact assessments, and competitor benchmark studies.",
+      },
+      {
+        name: "Financial Research Support",
+        desc: "Dedicated modeling, DCF valuations, and custom analytical support for global deal teams.",
       },
     ],
   },
@@ -224,16 +333,17 @@ export const companyData = {
       bio: "Anand Bandham brings deep experience across banking institutions and corporate financial services. His cross-sector background strengthens Prosync's credit syndication capability, structuring bankable proposals tailored to institutional lender requirements.",
       focus: ["Corporate Banking", "Consortium Credit", "Transaction Strategy"],
     },
+    {
+      name: "PRASAD",
+      role: "PARTNER - FINANCIAL DUE DILIGENCE",
+      image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793258172/Navy_and_Orange_CP_Monogram_Logo_xkgmso.jpg",
+      bio: "Prasad leads Prosync's Financial Due Diligence practice. He brings specialized expertise in forensic balance sheet analysis, Quality of Earnings (QoE) auditing, working capital evaluation, and financial risk assessment for corporate acquisitions and institutional credit syndication.",
+      focus: ["Financial Due Diligence", "Quality of Earnings", "Transaction Audit"],
+    },
   ],
 
   // Team - All Project Finance Analysts + Full Stack Developer & Technical Lead (no LinkedIn icons)
   employees: [
-    {
-      name: "Prasad",
-      role: "",
-      department: "",
-      initials: "P",
-    },
     {
       name: "Naveen P",
       role: "Manager",

@@ -24,34 +24,34 @@ export default function Home() {
 
       {/* Main Corporate Finance Narrative Flow */}
       <main className="flex-1 w-full">
-        {/* 1. Hero Banner: Primary value proposition & dual CTAs */}
+        {/* 1. Hero: CAPITAL. STRATEGY. GROWTH. & Dual CTAs */}
         <Hero />
 
-        {/* 2. About Prosync: Company overview, mission, track record & loan lifecycle */}
+        {/* 2. About Prosync: Concise since 2015 narrative */}
         <AboutSplitSection />
 
-        {/* 3. Core Services / Practice Areas: Debt syndication, growth equity, project advisory */}
+        {/* 3. Our Expertise: 4 Core Service Cards */}
         <PracticeSection />
 
-        {/* 4. Execution Approach & Sector Coverage: 4-Stage methodology & core sectors */}
-        <ApproachSection />
-
-        {/* 5. Lending Partners: Tier-1 PSU & Private bank network marquee */}
-        <BankersSection />
-
-        {/* 6. Closed Landmark Transactions: Filterable deal tombstones & case studies */}
+        {/* 4. Our Experience & Selected Experience: 3-number strip & capability cards */}
         <TransactionsSection />
 
-        {/* 7. Enterprise Clients: Corporate sponsors & client marquee */}
+        {/* 5. Who We Work With & Why Prosync: Audience profiles & value blocks */}
+        <ApproachSection />
+
+        {/* 6. Corporate Clients & Sponsors */}
         <ClientsSection />
 
-        {/* 8. Global Analytics Desk: Financial modeling, VDR & TEV research unit */}
+        {/* 7. Institutional Lending Partners */}
+        <BankersSection />
+
+        {/* 8. Prosync Global: Financial Research. Better Decisions. */}
         <ProsyncGlobalSection />
 
-        {/* 9. Executive Leadership: Managing Partners & Advisory Team */}
+        {/* 9. Partner Leadership & Execution Team */}
         <LeadershipSection />
 
-        {/* 10. Mandate Inquiry & Get In Touch: Interactive calculator & direct contact desk */}
+        {/* 10. Final Call to Action & Contact Form: Let's Start a Conversation */}
         <ContactSection />
       </main>
 

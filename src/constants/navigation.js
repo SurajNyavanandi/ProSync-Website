@@ -3,10 +3,11 @@
  */
 
 export const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Transactions", href: "#transactions" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "#top", id: "top" },
+  { label: "About Us", href: "#about", id: "about" },
+  { label: "Services", href: "#services", id: "services" },
+  { label: "Our Experience", href: "#experience", id: "experience" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 export const FOOTER_SECTIONS = [
