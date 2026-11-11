@@ -451,7 +451,7 @@ export default function BankersSection() {
     <section id="bankers" className="py-14 md:py-16 relative bg-[#F5F5F7] border-y border-black/[0.05] overflow-hidden">
       {/* Section Header */}
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 mb-8 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#1D1D1F]">
+        <h2 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] text-[#002244]">
           INSTITUTIONAL LENDING NETWORK
         </h2>
       </div>

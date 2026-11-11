@@ -25,7 +25,7 @@ export default function ClientsSection() {
       <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 mb-8 text-center">
         {/* Minimalist Section Header */}
         <Reveal className="max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-[#1D1D1F]">
+          <h2 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] text-[#002244]">
             CLIENTS &amp; SPONSORS
           </h2>
         </Reveal>

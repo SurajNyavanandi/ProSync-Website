@@ -66,7 +66,7 @@ export const FOOTER_SECTIONS = [
     links: [
       { label: "About Prosync", href: "#about" },
       { label: "Partner Leadership", href: "#leadership" },
-      { label: "Execution Deal Desk", href: "#team" },
+      { label: "Our Team", href: "#team" },
       { label: "Verified Credentials", href: "#clients" },
       { label: "Closed Transactions", href: "#transactions" },
       { label: "Global Analytics Desk", href: "#global-research" },

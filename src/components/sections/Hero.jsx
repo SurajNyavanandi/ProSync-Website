@@ -41,28 +41,28 @@ export default function Hero() {
           <div className="lg:col-span-8 space-y-6 sm:space-y-8">
             <div className="space-y-3">
               <Reveal delay={50}>
-                <h1 className="text-4xl sm:text-6xl lg:text-6xl font-medium tracking-tight text-[#1D1D1F] leading-[1.06]">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#1D1D1F] leading-[1.08] break-words">
                   CAPITAL. STRATEGY. GROWTH.
                 </h1>
               </Reveal>
               <Reveal delay={160}>
-                <p className="text-lg sm:text-xl font-normal text-[#1D1D1F] leading-snug">
+                <p className="text-base sm:text-xl font-normal text-[#1D1D1F] leading-snug">
                   Financial expertise for businesses navigating their next phase of growth.
                 </p>
               </Reveal>
             </div>
 
             <Reveal delay={220}>
-              <p className="text-base sm:text-lg text-[#515154] leading-relaxed max-w-xl font-normal">
+              <p className="text-sm sm:text-lg text-[#515154] leading-relaxed max-w-xl font-normal">
                 Prosync is an independent financial advisory firm providing debt syndication, structured finance, transaction advisory and strategic financial solutions.
               </p>
             </Reveal>
 
-            {/* Exactly Two Action Buttons - No micro-texts or badges below */}
-            <Reveal delay={280} className="pt-2 flex flex-wrap items-center gap-4 sm:gap-5">
+            {/* Exactly Two Action Buttons - Mobile Responsive */}
+            <Reveal delay={280} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-5">
               <a
                 href="#contact"
-                className="px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] shadow-md shadow-[#002244]/15 hover:shadow-[#FF5500]/25 transition-all duration-200 inline-flex items-center gap-2 min-h-[48px] active:scale-95 cursor-pointer"
+                className="px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] shadow-md shadow-[#002244]/15 hover:shadow-[#FF5500]/25 transition-all duration-200 inline-flex items-center justify-center gap-2 min-h-[48px] active:scale-95 cursor-pointer w-full sm:w-auto text-center"
               >
                 <span>DISCUSS A MANDATE</span>
                 <ArrowRight className="w-4 h-4" />
@@ -70,7 +70,7 @@ export default function Hero() {
 
               <a
                 href="#services"
-                className="px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold font-heading text-[#002244] bg-white border border-[#002244]/25 hover:border-[#FF5500] hover:text-[#FF5500] hover:bg-slate-50 transition-all duration-200 inline-flex items-center gap-2 min-h-[48px] active:scale-95 cursor-pointer"
+                className="px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold font-heading text-[#002244] bg-white border border-[#002244]/25 hover:border-[#FF5500] hover:text-[#FF5500] hover:bg-slate-50 transition-all duration-200 inline-flex items-center justify-center gap-2 min-h-[48px] active:scale-95 cursor-pointer w-full sm:w-auto text-center"
               >
                 <span>OUR EXPERTISE</span>
               </a>

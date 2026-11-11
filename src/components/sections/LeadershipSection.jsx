@@ -48,7 +48,7 @@ export default function LeadershipSection() {
             <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
               <Reveal delay={50} className="space-y-2">
                 <span className="text-xs font-mono font-medium text-[#002244] uppercase tracking-wider block">
-                  Founder &amp; Managing Partner
+                  Founder
                 </span>
                 <h3 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.12]">
                   Pradeep Tanuku
@@ -65,10 +65,10 @@ export default function LeadershipSection() {
               </Reveal>
 
               {/* Action Buttons */}
-              <Reveal delay={200} className="pt-2 flex flex-wrap items-center gap-3.5">
+              <Reveal delay={200} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <a
                   href="#contact"
-                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Discuss a Mandate</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -76,7 +76,7 @@ export default function LeadershipSection() {
 
                 <a
                   href={`mailto:${companyData.email}?subject=Mandate%20Inquiry%20-%20Attention%20Pradeep%20Tanuku`}
-                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
                   <span>Contact Partner</span>
@@ -97,7 +97,7 @@ export default function LeadershipSection() {
                     {!pradeepImgError ? (
                       <img
                         src="https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/pradeepsir_ffnpct.jpg"
-                        alt="Pradeep Tanuku - Founder & Managing Partner"
+                        alt="Pradeep Tanuku - Founder"
                         loading="lazy"
                         referrerPolicy="no-referrer"
                         onError={() => setPradeepImgError(true)}
@@ -107,7 +107,7 @@ export default function LeadershipSection() {
                       <div className="w-full h-full flex flex-col justify-between p-8 bg-[#002244] text-white">
                         <Award className="w-8 h-8 text-[#FF8A3D]" />
                         <h3 className="text-2xl font-bold font-heading">Pradeep Tanuku</h3>
-                        <span className="text-xs font-mono text-slate-300">Managing Partner</span>
+                        <span className="text-xs font-mono text-slate-300">Founder</span>
                       </div>
                     )}
 
@@ -116,7 +116,7 @@ export default function LeadershipSection() {
                       <div>
                         <h4 className="text-sm font-bold font-heading text-[#002244]">Pradeep Tanuku</h4>
                         <span className="text-[11px] font-mono text-[#FF5500] font-semibold block">
-                          Founder &amp; Managing Partner
+                          Founder
                         </span>
                       </div>
                       <span className="text-[10px] font-mono text-[#6E6E73] px-2.5 py-1 rounded-md bg-slate-100 font-medium">
@@ -195,10 +195,10 @@ export default function LeadershipSection() {
               </Reveal>
 
               {/* Action Buttons */}
-              <Reveal delay={200} className="pt-2 flex flex-wrap items-center gap-3.5">
+              <Reveal delay={200} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <a
                   href="#contact"
-                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Discuss a Mandate</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -206,7 +206,7 @@ export default function LeadershipSection() {
 
                 <a
                   href={`mailto:${companyData.email}?subject=Mandate%20Inquiry%20-%20Attention%20Anand%20Bandham`}
-                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
                   <span>Contact Partner</span>
@@ -240,10 +240,10 @@ export default function LeadershipSection() {
               </Reveal>
 
               {/* Action Buttons */}
-              <Reveal delay={200} className="pt-2 flex flex-wrap items-center gap-3.5">
+              <Reveal delay={200} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <a
                   href="#contact"
-                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-all shadow-md active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Discuss a Mandate</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -251,7 +251,7 @@ export default function LeadershipSection() {
 
                 <a
                   href={`mailto:${companyData.email}?subject=Mandate%20Inquiry%20-%20Attention%20Prasad`}
-                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white hover:bg-slate-100 border border-black/[0.08] transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#FF5500]" />
                   <span>Contact Partner</span>
@@ -308,9 +308,6 @@ export default function LeadershipSection() {
         <div id="team" className="pt-6">
           
           <Reveal className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-            <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block mb-1">
-              EXECUTION DEAL DESK
-            </span>
             <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F]">
               Meet Our Team
             </h2>

@@ -154,12 +154,12 @@ export default function PracticeSection() {
             </span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.14]">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.14]">
               Financial Advisory Built on Execution
             </h2>
           </Reveal>
           <Reveal delay={150}>
-            <p className="text-base sm:text-lg text-[#515154] leading-relaxed font-normal pt-1">
+            <p className="text-sm sm:text-lg text-[#515154] leading-relaxed font-normal pt-1">
               {companyData.expertiseIntro}
             </p>
           </Reveal>
@@ -171,7 +171,7 @@ export default function PracticeSection() {
             const Icon = svc.icon;
             return (
               <Reveal key={svc.id} delay={idx * 80} className="h-full">
-                <div className="h-full rounded-3xl bg-white border border-black/[0.08] hover:border-[#002244] p-6 sm:p-7 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                <div className="h-full rounded-3xl bg-white border border-black/[0.08] hover:border-[#002244] p-5 sm:p-7 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                   
                   {/* Top: Category Icon */}
                   <div>

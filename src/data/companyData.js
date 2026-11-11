@@ -7,7 +7,7 @@ export const companyData = {
   tagline: "Financial Advisory | Debt & Structured Finance | Transaction Advisory",
   founded: "2015",
   cin: "U74999TG2015PTC099824",
-  address: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
+  address: "ARC Property Solutions Pvt. Ltd., 2nd Floor, Plot no. 24 & 25, Kakatiya Hills, Jubilee Hills, Hyderabad, Telangana 500081",
   shortAddress: "Hyderabad, Vijayawada, Mumbai",
   locations: ["Hyderabad", "Vijayawada", "Mumbai"],
   email: "psc@prosyncindia.com",
@@ -17,7 +17,7 @@ export const companyData = {
   brandName: "Prosync",
   websiteUrl: "https://prosyncindia.com",
   domain: "prosyncindia.com",
-  officeAddress: "Plot 82, Road No 7, Jubilee Hills & Hitec City, Hyderabad, Telangana 500033",
+  officeAddress: "ARC Property Solutions Pvt. Ltd., 2nd Floor, Plot no. 24 & 25, Kakatiya Hills, Jubilee Hills, Hyderabad, Telangana 500081",
   
   // Leadership Specifications
   heroHeadline: "CAPITAL. STRATEGY. GROWTH.",
@@ -321,7 +321,7 @@ export const companyData = {
   leadership: [
     {
       name: "PRADEEP TANUKU",
-      role: "FOUNDER & MANAGING PARTNER",
+      role: "FOUNDER",
       image: "https://res.cloudinary.com/dfr0zghtc/image/upload/v1793095926/pradeepsir_ffnpct.jpg",
       bio: "Pradeep Tanuku is a Chartered Accountant with extensive experience in debt syndication, project finance, financial structuring, and institutional capital raising. He founded Prosync to provide mid-market enterprises and concessionaires with rigorous, partner-led transaction advisory.",
       focus: ["Debt Syndication", "Project Finance", "Strategic Advisory"],

@@ -19,30 +19,30 @@ export default function AboutSplitSection() {
               <span className="text-xs font-mono font-medium text-[#002244] uppercase tracking-[0.15em] block">
                 ABOUT PROSYNC
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
                 Senior Capital Partners Behind Landmark Closures
               </h2>
             </Reveal>
 
             {/* Exactly Requested Single Paragraph */}
             <Reveal delay={120}>
-              <p className="text-base sm:text-lg text-[#515154] leading-relaxed font-normal">
+              <p className="text-sm sm:text-lg text-[#515154] leading-relaxed font-normal">
                 Since 2015, Prosync has been helping businesses make informed financial decisions and access the capital required to grow. We work with promoters, corporates and institutions across financing, project advisory and strategic transactions. Our approach combines financial analysis, structured thinking and execution-focused support.
               </p>
             </Reveal>
 
-            <Reveal delay={180} className="pt-2 flex flex-wrap items-center gap-4">
+            <Reveal delay={180} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
               <a
                 href="#leadership"
-                className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] shadow-md transition-all inline-flex items-center gap-2 min-h-[46px] active:scale-95 cursor-pointer"
+                className="px-7 py-3.5 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] shadow-md transition-all inline-flex items-center justify-center gap-2 min-h-[46px] active:scale-95 cursor-pointer w-full sm:w-auto"
               >
-                <span>Meet Managing Partners</span>
+                <span>Meet Leadership</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href="#contact"
-                className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white border border-black/[0.08] hover:bg-slate-50 transition-all inline-flex items-center gap-2 min-h-[46px] cursor-pointer"
+                className="px-7 py-3.5 rounded-full text-xs font-semibold font-heading text-[#002244] bg-white border border-black/[0.08] hover:bg-slate-50 transition-all inline-flex items-center justify-center gap-2 min-h-[46px] cursor-pointer w-full sm:w-auto"
               >
                 <span>Discuss Your Mandate</span>
               </a>
@@ -75,7 +75,7 @@ export default function AboutSplitSection() {
                           Headquarters
                         </span>
                         <h3 className="text-2xl font-bold font-heading text-white">Jubilee Hills Office</h3>
-                        <p className="text-xs font-body text-slate-300">Plot 82, Road No 7, Jubilee Hills Corridor</p>
+                        <p className="text-xs font-body text-slate-300">ARC Property Solutions, Kakatiya Hills, Jubilee Hills</p>
                       </div>
                       <span className="text-xs font-mono text-emerald-400">CIN: U74999TG2015PTC099824</span>
                     </div>

@@ -15,41 +15,41 @@ export default function TransactionsSection() {
             <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#FF8A3D] font-medium block">
               OUR EXPERIENCE
             </span>
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
               A Proven Institutional Track Record
             </h2>
           </div>
 
           {/* Clean 3-Number Strip */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pt-2">
-            <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
+            <div className="p-5 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-mono text-[#FF5500] tracking-tight tabular-nums block">
                 ₹800+ CRORE
               </span>
               <div className="mt-3">
-                <span className="text-base sm:text-lg font-medium text-white block">
+                <span className="text-sm sm:text-lg font-medium text-white block">
                   Transaction experience
                 </span>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
+            <div className="p-5 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-mono text-emerald-400 tracking-tight tabular-nums block">
                 SINCE 2015
               </span>
               <div className="mt-3">
-                <span className="text-base sm:text-lg font-medium text-white block">
+                <span className="text-sm sm:text-lg font-medium text-white block">
                   Financial advisory experience
                 </span>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
+            <div className="p-5 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-mono text-cyan-400 tracking-tight tabular-nums block">
                 MULTI-SECTOR
               </span>
               <div className="mt-3">
-                <span className="text-base sm:text-lg font-medium text-white block">
+                <span className="text-sm sm:text-lg font-medium text-white block">
                   Experience across business and infrastructure sectors
                 </span>
               </div>

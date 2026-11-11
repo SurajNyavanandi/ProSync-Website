@@ -123,7 +123,7 @@ export default function Footer() {
                     Hyderabad, Vijayawada, Mumbai
                   </span>
                   <span className="text-[11px] text-[#64748B] block mt-0.5">
-                    Plot 82, Road No 7, Jubilee Hills &amp; Hitec City Corridor, Hyderabad 500033
+                    ARC Property Solutions Pvt. Ltd., 2nd Floor, Plot no. 24 &amp; 25, Kakatiya Hills, Jubilee Hills, Hyderabad, Telangana 500081
                   </span>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function Footer() {
         {/* Clean Single-Line Bottom Bar */}
         <div className="pt-8 border-t border-[#002244]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
           <div className="font-mono text-[11px]">
-            © 2015–{new Date().getFullYear()} Prosync. All rights reserved.
+            © Since 2015 Prosync. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4 text-xs font-medium">

@@ -239,7 +239,7 @@ export default function Navbar() {
                       Prosync
                     </span>
                     <span className="text-[9px] font-mono uppercase tracking-widest text-[#6E6E73] block">
-                      Consulting Desk
+                      Consulting
                     </span>
                   </div>
                 </div>
@@ -256,10 +256,6 @@ export default function Navbar() {
 
               {/* Drawer Links Navigation Track (Scrollable) */}
               <div className="flex-1 overflow-y-auto px-4 py-5 space-y-1.5 overscroll-contain">
-                <span className="px-3 pb-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[#6E6E73] font-bold block">
-                  Navigation
-                </span>
-
                 {drawerLinks.map((item) => {
                   const Icon = item.icon;
                   const isActive = activeSection === item.id;
@@ -332,7 +328,7 @@ export default function Navbar() {
               </div>
 
               {/* Drawer Sticky Footer with Primary Action */}
-              <div className="p-4 border-t border-black/[0.06] bg-white/90 space-y-2">
+              <div className="p-4 border-t border-black/[0.06] bg-white/90">
                 <a
                   href="#contact"
                   onClick={handleLinkClick}
@@ -341,9 +337,6 @@ export default function Navbar() {
                   <span>Discuss a Mandate</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
-                <p className="text-[10px] text-center text-[#6E6E73] font-mono">
-                  Partner-led corporate credit advisory
-                </p>
               </div>
 
             </motion.aside>

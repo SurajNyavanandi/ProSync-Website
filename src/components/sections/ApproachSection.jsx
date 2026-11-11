@@ -119,24 +119,24 @@ export default function ApproachSection() {
   };
 
   return (
-    <section id="approach" className="py-20 md:py-28 relative bg-white text-[#1D1D1F] border-b border-black/[0.05]">
-      <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 space-y-20 md:space-y-24">
+    <section id="approach" className="py-16 md:py-28 relative bg-white text-[#1D1D1F] border-b border-black/[0.05]">
+      <div className="w-full max-w-[1240px] mx-auto px-5 sm:px-8 space-y-16 md:space-y-24">
         
         {/* 11. WHO WE WORK WITH (WHO WE SERVE) */}
         <div>
           <Reveal className="max-w-2xl mb-8 space-y-2">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
               WHO WE WORK WITH
             </h2>
-            <p className="text-base sm:text-lg text-[#515154] font-normal leading-relaxed">
+            <p className="text-sm sm:text-lg text-[#515154] font-normal leading-relaxed">
               We partner with businesses and institutions navigating critical financing, project structuring, and growth milestones.
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {audienceList.map((aud, idx) => (
               <Reveal key={idx} delay={idx * 70} className="h-full">
-                <div className="h-full p-6 sm:p-7 rounded-3xl bg-[#F5F5F7] border border-black/[0.06] hover:bg-white hover:border-[#002244] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md">
+                <div className="h-full p-5 sm:p-7 rounded-3xl bg-[#F5F5F7] border border-black/[0.06] hover:bg-white hover:border-[#002244] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md">
                   <div>
                     <h3 className="text-base sm:text-lg font-medium text-[#1D1D1F] mb-2 leading-snug">
                       {aud.title}
@@ -154,18 +154,18 @@ export default function ApproachSection() {
         {/* 12. WHY PROSYNC (4 SHORT BLOCKS) */}
         <div>
           <Reveal className="max-w-2xl mb-8 space-y-2">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
               WHY PROSYNC
             </h2>
-            <p className="text-base sm:text-lg text-[#515154] font-normal leading-relaxed">
+            <p className="text-sm sm:text-lg text-[#515154] font-normal leading-relaxed">
               Objective financial perspective and disciplined execution around every assignment.
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {whyProsyncBlocks.map((block, idx) => (
               <Reveal key={idx} delay={idx * 80} className="h-full">
-                <div className="h-full p-6 sm:p-7 rounded-3xl bg-white border border-black/[0.08] hover:border-[#002244] transition-all duration-300 flex flex-col justify-between shadow-xs hover:shadow-md">
+                <div className="h-full p-5 sm:p-7 rounded-3xl bg-white border border-black/[0.08] hover:border-[#002244] transition-all duration-300 flex flex-col justify-between shadow-xs hover:shadow-md">
                   <div>
                     <div className="pb-3 mb-3 border-b border-black/[0.06]">
                       <h3 className="text-base font-medium text-[#1D1D1F]">
@@ -185,9 +185,6 @@ export default function ApproachSection() {
         {/* METHODOLOGY: STRUCTURED PATH */}
         <div>
           <Reveal className="max-w-2xl mb-10 space-y-2">
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#FF5500] font-bold block">
-              EXECUTION PROCESS
-            </span>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-[#002244]">
               Structured Engagement Methodology
             </h3>
@@ -216,18 +213,10 @@ export default function ApproachSection() {
 
         {/* SECTOR COVERAGE */}
         <div id="sectors">
-          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-black/[0.06] mb-8">
-            <div>
-              <span className="text-xs font-mono font-bold text-[#FF5500] uppercase tracking-[0.2em] block mb-2">
-                SECTOR DEPTH
-              </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-[#002244]">
-                Multi-Sector Domain Experience
-              </h3>
-            </div>
-            <p className="text-xs sm:text-sm font-body text-[#52525B] max-w-md">
-              Advisory depth across core infrastructure, renewable power, manufacturing, healthcare, and commercial logistics.
-            </p>
+          <Reveal className="pb-6 border-b border-black/[0.06] mb-8">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-[#002244]">
+              Multi-Sector Domain Experience
+            </h3>
           </Reveal>
 
           {/* Desktop Accordion & Mobile cards */}
@@ -313,7 +302,7 @@ export default function ApproachSection() {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-white/20 flex items-center justify-between">
+                      <div className="pt-4 border-t border-white/20 flex items-center justify-start">
                         <a
                           href="#contact"
                           className="px-5 py-2.5 rounded-full text-xs font-bold font-heading text-[#002244] bg-white hover:bg-[#FF5500] hover:text-white transition-all shadow-md inline-flex items-center gap-2 active:scale-95 cursor-pointer"
@@ -321,9 +310,6 @@ export default function ApproachSection() {
                           <span>Discuss {sector.name} Mandate</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </a>
-                        <span className="text-xs font-mono text-slate-300">
-                          Senior Partner Oversight
-                        </span>
                       </div>
                     </div>
                   )}
