@@ -120,7 +120,7 @@ export default function Footer() {
                 <MapPin className="w-3.5 h-3.5 text-[#002244] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-[#002244] block">
-                    Hyderabad , Vijayawada Mumbai
+                    Hyderabad, Vijayawada, Mumbai
                   </span>
                   <span className="text-[11px] text-[#64748B] block mt-0.5">
                     Plot 82, Road No 7, Jubilee Hills &amp; Hitec City Corridor, Hyderabad 500033

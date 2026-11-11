@@ -57,12 +57,9 @@ export default function TransactionsSection() {
           </div>
         </div>
 
-        {/* SELECTED EXPERIENCE - 4 CLEAN CARDS */}
+        {/* ADVISORY CAPABILITIES - 4 CLEAN CARDS */}
         <div className="pt-6 border-t border-white/10 space-y-6">
-          <div className="space-y-1">
-            <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#FF8A3D] font-medium block mb-1">
-              SELECTED EXPERIENCE
-            </span>
+          <div>
             <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
               Advisory Capabilities &amp; Mandate Execution
             </h3>

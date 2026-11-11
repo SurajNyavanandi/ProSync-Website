@@ -145,9 +145,6 @@ export default function ContactSection() {
             {/* Left: Section Details & Contact Coordinates */}
             <div className="lg:col-span-5 space-y-7">
               <div className="space-y-3">
-                <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block">
-                  CONTACT US
-                </span>
                 <h3 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1D1D1F] leading-tight">
                   LET'S START A CONVERSATION
                 </h3>

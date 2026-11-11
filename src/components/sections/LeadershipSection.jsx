@@ -33,9 +33,6 @@ export default function LeadershipSection() {
         
         {/* Section Header */}
         <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-          <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block mb-1">
-            PARTNER DIRECTORY
-          </span>
           <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[#1D1D1F]">
             Our Leadership
           </h2>

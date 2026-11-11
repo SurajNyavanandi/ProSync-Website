@@ -125,9 +125,6 @@ export default function ApproachSection() {
         {/* 11. WHO WE WORK WITH (WHO WE SERVE) */}
         <div>
           <Reveal className="max-w-2xl mb-8 space-y-2">
-            <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block">
-              CLIENT PROFILE
-            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
               WHO WE WORK WITH
             </h2>
@@ -157,9 +154,6 @@ export default function ApproachSection() {
         {/* 12. WHY PROSYNC (4 SHORT BLOCKS) */}
         <div>
           <Reveal className="max-w-2xl mb-8 space-y-2">
-            <span className="text-xs font-mono uppercase tracking-[0.15em] text-[#002244] font-medium block">
-              OUR VALUE
-            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1D1D1F] leading-[1.15]">
               WHY PROSYNC
             </h2>
