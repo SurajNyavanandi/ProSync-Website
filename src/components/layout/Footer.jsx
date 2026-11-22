@@ -17,19 +17,23 @@ export default function Footer() {
   const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "").replace(/\s+/g, "");
   const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "";
 
+  const isHome = typeof window !== "undefined" ? window.location.pathname === "/" : true;
+  const getFooterHref = (hash) => (isHome ? hash : `/${hash}`);
+
   const quickLinks = [
-    { label: "About Us", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Our Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: getFooterHref("#about") },
+    { label: "Services", href: getFooterHref("#services") },
+    { label: "Our Experience", href: getFooterHref("#experience") },
+    { label: "DPR Services", href: "/dpr-services" },
+    { label: "Contact", href: getFooterHref("#contact") },
   ];
 
   const serviceLinks = [
-    { label: "Debt & Structured Finance", href: "#services" },
-    { label: "Investment & Transaction Advisory", href: "#services" },
-    { label: "Project & Infrastructure Advisory", href: "#services" },
-    { label: "Corporate Finance & Research", href: "#services" },
-    { label: "Prosync Global Research", href: "#global-research" },
+    { label: "Debt & Structured Finance", href: getFooterHref("#services") },
+    { label: "Investment & Transaction Advisory", href: getFooterHref("#services") },
+    { label: "Project & Infrastructure Advisory", href: getFooterHref("#services") },
+    { label: "Corporate Finance & Research", href: getFooterHref("#services") },
+    { label: "Prosync Global Research", href: getFooterHref("#global-research") },
   ];
 
   return (

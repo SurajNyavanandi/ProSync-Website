@@ -5,8 +5,17 @@ export default function FloatingWhatsApp() {
   const [hovered, setHovered] = useState(false);
   const whatsappUrl = buildWhatsAppUrl();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     trackEvent("whatsapp_click", { location: "floating" });
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      e.preventDefault();
+      contactSection.scrollIntoView({ behavior: "smooth" });
+      const nameInput = document.getElementById("name") || document.querySelector('input[name="name"]');
+      if (nameInput) {
+        setTimeout(() => nameInput.focus(), 400);
+      }
+    }
   };
 
   return (
@@ -24,7 +33,7 @@ export default function FloatingWhatsApp() {
       >
         <div className="flex items-center gap-1.5 font-mono text-[11px]">
           <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-          <span>Chat on WhatsApp</span>
+          <span>Fill details & chat on WhatsApp</span>
         </div>
         <div className="absolute top-full right-5 -mt-1 border-4 border-transparent border-t-[#07152B]/95" />
       </div>

@@ -1,4 +1,5 @@
 export { default as Hero } from "./Hero";
+export { default as DprHero } from "./DprHero";
 export { default as DprSection } from "./DprSection";
 export { default as BankersSection } from "./BankersSection";
 export { default as AboutSplitSection } from "./AboutSplitSection";
@@ -9,3 +10,4 @@ export { default as ProsyncGlobalSection } from "./ProsyncGlobalSection";
 export { default as ClientsSection } from "./ClientsSection";
 export { default as LeadershipSection } from "./LeadershipSection";
 export { default as ContactSection } from "./ContactSection";
+export { default as DprContactSection } from "./DprContactSection";

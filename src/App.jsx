@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import Home from "./pages/Home";
+import DprServices from "./pages/DprServices";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Admin from "./pages/Admin";
 import AdminShortcut from "./components/common/AdminShortcut";
@@ -18,7 +19,7 @@ export default function App() {
         <AdminShortcut />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dpr-services" element={<Home />} />
+          <Route path="/dpr-services" element={<DprServices />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>

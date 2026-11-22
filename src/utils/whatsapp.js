@@ -12,8 +12,14 @@ export function buildWhatsAppUrl(values = {}) {
   const location = values.location ? String(values.location).trim() : "____";
   const cost = values.estimatedCost || values.cost ? String(values.estimatedCost || values.cost).trim() : "____";
   const funding = values.fundingRequirement || values.funding ? String(values.fundingRequirement || values.funding).trim() : "____";
+  const sector = values.sector ? String(values.sector).trim() : "";
+  const stage = values.projectStage || values.stage ? String(values.projectStage || values.stage).trim() : "";
 
-  const message = `Hello Prosync Consulting, I am interested in DPR preparation. Name: ${name}. Project: ${project}. Location: ${location}. Estimated project cost: ${cost}. Funding required: ${funding}.`;
+  let extra = "";
+  if (sector) extra += ` Sector: ${sector}.`;
+  if (stage) extra += ` Stage: ${stage}.`;
+
+  const message = `Hello Prosync Consulting, I am interested in DPR preparation. Name: ${name}. Project: ${project}. Location: ${location}. Estimated project cost: ${cost}. Funding required: ${funding}.${extra}`;
 
   return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
 }

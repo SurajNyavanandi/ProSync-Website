@@ -6,6 +6,7 @@ import {
   Building2, 
   Briefcase, 
   FileText, 
+  FileSpreadsheet,
   Users, 
   Mail, 
   Phone, 
@@ -88,16 +89,19 @@ export default function Navbar() {
   const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "").replace(/\s+/g, "");
 
   // Helpers for link targets across pages
-  const isHome = typeof window !== "undefined" ? window.location.pathname === "/" : true;
+  const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+  const isHome = pathname === "/";
+  const isDprPage = pathname.startsWith("/dpr-services");
   const getNavHref = (hash) => (isHome ? hash : `/${hash}`);
 
-  // Primary desktop navigation links (Exact 5 Items)
+  // Primary desktop navigation links
   const navLinks = [
     { label: "Home", href: getNavHref("#top"), id: "top" },
     { label: "About Us", href: getNavHref("#about"), id: "about" },
     { label: "Services", href: getNavHref("#services"), id: "services" },
     { label: "Our Experience", href: getNavHref("#experience"), id: "experience" },
-    { label: "Contact", href: getNavHref("#contact"), id: "contact" }
+    { label: "DPR Services", href: "/dpr-services", id: "dpr-services" },
+    { label: "Contact", href: isDprPage ? "#contact" : getNavHref("#contact"), id: "contact" }
   ];
 
   // Mobile drawer links
@@ -106,7 +110,8 @@ export default function Navbar() {
     { label: "About Us", href: getNavHref("#about"), id: "about", icon: Users, desc: "Financial advisory experience since 2015" },
     { label: "Services", href: getNavHref("#services"), id: "services", icon: Briefcase, desc: "Debt, equity, infrastructure & research" },
     { label: "Our Experience", href: getNavHref("#experience"), id: "experience", icon: FileText, desc: "₹800+ Cr multi-sector transaction experience" },
-    { label: "Contact", href: getNavHref("#contact"), id: "contact", icon: Mail, desc: "Discuss a mandate with our team" },
+    { label: "DPR Services", href: "/dpr-services", id: "dpr-services", icon: FileSpreadsheet, desc: "Detailed Project Report & Feasibility Advisory" },
+    { label: "Contact", href: isDprPage ? "#contact" : getNavHref("#contact"), id: "contact", icon: Mail, desc: "Discuss a mandate with our team" },
   ];
 
   const handleLinkClick = () => {
@@ -154,7 +159,7 @@ export default function Navbar() {
             aria-label="Main Navigation"
           >
             {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
+              const isActive = (isDprPage && link.id === "dpr-services") || (!isDprPage && activeSection === link.id);
               return (
                 <a
                   key={link.label}
@@ -268,7 +273,7 @@ export default function Navbar() {
               <div className="flex-1 overflow-y-auto px-4 py-5 space-y-1.5 overscroll-contain">
                 {drawerLinks.map((item) => {
                   const Icon = item.icon;
-                  const isActive = activeSection === item.id;
+                  const isActive = (isDprPage && item.id === "dpr-services") || (!isDprPage && activeSection === item.id);
                   return (
                     <a
                       key={item.label}

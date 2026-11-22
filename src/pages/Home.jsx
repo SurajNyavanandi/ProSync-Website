@@ -2,7 +2,6 @@ import { SEO, ScrollToTop, FloatingWhatsApp } from "../components/common";
 import { Navbar, Footer } from "../components/layout";
 import {
   Hero,
-  DprSection,
   AboutSplitSection,
   PracticeSection,
   ApproachSection,
@@ -17,19 +16,20 @@ import {
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-brand-text-dark selection:bg-brand-orange selection:text-white flex flex-col font-sans overflow-x-hidden">
-      {/* SEO Meta & Structured Data */}
-      <SEO />
+      {/* Corporate SEO Meta */}
+      <SEO
+        title="Prosync Consulting | Corporate Finance & Debt Syndication Advisory"
+        description="Independent financial advisory firm providing debt syndication, structured finance, transaction advisory and strategic financial solutions since 2015."
+        canonical="https://prosyncindia.com/"
+      />
 
       {/* Navigation Header & Mobile Drawer */}
       <Navbar />
 
       {/* Main Corporate Finance Narrative Flow */}
       <main className="flex-1 w-full">
-        {/* 1. Hero: Planning a New Project or Business Expansion? */}
+        {/* 1. Hero: CAPITAL. STRATEGY. GROWTH. & Dual CTAs */}
         <Hero />
-
-        {/* 1.1 DPR Anchored Content Sections: Services, Feasibility, Projections, CMA, Project Finance, Industries */}
-        <DprSection />
 
         {/* 2. About Prosync: Concise since 2015 narrative */}
         <AboutSplitSection />
