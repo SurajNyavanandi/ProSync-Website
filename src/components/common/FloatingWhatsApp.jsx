@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { companyData } from "../../data/companyData";
+import { buildWhatsAppUrl, trackEvent } from "../../utils";
 
 export default function FloatingWhatsApp() {
   const [hovered, setHovered] = useState(false);
-  const whatsappUrl =
-    typeof companyData.getWhatsAppUrl === "function"
-      ? companyData.getWhatsAppUrl()
-      : companyData.whatsappBaseUrl || "https://wa.me/919951445544";
+  const whatsappUrl = buildWhatsAppUrl();
+
+  const handleClick = () => {
+    trackEvent("whatsapp_click", { location: "floating" });
+  };
 
   return (
     <aside
@@ -39,6 +40,7 @@ export default function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleClick}
         aria-label="Chat directly on WhatsApp with Prosync"
         className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#128C7E] via-[#25D366] to-[#4ADE80] text-white shadow-[0_10px_25px_rgba(37,211,102,0.45)] border border-white/30 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
       >

@@ -1,36 +1,42 @@
-
 /**
- * api.js: Service layer for mandate enquiry formatting, WhatsApp dispatch,
- * and future CRM API integration.
+ * api.js: Service layer for DPR mandate enquiries and API integration.
  */
+
+const rawApiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_BASE = rawApiUrl.endsWith("/api") ? rawApiUrl : `${rawApiUrl}/api`;
+
 export const leadService = {
   /**
-   * Format and build direct WhatsApp enquiry link with mandate brief
+   * Submit enquiry to the backend Express / MongoDB API
    */
-  buildWhatsAppUrl(leadData) {
-    const { name, email, company, mandate, notes } = leadData;
+  async submitEnquiry(payload) {
+    try {
+      const res = await fetch(`${API_BASE}/enquiries`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    const messageLines = [
-      `*New Mandate Enquiry - Prosync Advisory*`,
-      ``,
-      `• *Name:* ${name || "Anonymous"}`,
-      `• *Work Email:* ${email || "Not provided"}`,
-      `• *Company:* ${company || "Not specified"}`,
-      `• *Mandate Focus:* ${mandate || "Capital Advisory"}`,
-      notes ? `• *Details:* ${notes}` : null,
-      ``,
-      `_Submitted via Prosync Advisory Deal Desk (prosyncindia.com)_`
-    ].filter(Boolean).join("\n");
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        return {
+          ok: false,
+          error: data.error || "Could not reach our enquiry server. Please try WhatsApp or call us.",
+        };
+      }
 
-    return `https://wa.me/919951445544?text=${encodeURIComponent(messageLines)}`;
+      return {
+        ok: true,
+        data,
+      };
+    } catch (err) {
+      console.error("[API submitEnquiry error]:", err);
+      return {
+        ok: false,
+        error: "Could not reach our enquiry server. Please try WhatsApp or call us.",
+      };
+    }
   },
-
-  /**
-   * Submit enquiry (asynchronous dispatch)
-   */
-  async submitEnquiry(leadData) {
-    // In production, can dispatch to a webhook or CRM endpoint
-    const url = this.buildWhatsAppUrl(leadData);
-    return { success: true, redirectUrl: url };
-  }
 };

@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { companyData } from "../../data/companyData";
+import { trackEvent } from "../../utils";
 import { 
   Mail, 
   Phone, 
-  MapPin,
-  X as CloseIcon,
-  FileText,
-  ShieldCheck,
-  AlertTriangle
+  MapPin, 
+  X as CloseIcon, 
+  FileText, 
+  AlertTriangle 
 } from "lucide-react";
 
 export default function Footer() {
-  const [activeModal, setActiveModal] = useState(null); // 'terms' | 'privacy' | 'disclaimer' | null
+  const [activeModal, setActiveModal] = useState(null); // 'terms' | 'disclaimer' | null
+
+  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "";
+  const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "").replace(/\s+/g, "");
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "";
 
   const quickLinks = [
     { label: "About Us", href: "#about" },
@@ -106,13 +110,19 @@ export default function Footer() {
             <div className="space-y-2.5 text-xs text-[#334155]">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
-                <span className="font-mono font-semibold text-[#002244]">+91 99514 45544</span>
+                <a
+                  href={`tel:${contactPhoneRaw}`}
+                  onClick={() => trackEvent("phone_click", { location: "contact" })}
+                  className="font-mono font-semibold text-[#002244] hover:text-[#FF5500] transition-colors"
+                >
+                  {contactPhone}
+                </a>
               </div>
 
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
-                <a href={`mailto:${companyData.email}`} className="hover:underline text-[#002244]">
-                  {companyData.email}
+                <a href={`mailto:${contactEmail}`} className="hover:underline text-[#002244]">
+                  {contactEmail}
                 </a>
               </div>
 
@@ -139,12 +149,12 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-4 text-xs font-medium">
-            <button
-              onClick={() => setActiveModal("privacy")}
+            <a
+              href="/privacy-policy"
               className="hover:text-[#002244] hover:underline cursor-pointer"
             >
               Privacy Policy
-            </button>
+            </a>
             <span className="text-slate-300">•</span>
             <button
               onClick={() => setActiveModal("terms")}
@@ -200,29 +210,6 @@ export default function Footer() {
                   </p>
                   <p>
                     <strong>3. Lender &amp; Sanction Authority:</strong> Final sanction, loan pricing, margins, covenants, and disbursement remain under the sole authority of respective banking institutions and investors.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {activeModal === "privacy" && (
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5 text-[#002244]">
-                  <ShieldCheck className="w-6 h-6 text-[#002244]" />
-                  <h3 className="text-xl font-bold font-heading">Privacy Policy &amp; Data Safeguards</h3>
-                </div>
-                <div className="text-xs text-[#6B7280] font-mono">
-                  Strict Confidentiality &amp; Data Protection
-                </div>
-                <div className="text-xs sm:text-sm font-body text-[#4B5563] space-y-3 leading-relaxed pt-2 border-t border-gray-100">
-                  <p>
-                    <strong>1. Information Collection:</strong> We collect contact information, company balance sheets, and project documentation solely for the purpose of mandate evaluation and client engagement.
-                  </p>
-                  <p>
-                    <strong>2. Institutional Privacy:</strong> Client records and transaction models are never shared with unauthorized third parties or sold.
-                  </p>
-                  <p>
-                    <strong>3. Data Security:</strong> Information is secured on institutional servers accessible only to designated engagement partners.
                   </p>
                 </div>
               </div>

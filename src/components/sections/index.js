@@ -1,4 +1,5 @@
 export { default as Hero } from "./Hero";
+export { default as DprSection } from "./DprSection";
 export { default as BankersSection } from "./BankersSection";
 export { default as AboutSplitSection } from "./AboutSplitSection";
 export { default as PracticeSection } from "./PracticeSection";

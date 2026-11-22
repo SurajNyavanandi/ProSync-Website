@@ -15,6 +15,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { companyData } from "../../data/companyData";
 import { useScrollState } from "../../hooks/useScrollState";
+import { trackEvent } from "../../utils";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -81,22 +82,31 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
 
+  // Contact details from .env
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "";
+  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "";
+  const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "").replace(/\s+/g, "");
+
+  // Helpers for link targets across pages
+  const isHome = typeof window !== "undefined" ? window.location.pathname === "/" : true;
+  const getNavHref = (hash) => (isHome ? hash : `/${hash}`);
+
   // Primary desktop navigation links (Exact 5 Items)
   const navLinks = [
-    { label: "Home", href: "#top", id: "top" },
-    { label: "About Us", href: "#about", id: "about" },
-    { label: "Services", href: "#services", id: "services" },
-    { label: "Our Experience", href: "#experience", id: "experience" },
-    { label: "Contact", href: "#contact", id: "contact" }
+    { label: "Home", href: getNavHref("#top"), id: "top" },
+    { label: "About Us", href: getNavHref("#about"), id: "about" },
+    { label: "Services", href: getNavHref("#services"), id: "services" },
+    { label: "Our Experience", href: getNavHref("#experience"), id: "experience" },
+    { label: "Contact", href: getNavHref("#contact"), id: "contact" }
   ];
 
   // Mobile drawer links
   const drawerLinks = [
-    { label: "Home", href: "#top", id: "top", icon: Building2, desc: "Capital. Strategy. Growth." },
-    { label: "About Us", href: "#about", id: "about", icon: Users, desc: "Financial advisory experience since 2015" },
-    { label: "Services", href: "#services", id: "services", icon: Briefcase, desc: "Debt, equity, infrastructure & research" },
-    { label: "Our Experience", href: "#experience", id: "experience", icon: FileText, desc: "₹800+ Cr multi-sector transaction experience" },
-    { label: "Contact", href: "#contact", id: "contact", icon: Mail, desc: "Discuss a mandate with our team" },
+    { label: "Home", href: getNavHref("#top"), id: "top", icon: Building2, desc: "Capital. Strategy. Growth." },
+    { label: "About Us", href: getNavHref("#about"), id: "about", icon: Users, desc: "Financial advisory experience since 2015" },
+    { label: "Services", href: getNavHref("#services"), id: "services", icon: Briefcase, desc: "Debt, equity, infrastructure & research" },
+    { label: "Our Experience", href: getNavHref("#experience"), id: "experience", icon: FileText, desc: "₹800+ Cr multi-sector transaction experience" },
+    { label: "Contact", href: getNavHref("#contact"), id: "contact", icon: Mail, desc: "Discuss a mandate with our team" },
   ];
 
   const handleLinkClick = () => {
@@ -117,7 +127,7 @@ export default function Navbar() {
           
           {/* Brand Wordmark & Logo (Pure & Unbordered) */}
           <a
-            href="#"
+            href="/"
             className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none py-1"
             aria-label="Prosync India Home"
           >
@@ -164,7 +174,7 @@ export default function Navbar() {
           {/* Desktop Right Action CTA: Simple & Clean */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="#contact"
+              href={getNavHref("#contact")}
               className="px-5 py-2 rounded-full text-xs font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-colors duration-200 inline-flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
             >
               <span>Discuss a Mandate</span>
@@ -175,7 +185,7 @@ export default function Navbar() {
           {/* Mobile Right Controls: Minimal Borderless Controls */}
           <div className="flex items-center gap-3 md:hidden">
             <a
-              href="#contact"
+              href={getNavHref("#contact")}
               className="px-3.5 py-1.5 rounded-full text-[11px] font-bold font-heading text-white bg-[#002244] hover:bg-[#FF5500] transition-colors active:scale-95 flex items-center justify-center cursor-pointer"
             >
               <span>Discuss</span>
@@ -305,19 +315,20 @@ export default function Navbar() {
                   </span>
                   
                   <a
-                    href={`mailto:${companyData.email}`}
+                    href={`mailto:${contactEmail}`}
                     className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-black/[0.04] text-xs font-semibold font-body text-[#002244] transition-colors"
                   >
                     <Mail className="w-4 h-4 text-[#FF5500] shrink-0" />
-                    <span className="truncate">{companyData.email}</span>
+                    <span className="truncate">{contactEmail}</span>
                   </a>
 
                   <a
-                    href={`tel:${companyData.phoneRaw}`}
+                    href={`tel:${contactPhoneRaw}`}
+                    onClick={() => trackEvent("phone_click", { location: "header" })}
                     className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-black/[0.04] text-xs font-semibold font-mono text-[#002244] transition-colors"
                   >
                     <Phone className="w-4 h-4 text-[#FF5500] shrink-0" />
-                    <span>{companyData.phone}</span>
+                    <span>{contactPhone}</span>
                   </a>
 
                   <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-black/[0.04] text-[11px] font-body text-[#6E6E73]">
