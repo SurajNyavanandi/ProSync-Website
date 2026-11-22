@@ -23,14 +23,16 @@ All 6 campaign sitelink anchors plus Hero and Contact form scroll smoothly to th
 
 | Anchor | Target URL | Section Description |
 |---|---|---|
-| `#dpr` | `https://www.prosyncindia.com/dpr-services#dpr` | **Hero Section**: Planning a New Project or Expansion? & dual CTAs |
-| `#dpr-services` | `https://www.prosyncindia.com/dpr-services#dpr-services` | **DPR Preparation**: Lender-grade documentation |
-| `#feasibility` | `https://www.prosyncindia.com/dpr-services#feasibility` | **Project Feasibility**: TEV studies & viability |
-| `#financial-projections` | `https://www.prosyncindia.com/dpr-services#financial-projections` | **Financial Projections**: P&L, Cashflow, DSCR |
-| `#cma` | `https://www.prosyncindia.com/dpr-services#cma` | **CMA Data**: Working capital & bank finance |
-| `#project-finance` | `https://www.prosyncindia.com/dpr-services#project-finance` | **Project Finance Advisory**: Debt syndication |
-| `#industries` | `https://www.prosyncindia.com/dpr-services#industries` | **Industries Served**: 6 core sectors covered |
-| `#contact` | `https://www.prosyncindia.com/dpr-services#contact` | **Enquiry Form**: 11-step DPR enquiry engine + WhatsApp |
+| `#dpr` | `https://www.prosyncindia.com/dpr-services#dpr` | **Hero Section**: Detailed Project Report Preparation for New Projects & Business Expansion |
+| `#dpr-services` | `https://www.prosyncindia.com/dpr-services#dpr-services` | **DPR Preparation**: Structured reports for bank financing, appraisal & evaluation |
+| `#feasibility` | `https://www.prosyncindia.com/dpr-services#feasibility` | **Project Feasibility**: TEV studies, commercial viability & compliance notice |
+| `#financial-projections` | `https://www.prosyncindia.com/dpr-services#financial-projections` | **Financial Projections**: P&L, Cashflow, DSCR & operating assumptions |
+| `#cma` | `https://www.prosyncindia.com/dpr-services#cma` | **CMA Data**: Term loans, working capital limits & bank compliance |
+| `#project-finance` | `https://www.prosyncindia.com/dpr-services#project-finance` | **Project Finance Advisory**: Capital structuring & lender coordination |
+| `#industries` | `https://www.prosyncindia.com/dpr-services#industries` | **Industries Served**: 7 core sectors including Commercial & Industrial Projects |
+| `#why-prosync` | `https://www.prosyncindia.com/dpr-services#why-prosync` | **Why Prosync**: Track record since 2015, bank appraisal expertise & modeling |
+| `#process` | `https://www.prosyncindia.com/dpr-services#process` | **Our Process**: 4 transparent steps from briefing to DPR delivery |
+| `#contact` | `https://www.prosyncindia.com/dpr-services#contact` | **Enquiry Form**: DPR enquiry engine + WhatsApp instant chat |
 
 ---
 

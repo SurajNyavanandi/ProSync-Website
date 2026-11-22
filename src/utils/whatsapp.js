@@ -4,8 +4,8 @@
  * Hello Prosync Consulting, I am interested in DPR preparation. Name: ____. Project: ____. Location: ____. Estimated project cost: ____. Funding required: ____.
  */
 export function buildWhatsAppUrl(values = {}) {
-  const envNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "";
-  const cleanNumber = String(envNumber).replace(/\D/g, "");
+  const envNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "919951445544";
+  const cleanNumber = String(envNumber).replace(/\D/g, "") || "919951445544";
 
   const name = values.name ? String(values.name).trim() : "____";
   const project = values.projectName || values.project ? String(values.projectName || values.project).trim() : "____";

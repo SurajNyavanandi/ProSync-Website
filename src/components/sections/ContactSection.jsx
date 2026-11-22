@@ -19,6 +19,8 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { companyData } from "../../data/companyData";
 import { Reveal } from "../common/Motion";
+import { leadService } from "../../services/api";
+import { trackEvent } from "../../utils";
 
 const SERVICE_OPTIONS = [
   {
@@ -153,7 +155,7 @@ export default function ContactSection() {
     SERVICE_OPTIONS[0];
   const SelectedIcon = selectedOption.icon;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
@@ -163,6 +165,35 @@ export default function ContactSection() {
     const phone = formData.phone.trim();
     const service = formData.serviceRequired;
     const description = formData.requirementDescription.trim() || "Consultation requested";
+
+    // 1. Asynchronously save corporate mandate to MongoDB backend
+    try {
+      await leadService.submitEnquiry({
+        formType: "corporate",
+        name,
+        organisation,
+        email,
+        phone,
+        serviceRequired: service,
+        requirementDescription: description,
+        pageSource: "/",
+      });
+
+      trackEvent("form_submission", {
+        event_category: "Conversion",
+        event_label: "Corporate Contact Form",
+        conversion_type: "primary",
+        form_name: "corporate_mandate",
+        service_required: service,
+      });
+      trackEvent("generate_lead", {
+        conversion_type: "primary",
+        form_name: "corporate_mandate",
+        service_required: service,
+      });
+    } catch (err) {
+      console.warn("[ContactSection] Background lead save note:", err);
+    }
 
     const messageLines = [
       `*New Mandate Enquiry — Prosync India*`,
@@ -177,7 +208,10 @@ export default function ContactSection() {
       `_Submitted via prosyncindia.com enquiry desk_`
     ].join("\n");
 
-    const waUrl = `https://wa.me/919951445544?text=${encodeURIComponent(messageLines)}`;
+    const waNum = (typeof import.meta !== "undefined" && import.meta.env?.VITE_WHATSAPP_NUMBER
+      ? String(import.meta.env.VITE_WHATSAPP_NUMBER).replace(/\D/g, "")
+      : (companyData.phoneRaw || "919951445544").replace(/\D/g, "")) || "919951445544";
+    const waUrl = `https://wa.me/${waNum}?text=${encodeURIComponent(messageLines)}`;
     const mailtoUrl = `mailto:${companyData.email}?subject=${encodeURIComponent(`Enquiry: ${service} - ${organisation}`)}&body=${encodeURIComponent(messageLines)}`;
 
     setWhatsAppUrl(waUrl);

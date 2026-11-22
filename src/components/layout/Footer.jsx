@@ -13,9 +13,9 @@ import {
 export default function Footer() {
   const [activeModal, setActiveModal] = useState(null); // 'terms' | 'disclaimer' | null
 
-  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "";
-  const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "").replace(/\s+/g, "");
-  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "";
+  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "+91 9951445544";
+  const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "+919951445544").replace(/\s+/g, "");
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "docs.1@prosyncindia.com";
 
   const isHome = typeof window !== "undefined" ? window.location.pathname === "/" : true;
   const getFooterHref = (hash) => (isHome ? hash : `/${hash}`);
@@ -37,28 +37,28 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#EDF3F9] text-[#0f172a] border-t border-[#002244]/15 font-body antialiased">
-      <div className="w-full max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-12 pt-14 pb-10">
+    <footer className="w-full bg-[#EDF3F9] text-[#0f172a] border-t border-brand-navy/15 font-body antialiased">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-14 pb-10">
         
         {/* Main Grid: 4 Clean Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-[#002244]/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-brand-navy/15">
           
           {/* Column 1 (Span 4): Brand & Positioning */}
           <div className="lg:col-span-4 space-y-4">
             <a href="#top" className="inline-flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-black/[0.08] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-black/8 flex items-center justify-center">
                 <img
                   src={companyData.monogramUrl || companyData.logoUrl}
                   alt="Prosync"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-2xl font-black font-heading tracking-tight text-[#002244] uppercase">
+              <span className="text-2xl font-black font-heading tracking-tight text-brand-navy uppercase">
                 PROSYNC
               </span>
             </a>
 
-            <p className="text-xs sm:text-sm font-semibold font-heading text-[#002244]">
+            <p className="text-xs sm:text-sm font-semibold font-heading text-brand-navy">
               Financial Advisory | Debt &amp; Structured Finance | Transaction Advisory
             </p>
 
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Column 2 (Span 2): Quick Links */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-[0.18em] text-[#002244] font-bold">
+            <h4 className="text-xs font-mono uppercase tracking-[0.18em] text-brand-navy font-bold">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -77,7 +77,7 @@ export default function Footer() {
                 <li key={idx}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-[13px] text-[#334155] hover:text-[#FF5500] hover:underline underline-offset-4 transition-colors leading-snug inline-block"
+                    className="text-xs sm:text-[13px] text-[#334155] hover:text-brand-orange hover:underline underline-offset-4 transition-colors leading-snug inline-block"
                   >
                     {link.label}
                   </a>
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Column 3 (Span 3): Core Services */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-[0.18em] text-[#002244] font-bold">
+            <h4 className="text-xs font-mono uppercase tracking-[0.18em] text-brand-navy font-bold">
               Services
             </h4>
             <ul className="space-y-2">
@@ -96,7 +96,7 @@ export default function Footer() {
                 <li key={idx}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-[13px] text-[#334155] hover:text-[#FF5500] hover:underline underline-offset-4 transition-colors leading-snug inline-block"
+                    className="text-xs sm:text-[13px] text-[#334155] hover:text-brand-orange hover:underline underline-offset-4 transition-colors leading-snug inline-block"
                   >
                     {link.label}
                   </a>
@@ -107,33 +107,33 @@ export default function Footer() {
 
           {/* Column 4 (Span 3): Contact & Presence */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-[0.18em] text-[#002244] font-bold">
+            <h4 className="text-xs font-mono uppercase tracking-[0.18em] text-brand-navy font-bold">
               Contact &amp; Offices
             </h4>
 
             <div className="space-y-2.5 text-xs text-[#334155]">
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-brand-orange shrink-0" />
                 <a
                   href={`tel:${contactPhoneRaw}`}
                   onClick={() => trackEvent("phone_click", { location: "contact" })}
-                  className="font-mono font-semibold text-[#002244] hover:text-[#FF5500] transition-colors"
+                  className="font-mono font-semibold text-brand-navy hover:text-brand-orange transition-colors"
                 >
                   {contactPhone}
                 </a>
               </div>
 
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
-                <a href={`mailto:${contactEmail}`} className="hover:underline text-[#002244]">
+                <Mail className="w-3.5 h-3.5 text-brand-orange shrink-0" />
+                <a href={`mailto:${contactEmail}`} className="hover:underline text-brand-navy">
                   {contactEmail}
                 </a>
               </div>
 
               <div className="flex items-start gap-2 pt-1">
-                <MapPin className="w-3.5 h-3.5 text-[#002244] shrink-0 mt-0.5" />
+                <MapPin className="w-3.5 h-3.5 text-brand-navy shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-[#002244] block">
+                  <span className="font-bold text-brand-navy block">
                     Hyderabad, Vijayawada, Mumbai
                   </span>
                   <span className="text-[11px] text-[#64748B] block mt-0.5">
@@ -147,7 +147,7 @@ export default function Footer() {
         </div>
 
         {/* Clean Single-Line Bottom Bar */}
-        <div className="pt-8 border-t border-[#002244]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+        <div className="pt-8 border-t border-brand-navy/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
           <div className="font-mono text-[11px]">
             © Since 2015 Prosync. All rights reserved.
           </div>
@@ -155,21 +155,21 @@ export default function Footer() {
           <div className="flex items-center gap-4 text-xs font-medium">
             <a
               href="/privacy-policy"
-              className="hover:text-[#002244] hover:underline cursor-pointer"
+              className="hover:text-brand-navy hover:underline cursor-pointer"
             >
               Privacy Policy
             </a>
             <span className="text-slate-300">•</span>
             <button
               onClick={() => setActiveModal("terms")}
-              className="hover:text-[#002244] hover:underline cursor-pointer"
+              className="hover:text-brand-navy hover:underline cursor-pointer"
             >
               Terms of Use
             </button>
             <span className="text-slate-300">•</span>
             <button
               onClick={() => setActiveModal("disclaimer")}
-              className="hover:text-[#002244] hover:underline cursor-pointer"
+              className="hover:text-brand-navy hover:underline cursor-pointer"
             >
               Disclaimer
             </button>
@@ -185,7 +185,7 @@ export default function Footer() {
           onClick={() => setActiveModal(null)}
         >
           <div 
-            className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-gray-200 text-[#1D1D1F] relative max-h-[85vh] overflow-y-auto"
+            className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-gray-200 text-brand-text-dark relative max-h-[85vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -198,8 +198,8 @@ export default function Footer() {
 
             {activeModal === "terms" && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2.5 text-[#002244]">
-                  <FileText className="w-6 h-6 text-[#FF5500]" />
+                <div className="flex items-center gap-2.5 text-brand-navy">
+                  <FileText className="w-6 h-6 text-brand-orange" />
                   <h3 className="text-xl font-bold font-heading">Terms of Advisory Engagement</h3>
                 </div>
                 <div className="text-xs text-[#6B7280] font-mono">
@@ -221,8 +221,8 @@ export default function Footer() {
 
             {activeModal === "disclaimer" && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2.5 text-[#002244]">
-                  <AlertTriangle className="w-6 h-6 text-[#FF5500]" />
+                <div className="flex items-center gap-2.5 text-brand-navy">
+                  <AlertTriangle className="w-6 h-6 text-brand-orange" />
                   <h3 className="text-xl font-bold font-heading">Regulatory &amp; Advisory Disclaimer</h3>
                 </div>
                 <div className="text-xs text-[#6B7280] font-mono">
@@ -245,7 +245,7 @@ export default function Footer() {
             <div className="mt-6 pt-4 border-t border-gray-100 flex justify-end">
               <button
                 onClick={() => setActiveModal(null)}
-                className="px-5 py-2 text-xs font-semibold font-heading text-white bg-[#002244] hover:bg-[#001830] rounded-lg transition-colors cursor-pointer"
+                className="px-5 py-2 text-xs font-semibold font-heading text-white bg-brand-navy hover:bg-[#001830] rounded-lg transition-colors cursor-pointer"
               >
                 Close
               </button>

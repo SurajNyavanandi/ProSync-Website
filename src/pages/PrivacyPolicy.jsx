@@ -4,8 +4,8 @@ import { Mail, Phone, MapPin, ArrowLeft } from "lucide-react";
 import { companyData } from "../data/companyData";
 
 export default function PrivacyPolicy() {
-  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "";
-  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "";
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "docs.1@prosyncindia.com";
+  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "+91 9951445544";
 
   return (
     <div className="min-h-screen bg-white text-brand-text-dark flex flex-col font-sans selection:bg-brand-orange selection:text-white">

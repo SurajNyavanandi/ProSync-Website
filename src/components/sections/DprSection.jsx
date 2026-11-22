@@ -12,7 +12,11 @@ import {
   Briefcase, 
   ShieldAlert,
   ArrowRight,
-  Layers
+  Layers,
+  Award,
+  Target,
+  Compass,
+  ArrowUpRight
 } from "lucide-react";
 import { Reveal } from "../common/Motion";
 
@@ -48,6 +52,11 @@ export default function DprSection() {
       desc: "Business hotels, leisure resorts, convention centers, and commercial hospitality assets.",
       icon: Hotel,
     },
+    {
+      title: "Commercial & Industrial Projects",
+      desc: "Commercial office complexes, industrial warehousing parks, integrated logistics hubs, and modern supply-chain facilities.",
+      icon: Building2,
+    },
   ];
 
   return (
@@ -69,8 +78,8 @@ export default function DprSection() {
               </h2>
             </Reveal>
             <Reveal delay={180}>
-              <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-                Prosync prepares lender-grade Detailed Project Reports covering project background, project cost, means of finance, implementation plan, financial projections, and repayment analysis.
+              <p className="text-sm sm:text-base text-slate-700 mt-3 leading-relaxed font-medium">
+                Structured Detailed Project Reports for bank financing, project appraisal and investment evaluation.
               </p>
             </Reveal>
           </div>
@@ -123,9 +132,9 @@ export default function DprSection() {
           <Reveal delay={200} className="mt-8 flex justify-start">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold font-heading text-brand-navy hover:text-brand-orange transition-colors"
+              className="px-6 py-3 rounded-full bg-brand-navy hover:bg-brand-orange text-white text-xs sm:text-sm font-bold font-heading transition-all duration-200 inline-flex items-center gap-2 shadow-sm cursor-pointer"
             >
-              <span>Enquire for DPR Preparation</span>
+              <span>Discuss Your DPR Requirements</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </Reveal>
@@ -140,7 +149,7 @@ export default function DprSection() {
               <Reveal>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-navy text-xs font-mono uppercase tracking-wider">
                   <TrendingUp className="w-3.5 h-3.5 text-brand-orange" />
-                  <span>Viability & Market Assessment</span>
+                  <span>Viability &amp; Market Assessment</span>
                 </div>
               </Reveal>
               <Reveal delay={100}>
@@ -170,12 +179,12 @@ export default function DprSection() {
                 </div>
               </Reveal>
 
-              {/* Crucial Compliance Notice */}
+              {/* Crucial Regulatory & Compliance Notice */}
               <Reveal delay={240}>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500 flex items-start gap-2.5">
-                  <ShieldAlert className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-start gap-2.5 leading-relaxed">
+                  <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <span>
-                    <strong>Regulatory Note:</strong> Our studies evaluate techno-economic and commercial feasibility for project decision-making. No promise of bank approval or sanction is made.
+                    <strong>Regulatory Note:</strong> Our studies evaluate techno-economic and commercial feasibility for project decision-making. No wording or advisory implies guaranteed bank approval, sanction, or project success.
                   </span>
                 </div>
               </Reveal>
@@ -225,7 +234,7 @@ export default function DprSection() {
             </Reveal>
             <Reveal delay={180}>
               <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-                Projected profit and loss, cash flow, balance sheet where applicable, DSCR, repayment capacity, and key assumptions tailored for lender scrutiny.
+                Quantitative multi-year modeling incorporating project assumptions, operating costs, capacity utilisation schedules, and capital financing structure tailored for lender scrutiny.
               </p>
             </Reveal>
           </div>
@@ -267,13 +276,14 @@ export default function DprSection() {
           <Reveal delay={220} className="mt-8">
             <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <strong className="text-brand-navy">Key Assumptions Documented:</strong> Revenue growth rates, cost escalations, raw material indices, working capital cycle days, and benchmark bank borrowing rates.
+                <strong className="text-brand-navy">Key Assumptions Documented:</strong> Detailed operating costs, phased capacity utilisation curves, raw material price trends, working capital cycle days, and capital financing structure.
               </div>
               <a
                 href="#contact"
-                className="shrink-0 text-xs font-bold font-heading px-4 py-2 rounded-full bg-brand-navy hover:bg-brand-orange text-white transition-colors"
+                className="shrink-0 text-xs font-bold font-heading px-5 py-2.5 rounded-full bg-brand-navy hover:bg-brand-orange text-white transition-colors inline-flex items-center gap-1.5"
               >
-                Discuss Projections
+                <span>Discuss Projections</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </Reveal>
@@ -293,12 +303,12 @@ export default function DprSection() {
               </Reveal>
               <Reveal delay={100}>
                 <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
-                  CMA Data Preparation &amp; Working Capital
+                  CMA Data Preparation &amp; Bank Credit Formats
                 </h2>
               </Reveal>
               <Reveal delay={160}>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                  CMA data preparation and working-capital and bank finance information, where the assignment requires it. Formatted specifically for commercial banks and consortium credit appraisals.
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
+                  Suitable for new term loan proposals, working capital limits, enhancement and renewal of credit facilities. Formatted strictly to lender and RBI guidelines.
                 </p>
               </Reveal>
 
@@ -326,7 +336,7 @@ export default function DprSection() {
               <Reveal delay={240}>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-navy hover:bg-brand-orange text-white text-xs font-bold font-heading transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-navy hover:bg-brand-orange text-white text-xs font-bold font-heading transition-colors shadow-xs"
                 >
                   <span>Request CMA Preparation</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -412,6 +422,13 @@ export default function DprSection() {
               </Reveal>
             ))}
           </div>
+
+          {/* Scope Clarification Notice */}
+          <Reveal delay={200} className="mt-8">
+            <div className="p-4 rounded-xl bg-slate-100/80 border border-slate-200 text-xs text-slate-600 leading-relaxed">
+              <strong>Scope Clarification:</strong> DPR preparation is an independent appraisal engagement. Additional project finance advisory, loan syndication, and lender coordination services are subject to a separately agreed scope of engagement.
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -437,7 +454,7 @@ export default function DprSection() {
             </Reveal>
           </div>
 
-          {/* Grid of 6 Sectors */}
+          {/* Grid of 7 Sectors */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((ind, i) => {
               const IconComp = ind.icon;
@@ -469,6 +486,149 @@ export default function DprSection() {
                 <strong>Funding Disclaimer:</strong> Funding support depends on each project&apos;s specifics. No sector is guaranteed a funding route.
               </div>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 7. WHY PROSYNC? (#why-prosync) */}
+      <section id="why-prosync" className="py-20 md:py-24 scroll-mt-24 bg-slate-50/70">
+        <div className="w-full max-w-310 mx-auto px-5 sm:px-8">
+          <div className="max-w-3xl mb-12">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-navy text-xs font-mono uppercase tracking-wider mb-3">
+                <Award className="w-3.5 h-3.5 text-brand-orange" />
+                <span>Credibility &amp; Track Record</span>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
+                Why Prosync?
+              </h2>
+            </Reveal>
+            <Reveal delay={180}>
+              <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+                Objective, lender-focused financial advisory grounded in institutional credit standards.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Financial Advisory Since 2015",
+                desc: "Over a decade of independent financial advisory, debt syndication, and corporate transaction experience.",
+                icon: Award,
+              },
+              {
+                title: "Integrated DPR & Feasibility",
+                desc: "Seamless synchronization of market assessments, technical parameters, and rigorous multi-year financial modeling.",
+                icon: Calculator,
+              },
+              {
+                title: "Bank Financing & Credit Appraisal",
+                desc: "Thorough understanding of institutional lending norms, DSCR covenants, and credit committee requirements.",
+                icon: Landmark,
+              },
+              {
+                title: "Sector-Oriented Evaluation",
+                desc: "Domain knowledge tailored to manufacturing, infrastructure, healthcare, green energy, hospitality, and MSMEs.",
+                icon: Target,
+              },
+            ].map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={idx} delay={idx * 60}>
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs hover:shadow-md transition-shadow h-full flex flex-col justify-between">
+                    <div>
+                      <div className="w-10 h-10 rounded-xl bg-brand-navy/5 text-brand-orange flex items-center justify-center mb-4">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-base font-bold font-heading text-brand-navy mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. OUR PROCESS (#process) */}
+      <section id="process" className="py-20 md:py-24 bg-white scroll-mt-24">
+        <div className="w-full max-w-310 mx-auto px-5 sm:px-8">
+          <div className="max-w-3xl mb-12">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-navy text-xs font-mono uppercase tracking-wider mb-3">
+                <Compass className="w-3.5 h-3.5 text-brand-orange" />
+                <span>Structured Engagement</span>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-brand-navy tracking-tight">
+                Our Process
+              </h2>
+            </Reveal>
+            <Reveal delay={180}>
+              <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+                Four transparent steps from initial briefing to delivery of lender-grade project documentation.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                title: "Share Project Details",
+                desc: "Submit your preliminary project outline, sector, location, and proposed capex parameters via our enquiry form.",
+              },
+              {
+                step: "02",
+                title: "Initial Discussion & Assessment",
+                desc: "Consultation with our advisory team to review technical feasibility, operational assumptions, and scope requirements.",
+              },
+              {
+                step: "03",
+                title: "Scope & Commercial Proposal",
+                desc: "We provide a clearly defined engagement scope, milestone delivery timeline, and transparent professional quote.",
+              },
+              {
+                step: "04",
+                title: "DPR Preparation & Delivery",
+                desc: "Preparation and handover of the complete Detailed Project Report, interactive financial model, and CMA compliance pack.",
+              },
+            ].map((p, idx) => (
+              <Reveal key={idx} delay={idx * 70}>
+                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/90 shadow-xs hover:border-brand-navy transition-colors h-full flex flex-col justify-between">
+                  <div>
+                    <span className="text-2xl font-mono font-extrabold text-brand-orange block mb-3">
+                      {p.step}
+                    </span>
+                    <h3 className="text-base font-bold font-heading text-brand-navy mb-2">
+                      {p.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {p.desc}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={200} className="mt-10 flex justify-center">
+            <a
+              href="#contact"
+              className="px-8 py-3.5 rounded-full bg-brand-navy hover:bg-brand-orange text-white text-xs sm:text-sm font-bold font-heading transition-all duration-200 inline-flex items-center gap-2 shadow-md cursor-pointer"
+            >
+              <span>Submit Project Enquiry</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
           </Reveal>
         </div>
       </section>

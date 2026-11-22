@@ -16,11 +16,12 @@ import { buildWhatsAppUrl, trackEvent } from "../../utils";
 
 const SECTORS = [
   "Manufacturing",
+  "MSME / Other",
   "Infrastructure",
   "Healthcare",
   "Renewable Energy",
   "Hospitality",
-  "MSME / Other",
+  "Commercial & Industrial Projects",
 ];
 
 const STAGES = [
@@ -56,9 +57,9 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
   const [whatsappNotice, setWhatsappNotice] = useState("");
   const [serverError, setServerError] = useState("");
 
-  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "";
-  const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "").replace(/\s+/g, "");
-  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "";
+  const contactPhone = import.meta.env.VITE_CONTACT_PHONE || companyData.phone || "+91 9951445544";
+  const contactPhoneRaw = (import.meta.env.VITE_CONTACT_PHONE || companyData.phoneRaw || "+919951445544").replace(/\s+/g, "");
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || companyData.email || "docs.1@prosyncindia.com";
 
   // Sanitize and validate Indian mobile number: 10 digits starting with 6-9
   const cleanMobileDigits = (val) => {
@@ -110,10 +111,12 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
       errs.location = "Location must be 150 characters or less.";
     }
 
-    // 6. Estimated Cost
-    const costVal = Number(formData.estimatedCost);
-    if (!formData.estimatedCost || isNaN(costVal) || costVal <= 0) {
-      errs.estimatedCost = "Please enter an estimated project cost greater than zero.";
+    // 6. Estimated Cost (Optional, but if entered must be > 0)
+    if (formData.estimatedCost && String(formData.estimatedCost).trim() !== "") {
+      const costVal = Number(formData.estimatedCost);
+      if (isNaN(costVal) || costVal <= 0) {
+        errs.estimatedCost = "Please enter an estimated project cost greater than zero if provided.";
+      }
     }
 
     // 7. Funding Requirement (Optional, but if entered must be >= 0)
@@ -177,19 +180,20 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
     try {
       const cleanedMobile = cleanMobileDigits(formData.mobile);
       const payload = {
+        formType: "dpr",
         name: formData.name.trim(),
         mobile: cleanedMobile,
         projectName: formData.projectName.trim(),
         sector: formData.sector,
         location: formData.location.trim(),
-        estimatedCost: Number(formData.estimatedCost),
+        estimatedCost: formData.estimatedCost ? Number(formData.estimatedCost) : null,
         fundingRequirement: formData.fundingRequirement ? Number(formData.fundingRequirement) : null,
         projectStage: formData.projectStage,
         expectedStartDate: formData.expectedStartDate || null,
         briefDetails: formData.briefDetails ? formData.briefDetails.trim() : "",
         consent: true,
         _gotcha: formData._gotcha,
-        pageSource: pageSource || "/",
+        pageSource: pageSource || "/dpr-services",
       };
 
       const result = await leadService.submitEnquiry(payload);
@@ -198,8 +202,18 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
         throw new Error(result.error || "Could not reach our enquiry server. Please try WhatsApp or call us.");
       }
 
-      // Fire generate_lead event ONLY after API confirms save
+      // Fire Primary Google Ads conversion event ONLY after API confirms save
+      trackEvent("form_submission", {
+        event_category: "Conversion",
+        event_label: "DPR Project Enquiry Form",
+        conversion_type: "primary",
+        form_name: "dpr_enquiry",
+        project_sector: payload.sector,
+        project_stage: payload.projectStage,
+      });
+
       trackEvent("generate_lead", {
+        conversion_type: "primary",
         form_name: "dpr_enquiry",
         project_sector: payload.sector,
         project_stage: payload.projectStage,
@@ -210,7 +224,12 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
       setSubmitted(true);
 
       if (target === "whatsapp") {
-        trackEvent("whatsapp_click", { location: "contact_submit" });
+        trackEvent("whatsapp_click", { 
+          location: "contact_submit", 
+          conversion_type: "secondary",
+          event_category: "Conversion",
+          event_label: "WhatsApp Chat Post-Submit" 
+        });
         const waUrl = buildWhatsAppUrl(payload);
         window.open(waUrl, "_blank", "noopener,noreferrer");
       }
@@ -232,11 +251,11 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
   };
 
   const handlePhoneClick = () => {
-    trackEvent("phone_click", { location: "contact" });
+    trackEvent("phone_click", { location: "contact", conversion_type: "secondary", event_category: "Conversion" });
   };
 
   const handleWhatsAppDiscussClick = (e) => {
-    if (!formData.name.trim() || !formData.mobile.trim() || !formData.projectName.trim() || !formData.location.trim() || !formData.estimatedCost) {
+    if (!formData.name.trim() || !formData.mobile.trim() || !formData.projectName.trim() || !formData.location.trim()) {
       e.preventDefault();
       setWhatsappNotice("Please fill in your project details in the form first so we can pre-fill your WhatsApp message.");
       const formCard = document.getElementById("enquiry-form-card") || document.getElementById("contact");
@@ -245,7 +264,7 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
       if (nameInput) nameInput.focus();
       return;
     }
-    trackEvent("whatsapp_click", { location: "contact" });
+    trackEvent("whatsapp_click", { location: "contact", conversion_type: "secondary", event_category: "Conversion" });
   };
 
   const handleScrollToForm = () => {
@@ -576,15 +595,14 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="space-y-1">
                         <label htmlFor="dpr-cost" className="text-xs font-semibold font-heading text-brand-navy block">
-                          Estimated Project Cost (₹) <span className="text-brand-orange">*</span>
+                          Estimated Project Cost (₹) <span className="text-gray-400 font-normal">(Optional)</span>
                         </label>
                         <input
                           id="dpr-cost"
                           type="number"
                           min="1"
                           step="any"
-                          required
-                          placeholder="e.g. 50000000"
+                          placeholder="e.g. 50000000 (Optional)"
                           value={formData.estimatedCost}
                           onChange={(e) => handleInputChange("estimatedCost", e.target.value)}
                           className={`w-full bg-white border rounded-xl px-3.5 py-2.5 min-h-11 text-sm font-mono text-brand-text-dark placeholder-slate-400 focus:outline-hidden transition-all ${
@@ -721,7 +739,7 @@ export default function DprContactSection({ pageSource = "/dpr-services" }) {
                           disabled={submitting}
                           className="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold font-heading text-white bg-brand-navy hover:bg-brand-orange shadow-md shadow-brand-navy/15 hover:shadow-brand-orange/25 transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer active:scale-95 disabled:opacity-60 min-h-12"
                         >
-                          <span>{submitting && submitTarget === "web" ? "Submitting..." : "Submit Enquiry"}</span>
+                          <span>{submitting && submitTarget === "web" ? "Submitting..." : "Submit Project Enquiry"}</span>
                           <Send className="w-4 h-4" />
                         </button>
 

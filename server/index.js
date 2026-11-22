@@ -66,7 +66,9 @@ app.post(['/api/enquiries', '/enquiries'], async (req, res) => {
     const {
       _gotcha,
       name,
+      email,
       mobile,
+      phone,
       projectName,
       project_name,
       sector,
@@ -91,6 +93,62 @@ app.post(['/api/enquiries', '/enquiries'], async (req, res) => {
       return res.status(200).json({ ok: true, message: 'Enquiry received successfully.' });
     }
 
+    const {
+      formType,
+      organisation,
+      serviceRequired,
+      service_required,
+      requirementDescription,
+      requirement_description,
+    } = req.body;
+
+    const finalFormType = String(formType || '').toLowerCase() === 'corporate' ? 'corporate' : 'dpr';
+
+    // 1. BRANCH: Corporate Mandate Form (Homepage /)
+    if (finalFormType === 'corporate') {
+      const trimmedName = String(name || '').trim();
+      const trimmedOrg = String(organisation || '').trim();
+      const trimmedEmail = String(email || '').trim().toLowerCase();
+      const rawPhone = String(phone || mobile || '').trim();
+      const cleanPhone = sanitizeMobile(rawPhone);
+      const finalService = String(serviceRequired || service_required || 'Debt & Structured Finance').trim();
+      const finalDesc = String(requirementDescription || requirement_description || briefDetails || '').trim();
+      const finalPageSource = String(pageSource || page_source || '/').trim();
+
+      if (!trimmedName) {
+        return res.status(400).json({ ok: false, error: 'Name is required.' });
+      }
+      if (trimmedName.length > 100) {
+        return res.status(400).json({ ok: false, error: 'Name must be 100 characters or less.' });
+      }
+      if (!trimmedEmail && !rawPhone) {
+        return res.status(400).json({ ok: false, error: 'Please provide either a phone number or email address.' });
+      }
+
+      const enquiry = new Enquiry({
+        formType: 'corporate',
+        name: trimmedName,
+        organisation: trimmedOrg || 'Enterprise',
+        email: trimmedEmail,
+        phone: rawPhone,
+        mobile: cleanPhone || rawPhone,
+        serviceRequired: finalService,
+        requirementDescription: finalDesc,
+        consent: true,
+        pageSource: finalPageSource,
+        status: 'new',
+      });
+
+      const saved = await enquiry.save();
+
+      return res.status(201).json({
+        ok: true,
+        message: `Thank you, ${trimmedName}. We have received your mandate enquiry and will contact you shortly.`,
+        id: saved._id,
+      });
+    }
+
+    // 2. BRANCH: DPR Services Form (/dpr-services)
     const trimmedName = String(name || '').trim();
     const finalProjectName = String(projectName || project_name || '').trim();
     const trimmedLocation = String(location || '').trim();
@@ -134,13 +192,16 @@ app.post(['/api/enquiries', '/enquiries'], async (req, res) => {
       return res.status(400).json({ ok: false, error: 'Location must be 150 characters or less.' });
     }
 
+    let costNum = null;
     const rawCost = estimatedCost !== undefined ? estimatedCost : estimated_cost;
-    const costNum = Number(rawCost);
-    if (isNaN(costNum) || costNum <= 0) {
-      return res.status(400).json({
-        ok: false,
-        error: 'Estimated project cost must be a number greater than zero.',
-      });
+    if (rawCost !== undefined && rawCost !== null && String(rawCost).trim() !== '') {
+      costNum = Number(rawCost);
+      if (isNaN(costNum) || costNum <= 0) {
+        return res.status(400).json({
+          ok: false,
+          error: 'Estimated project cost must be a number greater than zero if provided.',
+        });
+      }
     }
 
     let fundingNum = null;
@@ -174,6 +235,7 @@ app.post(['/api/enquiries', '/enquiries'], async (req, res) => {
     }
 
     const enquiry = new Enquiry({
+      formType: 'dpr',
       name: trimmedName,
       mobile: cleanMobile,
       projectName: finalProjectName,

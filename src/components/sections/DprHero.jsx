@@ -58,13 +58,19 @@ export default function DprHero() {
             <div className="space-y-4">
               <Reveal delay={50}>
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-brand-navy leading-[1.12] break-words">
-                  Planning a New Project or Business Expansion?
+                  Detailed Project Report (DPR) Preparation for New Projects &amp; Business Expansion
                 </h1>
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-base sm:text-xl font-normal text-slate-700 leading-relaxed max-w-2xl">
-                  Get a professionally prepared Detailed Project Report (DPR) with project cost, financial projections and feasibility analysis.
+                  Professional DPR preparation covering project cost, means of finance, financial projections, cash flows, DSCR and project feasibility analysis.
                 </p>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-xs sm:text-sm font-medium text-brand-navy">
+                  <span className="w-2 h-2 rounded-full bg-brand-orange shrink-0" />
+                  <span>Financial advisory and project finance experience since 2015.</span>
+                </div>
               </Reveal>
             </div>
 

@@ -10,10 +10,10 @@ export const companyData = {
   address: "ARC Property Solutions Pvt. Ltd., 2nd Floor, Plot no. 24 & 25, Kakatiya Hills, Jubilee Hills, Hyderabad, Telangana 500081",
   shortAddress: "Hyderabad, Vijayawada, Mumbai",
   locations: ["Hyderabad", "Vijayawada", "Mumbai"],
-  email: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL ? import.meta.env.VITE_CONTACT_EMAIL : "",
-  careersEmail: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL ? import.meta.env.VITE_CONTACT_EMAIL : "",
-  phone: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_PHONE ? import.meta.env.VITE_CONTACT_PHONE : "",
-  phoneRaw: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_PHONE ? import.meta.env.VITE_CONTACT_PHONE.replace(/\s+/g, "") : "",
+  email: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL ? import.meta.env.VITE_CONTACT_EMAIL : "docs.1@prosyncindia.com",
+  careersEmail: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL ? import.meta.env.VITE_CONTACT_EMAIL : "docs.1@prosyncindia.com",
+  phone: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_PHONE ? import.meta.env.VITE_CONTACT_PHONE : "+91 9951445544",
+  phoneRaw: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_PHONE ? import.meta.env.VITE_CONTACT_PHONE.replace(/\s+/g, "") : "+919951445544",
   brandName: "Prosync",
   websiteUrl: "https://prosyncindia.com",
   domain: "prosyncindia.com",
@@ -27,13 +27,13 @@ export const companyData = {
 
   // WhatsApp helper
   getWhatsAppUrl: function (text) {
-    const waNum = typeof import.meta !== "undefined" && import.meta.env?.VITE_WHATSAPP_NUMBER ? String(import.meta.env.VITE_WHATSAPP_NUMBER).replace(/\D/g, "") : "";
+    const waNum = typeof import.meta !== "undefined" && import.meta.env?.VITE_WHATSAPP_NUMBER ? String(import.meta.env.VITE_WHATSAPP_NUMBER).replace(/\D/g, "") : "919951445544";
     const msg = text
       ? encodeURIComponent(text)
       : encodeURIComponent("Hello Prosync Consulting, I am interested in DPR preparation. Name: ____. Project: ____. Location: ____. Estimated project cost: ____. Funding required: ____.");
     return `https://wa.me/${waNum}?text=${msg}`;
   },
-  whatsappBaseUrl: `https://wa.me/${typeof import.meta !== "undefined" && import.meta.env?.VITE_WHATSAPP_NUMBER ? String(import.meta.env.VITE_WHATSAPP_NUMBER).replace(/\D/g, "") : ""}?text=${encodeURIComponent("Hello Prosync Consulting, I am interested in DPR preparation. Name: ____. Project: ____. Location: ____. Estimated project cost: ____. Funding required: ____.")}`,
+  whatsappBaseUrl: `https://wa.me/${typeof import.meta !== "undefined" && import.meta.env?.VITE_WHATSAPP_NUMBER ? String(import.meta.env.VITE_WHATSAPP_NUMBER).replace(/\D/g, "") : "919951445544"}?text=${encodeURIComponent("Hello Prosync Consulting, I am interested in DPR preparation. Name: ____. Project: ____. Location: ____. Estimated project cost: ____. Funding required: ____.")}`,
 
   // Our Experience - Simple 3-metric strip
   experienceNumbers: [

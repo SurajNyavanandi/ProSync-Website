@@ -18,10 +18,21 @@ export function trackEvent(eventName, params = {}) {
 }
 
 /**
- * Fires generate_lead ONLY after API confirms save.
+ * Fires primary Google Ads conversion event ONLY after backend API confirms save.
+ * Do not fire on landing page visits, form impressions, or validation errors.
  */
 export function trackLeadSubmission(sector, stage) {
+  trackEvent("form_submission", {
+    event_category: "Conversion",
+    event_label: "DPR Project Enquiry Form",
+    conversion_type: "primary",
+    form_name: "dpr_enquiry",
+    project_sector: sector,
+    project_stage: stage,
+  });
+
   trackEvent("generate_lead", {
+    conversion_type: "primary",
     form_name: "dpr_enquiry",
     project_sector: sector,
     project_stage: stage,
@@ -29,17 +40,27 @@ export function trackLeadSubmission(sector, stage) {
 }
 
 /**
- * Tracks WhatsApp button clicks by location ('hero', 'contact', 'floating').
+ * Tracks WhatsApp button clicks as Secondary Google Ads Conversion.
  */
 export function trackWhatsAppClick(location) {
-  trackEvent("whatsapp_click", { location });
+  trackEvent("whatsapp_click", {
+    event_category: "Conversion",
+    event_label: "WhatsApp Chat",
+    conversion_type: "secondary",
+    location,
+  });
 }
 
 /**
- * Tracks phone clicks by location ('header', 'contact').
+ * Tracks phone clicks as Secondary Google Ads Conversion.
  */
 export function trackPhoneClick(location) {
-  trackEvent("phone_click", { location });
+  trackEvent("phone_click", {
+    event_category: "Conversion",
+    event_label: "Phone Dial",
+    conversion_type: "secondary",
+    location,
+  });
 }
 
 /**

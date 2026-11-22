@@ -7,6 +7,7 @@ const VALID_SECTORS = [
   'Renewable Energy',
   'Hospitality',
   'MSME / Other',
+  'Commercial & Industrial Projects',
 ];
 
 const VALID_STAGES = [
@@ -19,41 +20,73 @@ const VALID_STAGES = [
 
 const enquirySchema = new mongoose.Schema(
   {
+    formType: {
+      type: String,
+      enum: ['dpr', 'corporate'],
+      default: 'dpr',
+    },
     name: {
       type: String,
       required: [true, 'Name is required'],
       trim: true,
       maxlength: [100, 'Name must be 100 characters or less'],
     },
+    // Contact Coordinates
     mobile: {
       type: String,
-      required: [true, 'Mobile number is required'],
       trim: true,
+      default: '',
     },
+    phone: {
+      type: String,
+      trim: true,
+      default: '',
+    },
+    email: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      default: '',
+    },
+    // Corporate Mandate Fields (Homepage /)
+    organisation: {
+      type: String,
+      trim: true,
+      default: '',
+      maxlength: [150, 'Organisation must be 150 characters or less'],
+    },
+    serviceRequired: {
+      type: String,
+      trim: true,
+      default: '',
+    },
+    requirementDescription: {
+      type: String,
+      trim: true,
+      default: '',
+      maxlength: [3000, 'Requirement description must be 3000 characters or less'],
+    },
+    // DPR Landing Page Fields (/dpr-services)
     projectName: {
       type: String,
-      required: [true, 'Project name is required'],
       trim: true,
+      default: '',
       maxlength: [150, 'Project name must be 150 characters or less'],
     },
     sector: {
       type: String,
-      required: [true, 'Project sector is required'],
-      enum: {
-        values: VALID_SECTORS,
-        message: 'Invalid sector selected',
-      },
+      default: '',
     },
     location: {
       type: String,
-      required: [true, 'Project location is required'],
       trim: true,
+      default: '',
       maxlength: [150, 'Location must be 150 characters or less'],
     },
     estimatedCost: {
       type: Number,
       alias: 'cost',
-      required: [true, 'Estimated project cost is required'],
+      default: null,
       min: [0.0001, 'Estimated cost must be greater than zero'],
     },
     fundingRequirement: {
@@ -65,11 +98,7 @@ const enquirySchema = new mongoose.Schema(
     projectStage: {
       type: String,
       alias: 'stage',
-      required: [true, 'Project stage is required'],
-      enum: {
-        values: VALID_STAGES,
-        message: 'Invalid project stage selected',
-      },
+      default: '',
     },
     expectedStartDate: {
       type: String,
@@ -85,11 +114,7 @@ const enquirySchema = new mongoose.Schema(
     },
     consent: {
       type: Boolean,
-      required: [true, 'Consent is required'],
-      validate: {
-        validator: (v) => v === true,
-        message: 'Consent must be agreed to',
-      },
+      default: true,
     },
     pageSource: {
       type: String,
@@ -110,4 +135,3 @@ const enquirySchema = new mongoose.Schema(
 
 export { VALID_SECTORS, VALID_STAGES };
 export const Enquiry = mongoose.model('Enquiry', enquirySchema);
-

@@ -8,7 +8,7 @@ export default function DprServices() {
       {/* Campaign SEO Meta */}
       <SEO
         title="DPR Preparation Services | Prosync Consulting"
-        description="Professional DPR preparation, project feasibility, financial projections, DSCR and CMA data support for new and expansion projects in Hyderabad and Vijayawada."
+        description="Professional DPR preparation, project feasibility, financial projections, DSCR and CMA data services for new projects and business expansion."
         canonical="https://prosyncindia.com/dpr-services"
       />
 
